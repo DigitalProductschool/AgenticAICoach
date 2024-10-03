@@ -4,7 +4,7 @@
 
 1. Clone the repository and navigate to the project directory:
    ```sh
-   git clone https://github.com/yourusername/AgenticAICoach.git
+   git clone https://github.com/DigitalProductschool/AgenticAICoach.git
    cd AgenticAICoach
    ```
 
