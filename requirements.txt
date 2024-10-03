@@ -1,0 +1,4 @@
+streamlit==1.38.0
+crewai[tools]==0.63.2
+python-dotenv==1.0.1
+nest_asyncio==1.6.0
