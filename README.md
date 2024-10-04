@@ -26,7 +26,3 @@
    ```
 
 5. Upload PDF documents using the sidebar, and ask questions to get insights from your documents.
-
-## Official Streamlit Demo
-
-Try out the live demo here: [Agentic AI Coach on Render](https://agenticcoachai.onrender.com/)
