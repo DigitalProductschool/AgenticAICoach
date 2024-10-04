@@ -1,0 +1,7 @@
+agents:
+  - name: agent1
+    type: Agent1Class
+  - name: agent2
+    type: Agent2Class
+
+

@@ -28,7 +28,7 @@ def agentic_AI_coach():
 
     # Initialize the language model using OpenAI GPT-4
     llm_gpt4 = LLM(
-        model="gpt-4",
+        model="gpt-3.5-turbo",   #gpt-4
         api_key=os.getenv("OPENAI_API_KEY"),  # Get API key from environment variables
         temperature=0.2  # Adjust temperature as needed
     )

@@ -1,0 +1,6 @@
+tasks:
+  - name: task1
+    type: Task1Class
+  - name: task2
+    type: Task2Class
+

@@ -1,0 +1,21 @@
+
+[tool.poetry]
+name = "agentic ai coach"
+version = "0.1.0"
+description = "Open-Source Community Project to Develop Coaching Agents"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+streamlit = "^1.24.0"
+nest_asyncio = "^1.5.5"
+python-dotenv = "^1.0.0"
+crewai = "^0.67.1"  
+crewtools = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+  
