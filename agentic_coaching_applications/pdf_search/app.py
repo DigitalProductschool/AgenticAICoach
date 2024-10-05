@@ -15,8 +15,8 @@ load_dotenv()
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 
-def agentic_AI_coach():
-    st.header("Agentic AI Coach")
+def agentic_PDF_coach():
+    st.header("Agentic PDF Coach")
 
     # Initialize session state for chat history and agent
     if "messages" not in st.session_state:
@@ -66,7 +66,7 @@ def agentic_AI_coach():
                         # Create a Task for the user's question
                         task = Task(
                             description=f"Use the available tools to find relevant information in the documents.\nBased on this information, answer the following question:\n{prompt}",
-                            expected_output="A clear and concise answer to the user's question.",
+                            expected_output="A clear and concise answer to the user's question. At the end ask the user a follow-up question to continue the conversation. Remember you are a coach helping the user understand her document deeper. ",
                             agent=st.session_state.agent
                         )
                         # Create a Crew with the agent and task
@@ -114,7 +114,7 @@ def load_data(uploaded_files, llm_gpt4, embed_model):
         agent = Agent(
             role="Document Search Agent",
             goal="Search through all uploaded documents to find relevant answers",
-            backstory="An agent adept at searching and extracting data from multiple documents.",
+            backstory="An agent adept at searching and extracting data from multiple documents. The agent is a coach helping the user understand her document deeper.",
             tools=tools,
             verbose=True,
             llm=llm_gpt4
@@ -127,4 +127,4 @@ def load_data(uploaded_files, llm_gpt4, embed_model):
 
 # Run the Agentic AI Coach app
 if __name__ == "__main__":
-    agentic_AI_coach()
+    agentic_PDF_coach()

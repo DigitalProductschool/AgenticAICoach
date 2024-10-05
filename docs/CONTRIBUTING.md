@@ -6,7 +6,9 @@ We welcome contributions! Whether you're an experienced developer or just starti
 
 ### Agent Structure
 
-When submitting an Agent, please follow this structure:
+You can directly submit an agentic coaching application following the template provide in that folder. 
+
+Alternatively, you can submit an Agent to be integrated in our coaching platform, please follow this structure:
 
 1. **Agent Definition (`agent.py`)**:
    - Create a file named `agent.py` in the `community_submissions/[agent_name]/` directory.
