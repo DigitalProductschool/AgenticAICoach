@@ -27,23 +27,22 @@ To get started with Agentic AI Coach, follow these steps:
 Our project follows CrewAI's recommended structure:
 ```bash 
 AgenticAICoach/
-├── .gitignore                # Git ignore file for excluding unnecessary files
-├── README.md                 # Main project documentation
+├── .gitignore                
+├── README.md                
 ├── agentic_coaching_applications/
-│   └── template_application/   # Template for creating new agentic applications
-│       ├── __init__.py         # Initializes the template application
-│       ├── main.py             # Main entry point for the template application
-│       ├── crew.py             # Handles CrewAI agents and tasks orchestration
-│       ├── app.py              # Streamlit app or main interface for this application
-│       ├── config/             # Configuration folder for agents and tasks
-│       │   ├── agents.yaml     # YAML file defining agents' roles and settings
-│       │   └── tasks.yaml      # YAML file defining tasks and their workflow
-│       └── tools/              # Custom tools that the agent may utilize
-│           ├── custom_tool.py  # Example of a custom tool integrated with the agent
-│           └── __init__.py     # Initializes the tools package
-└── docs/                       # Documentation files
-    ├── CONTRIBUTING.md         # Guidelines for contributing to the project
-    └── PULL_REQUEST_TEMPLATE.md  # Template for submitting pull requests
+│   └── template_application/   
+│       ├── __init__.py         
+│       ├── main.py             
+│       ├── crew.py            
+│       ├── config/            
+│       │   ├── agents.yaml     
+│       │   └── tasks.yaml      
+│       └── tools/              
+│           ├── custom_tool.py  
+│           └── __init__.py     
+└── docs/                       
+    ├── CONTRIBUTING.md         
+    └── PULL_REQUEST_TEMPLATE.md  
 ```
 
 ## Contributing
