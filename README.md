@@ -19,7 +19,7 @@ To get started with Agentic AI Coach, follow these steps:
    git clone DigitalProductschool/AgenticAICoach
    cd AgenticAICoach
 
-2. Choose your coaching applications. For example, coach_responsible_ai 
+2. Choose your coaching applications. For example, coach_responsible_ai. 
 
 3. Run the project following its README specifications. 
 
