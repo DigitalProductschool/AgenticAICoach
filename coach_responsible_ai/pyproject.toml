@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ai_act_compliance_checker"
+version = "0.1.0"
+description = "Check compliance to AI Act using crewAI"
+authors = ["Afi DPS <afsaneh@dpschool.io>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.35.8" }
+crewai-tools = "^0.4.6"
+
+[tool.poetry.scripts]
+ai_act_compliance_checker = "ai_act_compliance_checker.main:run"
+train = "ai_act_compliance_checker.main:train"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

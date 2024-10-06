@@ -19,7 +19,7 @@ To get started with Agentic AI Coach, follow these steps:
    git clone DigitalProductschool/AgenticAICoach
    cd AgenticAICoach
 
-2. Choose your agentic coaching applications. 
+2. Choose your coaching applications. For example, coach_responsible_ai 
 
 3. Run the project following its README specifications. 
 
@@ -27,22 +27,37 @@ To get started with Agentic AI Coach, follow these steps:
 Our project follows CrewAI's recommended structure:
 ```bash 
 AgenticAICoach/
-├── .gitignore                
-├── README.md                
-├── agentic_coaching_applications/
-│   └── template_application/   
-│       ├── __init__.py         
-│       ├── main.py             
-│       ├── crew.py            
-│       ├── config/            
-│       │   ├── agents.yaml     
-│       │   └── tasks.yaml      
-│       └── tools/              
-│           ├── custom_tool.py  
-│           └── __init__.py     
-└── docs/                       
-    ├── CONTRIBUTING.md         
-    └── PULL_REQUEST_TEMPLATE.md  
+├── coach_responsible_ai/
+│   ├── db/
+│   ├── src/
+│   │   └── ai_act_compliance_checker/
+│   │       ├── config/
+│   │       │   ├── agents.yaml
+│   │       │   ├── tasks.yaml
+│   │       ├── data/
+│   │       ├── tools/
+│   │       ├── __init__.py
+│   │       ├── crew.py
+│   │       ├── main.py
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── poetry.lock
+│   ├── pyproject.toml
+│   ├── README.md
+│   ├── trained_agents_data.pkl
+├── community_submissions/
+│   ├── agent_template/
+│   │   ├── tests/
+│   │   │   └── test_agent.py
+│   │   ├── agent.py
+│   ├── coaching_application_template/
+├── docs/
+│   ├── CONTRIBUTING.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+├── .env.example
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 ## Contributing

@@ -1,7 +1,7 @@
 # Pull Request Template for Agentic Coaching Applications
 
 ## Title
-[Provide a clear and descriptive title, e.g., "Add new agent for Community Match Making"]
+[Provide a clear and descriptive title, e.g., "Add new coach for community match making."]
 
 ## Type of Change
 - [ ] New Agentic Coaching Application

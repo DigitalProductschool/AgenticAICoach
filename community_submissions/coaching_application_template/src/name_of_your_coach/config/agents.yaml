@@ -1,0 +1,15 @@
+agent1:
+  role: >
+    Role 1
+  goal: >
+    Explain the goal of the agent.
+  backstory: >
+    Provide a backstory for the agent.
+
+agent2:
+  role: >
+    Role 2
+  goal: >
+    Explain the goal of the agent.
+  backstory: >
+    Provide a backstory for the agent.

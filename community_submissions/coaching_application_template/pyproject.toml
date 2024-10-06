@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "name_of_your_coach"
+version = "0.1.0"
+description = "Check compliance to AI Act using crewAI"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.35.8" }
+crewai-tools = "^0.4.6"
+
+[tool.poetry.scripts]
+name_of_your_coach = "name_of_your_coach.main:run"
+train = "name_of_your_coach.main:train"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

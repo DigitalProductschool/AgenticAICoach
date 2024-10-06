@@ -6,12 +6,12 @@ We welcome contributions! Whether you're an experienced developer or just starti
 
 ### Agent Structure
 
-You can directly submit an agentic coaching application following the template provide in that folder. 
+You can submit your completele coaching application crew using our template proposal. 
 
-Alternatively, you can submit an Agent to be integrated in our coaching platform, please follow this structure:
+Alternatively, you can submit an Agent to be integrated in our coaching examples, please follow this structure:
 
 1. **Agent Definition (`agent.py`)**:
-   - Create a file named `agent.py` in the `community_submissions/[agent_name]/` directory.
+   - Create a file named `agent.py` in the `community_submissions/[agent_name]/` directory. 
    - Define your Agent class using CrewAI's `@Agent` decorator.
    - Include any necessary imports and helper functions.
 
@@ -29,25 +29,11 @@ Alternatively, you can submit an Agent to be integrated in our coaching platform
 ```bash
 community_submissions/
 └── my_agent/
-    ├── agent.py
-    │   @Agent("my_agent")
-    │   async def my_agent(crew):
-    │       # Agent logic here
-    │   
-    │   def helper_function():
-    │       # Helper function
-    │       
-    │   # Other agent methods...
-    │
-    └── tests/
-        └── test_agent.py
-            import unittest
-            from my_agent.agent import MyAgent
-            
-            class TestMyAgent(unittest.TestCase):
-                def test_main_functionality(self):
-                    # Test case here
-                    pass
+    ├── coaching_application_template
+    ├── agent_template
+         └── agent.py
+         └── tests/
+            └── test_agent.py
 ```
 
 ### Submission Process
@@ -87,13 +73,12 @@ community_submissions/
 
 ### Additional Notes
 
-- If your Agent depends on external libraries, please specify them in your `requirements.txt` file.
+- If your Agent depends on external libraries, please specify them in your pyproject.toml file under [tool.poetry.dependencies].
 - If your Agent interacts with external services, please document any API endpoints or authentication methods used.
 
 Thank you for your contribution! We look forward to reviewing your submission.
 
 ## Citations:
-1. [Mozilla Science Working Open Workshop](http://mozillascience.github.io/working-open-workshop/contributing/)
 2. [GitHub Guidelines for Contributors](https://docs.github.com/articles/setting-guidelines-for-repository-contributors)
 3. [freeCodeCamp Contributing Guide](https://github.com/freeCodeCamp/how-to-contribute-to-open-source/blob/main/CONTRIBUTING.md)
 4. [How to Build a Contributing.md](https://contributing.md/how-to-build-contributing-md/)

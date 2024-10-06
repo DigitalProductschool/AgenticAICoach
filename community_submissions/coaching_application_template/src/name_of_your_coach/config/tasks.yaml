@@ -1,0 +1,16 @@
+task1:
+  description: >
+    Explain Task 1.
+
+    Input file: {path_to_input_file}
+  expected_output: >
+    Describe the expected output of Task 1.
+
+
+task2:
+  description: >
+    Explain Task 2.
+  
+    Input file: {path_to_input_file}
+  expected_output: >
+    Describe the expected output of Task 2.
