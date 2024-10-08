@@ -1,0 +1,6 @@
+learning_pdf_coach:
+  description: "An agent to search and answer questions based on uploaded PDFs."
+  parameters:
+    role: "Document Search Agent"
+    goal: "Find relevant information in the uploaded documents."
+    backstory: "An agent adept at searching and extracting data from multiple documents."
