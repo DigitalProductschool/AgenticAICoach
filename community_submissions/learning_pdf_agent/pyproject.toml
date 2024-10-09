@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "learning-pdf-agent"
+version = "0.1.0"
+description = "\"A CrewAI agent designed to analyze uploaded PDF documents and provide interactive answers to user questions, serving as an agentic learning assistant.\""
+authors = ["Mahmoud Fazeli <mahmoud.fazeli@dpschool.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+streamlit = "1.38.0"
+crewai = {version = "0.63.2", extras = ["tools"]}
+python-dotenv = "1.0.1"
+nest-asyncio = "1.6.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+flake8 = "^7.1.1"
+pytest-cov = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
