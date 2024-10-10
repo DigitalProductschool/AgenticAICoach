@@ -41,7 +41,7 @@ community_submissions/
 1. Fork the repository on GitHub.
 2. Clone your fork to your local machine.
 3. Navigate to the `community_submissions/` directory.
-4. Create a new directory for your Agent and add the required files.
+4. Create a new directory for your Agent and add the required files. Give it a name with the convention of coach_your_application.
 5. Commit and push your changes to your fork.
 6. Open a Pull Request against the main repository.
 
