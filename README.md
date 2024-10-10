@@ -27,7 +27,8 @@ To get started with Agentic AI Coach, follow these steps:
 Our project follows CrewAI's recommended structure:
 ```bash 
 AgenticAICoach/
-├── coach_responsible_ai/
+├── learning_pdf_coach/
+├── responsible_ai_coach/
 │   ├── db/
 │   ├── src/
 │   │   └── ai_act_compliance_checker/
