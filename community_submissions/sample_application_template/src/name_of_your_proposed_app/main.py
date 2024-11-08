@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from name_of_your_coach.crew import YourCrew  # Ensure correct import
+from name_of_your_proposed_app.crew import YourCrew  # Ensure correct import
 
 def run():
     inputs = {
