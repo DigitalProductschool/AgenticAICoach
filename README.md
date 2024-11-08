@@ -1,7 +1,7 @@
 # Agentic AI Coach
 
-Agentic AI Coach is an open-source project that utilizes CrewAI to enable collaborative AI agents for various coaching tasks. This project aims to foster community involvement by allowing members to submit their own AI agents for integration into our coaching system. 
-It is pioneered by the [AI Makerspace](https://github.com/DigitalProductschool/AI-Makerspace) community of DPS with the purpose to provide scalable coaching for entrepreneurial teams. DPS alumni and AI engineers are encouraged to contribute by submitting Agents and Tasks, and Crews.
+Agentic AI Coach is an open-source project that utilizes CrewAI to enable collaborative AI agents for various tasks. This project aims to foster community contributions by allowing members to submit their own AI agents. 
+It is pioneered by the [AI Makerspace](https://github.com/DigitalProductschool/AI-Makerspace) community of DPS with the purpose to provide scalable coaching for entrepreneurial teams. DPS community of AI engineers are all invited to contribute by submitting Agents and Tasks, and Crews.
 
 ## Features
 
@@ -19,16 +19,16 @@ To get started with Agentic AI Coach, follow these steps:
    git clone DigitalProductschool/AgenticAICoach
    cd AgenticAICoach
 
-2. Choose your coaching applications. For example, coach_responsible_ai. 
+2. Select one of the available applications. For example, responsible_ai.  
 
-3. Run the project following its README specifications. 
+3. Run the project following the README guidelines. 
 
 ## Project Structure
 Our project follows CrewAI's recommended structure:
 ```bash 
 AgenticAICoach/
-├── learning_pdf_coach/
-├── responsible_ai_coach/
+├── knowledgebase_learning/
+├── responsible_ai/
 │   ├── db/
 │   ├── src/
 │   │   └── ai_act_compliance_checker/
