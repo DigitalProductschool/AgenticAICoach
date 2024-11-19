@@ -1,9 +1,18 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import spacy
+from openai_api import generate_confident_text
+
+# # Load environment variables
+# load_dotenv()
+# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# # Initialize OpenAI API
+# openai.api_key = OPENAI_API_KEY
 
 # Initialize the FastAPI app
 app = FastAPI()
+
 
 # Load spaCy model
 nlp = spacy.load("en_core_web_sm")
@@ -50,3 +59,10 @@ def analyze_text(input: TextInput):
     response["confidence_score"] = max(1, 5 - len(response["issues"]))
 
     return response
+
+@app.post("/generate_confident_text/")
+async def generate_confident_text_endpoint(input: TextInput):
+    output = generate_confident_text(input.text)
+    if "Error" in output:
+        raise HTTPException(status_code=500, detail=output)
+    return {"confident_text": output}
