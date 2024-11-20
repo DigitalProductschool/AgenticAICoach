@@ -1,10 +1,26 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from models import TextInput, FeedbackInput, FeedbackResponse
 from openai_api import generate_confident_text
 from uuid import uuid4
+from dotenv import load_dotenv
+import os 
+
+load_dotenv()
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
 
 # Initialize the FastAPI app
 app = FastAPI()
+
+# CORS for local development
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=CORS_ORIGINS,  # Front-end origin
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Temporary in-memory store for user sessions
 user_sessions = {}
@@ -12,11 +28,9 @@ user_sessions = {}
 # API endpoints
 
 @app.get("/")
-def root():
-    """
-    Provides a simple root endpoint that returns a welcome message for the Confidence Coach API.
-    """
-    return {"message": "Welcome to the Confidence Coach API!"}
+@app.get("/", response_class=HTMLResponse)
+def serve_html():
+    return open("index.html").read()
 
 
 @app.post("/generate_confident_text/")
