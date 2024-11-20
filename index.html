@@ -9,7 +9,9 @@
             const inputText = document.getElementById("inputText").value;
             const terminate = document.getElementById("terminate").checked;
 
-            const response = await fetch("http://127.0.0.1:8000/feedback_loop/", {
+            const baseUrl = window.location.origin.includes("127.0.0.1") ? "http://127.0.0.1:8000" : "https://your-app-name.onrender.com";
+
+            const response = await fetch(`${baseUrl}/feedback_loop/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
