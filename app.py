@@ -1,83 +1,98 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import spacy
+from models import TextInput, FeedbackInput, FeedbackResponse
 from openai_api import generate_confident_text
-from typing import Optional
 from uuid import uuid4
 
 # Initialize the FastAPI app
 app = FastAPI()
 
-
 # Temporary in-memory store for user sessions
 user_sessions = {}
 
-
-class FeedbackInput(BaseModel):
-    session_id: Optional[str] = None  # To track sessions
-    text: str
-    terminate: Optional[bool] = False  # User can terminate the loop
-
-
-class FeedbackResponse(BaseModel):
-    session_id: str
-    original_text: str
-    revised_text: Optional[str] = None
-    highlights: Optional[list] = None
-    confidence_score: Optional[int] = None
-    overall_feedback: Optional[str] = None
-    message: Optional[str] = None
-
-# Request model for input text
-class TextInput(BaseModel):
-    text: str
+# API endpoints
 
 @app.get("/")
 def root():
+    """
+    Provides a simple root endpoint that returns a welcome message for the Confidence Coach API.
+    """
     return {"message": "Welcome to the Confidence Coach API!"}
 
-@app.post("/analyze")
-def analyze_text(input: TextInput):
-    doc = nlp(input.text)
-
-    response = {
-        "original_text": input.text,
-        "issues": [],
-        "suggestions": [],
-        "confidence_score": 5
-    }
-
-    # Analyze for low-confidence language
-    for category, phrases in LOW_CONFIDENCE_PHRASES.items():
-        for phrase in phrases:
-            if phrase in input.text.lower():
-                response["issues"].append(f"'{phrase}' is a {category} phrase.")
-                if category == "hedging":
-                    suggestion = input.text.lower().replace(phrase, "I recommend")
-                elif category == "apologizing":
-                    suggestion = input.text.lower().replace(phrase, "Thank you for pointing this out")
-                elif category == "minimizing":
-                    suggestion = input.text.lower().replace(phrase, "")
-                response["suggestions"].append(suggestion)
-
-    # Confidence score: penalize for each issue found
-    response["confidence_score"] = max(1, 5 - len(response["issues"]))
-
-    return response
 
 @app.post("/generate_confident_text/")
 async def generate_confident_text_endpoint(input: TextInput):
+    """
+    Endpoint to generate a more confident version of the provided text.
+
+    This endpoint accepts an input string, processes it to identify areas where the language 
+    can be made more assertive, and returns a revised version of the text. If an error occurs 
+    during processing, it raises an HTTP 500 exception.
+
+    **Request Body:**
+    - `text` (TextInput): A Pydantic model containing the input text.
+
+    **Response:**
+    - `dict`: A dictionary containing the revised confident text.
+
+    Example Response:
+    - Input: `"I would like to go first."`
+    - Output: 
+    ```json
+    {
+        "confident_text": {
+            "highlights": [
+                {
+                    "low_confidence_phrase": "I would like to",
+                    "suggestion": "I will go first."
+                }
+                ],
+            "confidence_score": 3,
+            "overall_feedback": "Use more assertive language to increase confidence in your communication."
+        }
+    }
+    ```
+
+    Raises:
+        HTTPException: If the text generation process encounters an error, an HTTP 500 error is raised with the error details.
+    """
     output = generate_confident_text(input.text)
     if "Error" in output:
         raise HTTPException(status_code=500, detail=output)
     return {"confident_text": output}
 
+
 @app.post("/feedback_loop/", response_model=FeedbackResponse)
 async def feedback_loop(input: FeedbackInput):
     """
-    Endpoint for the iterative feedback loop with OpenAI API integration.
+    This endpoint analyzes the confidence level of the input text and provides actionable feedback.
+
+    **Request Body:**
+    - `text`: The communication text to analyze.
+    - `session_id`: A unique identifier for the user session.
+    - `terminate`: A flag to terminate the feedback loop.
+
+    **Response:**
+    - `highlights`: A list of low-confidence phrases with improvement suggestions.
+    - `confidence_score`: A score indicating the confidence level.
+    - `overall_feedback`: General advice to improve communication confidence.
+
+    Example:
+    - Input: `"I'm sorry, but I think this might not work."`
+    - Output:
+    ```json
+    {
+        "highlights": [
+            {"low_confidence_phrase": "I'm sorry", "suggestion": "I acknowledge"},
+            {"low_confidence_phrase": "I think", "suggestion": "I believe"}
+        ],
+        "confidence_score": "2/5",
+        "overall_feedback": "Avoid excessive apologizing and use more assertive language."
+    }
+    ```
     """
-    session_id = input.session_id or str(uuid4())  # Generate a new session ID if not provided
+    
+    # Generate a new session ID if not provided
+    session_id = input.session_id or str(uuid4())  
 
     # Handle termination of the loop
     if input.terminate:
