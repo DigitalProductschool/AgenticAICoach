@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import os 
 
 load_dotenv()
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "").split(",")
 
 # Initialize the FastAPI app
 app = FastAPI()
@@ -16,7 +16,7 @@ app = FastAPI()
 # CORS for local development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=CORS_ORIGINS,  # Front-end origin
+    allow_origins=[origin.strip() for origin in CORS_ORIGINS if origin],  # Front-end origin
     allow_credentials=True,
     allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
