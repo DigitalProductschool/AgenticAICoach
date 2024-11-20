@@ -9,7 +9,7 @@
             const inputText = document.getElementById("inputText").value;
             const terminate = document.getElementById("terminate").checked;
 
-            const baseUrl = window.location.origin.includes("127.0.0.1") ? "http://127.0.0.1:8000" : "https://confidence-coach-ai.onrender.com/";
+            const baseUrl = window.location.origin.includes("127.0.0.1") ? "http://127.0.0.1:8000" : "https://confidence-coach-ai.onrender.com";
 
             const response = await fetch(`${baseUrl}/feedback_loop/`, {
                 method: "POST",
