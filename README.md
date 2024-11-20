@@ -9,6 +9,14 @@
 - **User-Friendly Interface**: Simple HTML form-based frontend for seamless interaction.  
 - **API Documentation**: Endpoints are testable via FastAPI's `/docs` endpoint (requires OpenAI API keys).  
 
+## Improvements
+
+While **Confidence Coach AI** performs well with analyzing small statements, it currently has limitations when processing questions or more complex text inputs. Future updates may focus on:  
+- Enhancing question analysis to provide better feedback on tone and clarity.  
+- Improving the handling of diverse input types to broaden use cases.  
+- Developing a more robust and user-friendly frontend for better usability.  
+- Adding support for analyzing text files to enable large-scale input processing.  
+
 ## Technology Stack
 
 - **Backend**: [FastAPI](https://fastapi.tiangolo.com/)  
