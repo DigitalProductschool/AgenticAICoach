@@ -26,21 +26,28 @@ An AI-powered communication coach that helps users improve their confidence and 
 
 1. Clone the repository:
 bash
+
+```
 git clone https://github.com/yourusername/confidence-coach-ai.git
 cd confidence-coach-ai
+```
 
-
-2. Install dependencies:
+3. Install dependencies:
 bash
+```
 pip install -r requirements.txt
+```
 
-
-3. Set up OpenAI API key in .env file:
+5. Set up OpenAI API key in .env file:
 bash
+```
 OPENAI_API_KEY=<your-openai-api-key>
+```
 
 
 Note: Run below commands from *confidence_coach_ai_DPS/src/confidence_coach_ai*
+
+
 ##Interaction Setup
 ### STEP1: First start the FastAPI backend
 Run the following command in terminal:
