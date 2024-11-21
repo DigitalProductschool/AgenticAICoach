@@ -1,54 +1,69 @@
-# ConfidenceCoachAi Crew
+# 🎯 Confidence Coach AI
 
-Welcome to the ConfidenceCoachAi Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+An AI-powered communication coach that helps users improve their confidence and communication skills through real-time analysis and feedback.
+
+## Features
+
+- 📝 Real-time analysis of written and spoken communication
+- 📊 Confidence scoring system
+- 💡 Detailed feedback and improvement suggestions
+- 🎤 Can process audio files (mp3)
+- 📈 Progress tracking over time
+- 💬 User-friendly chat interface
 
 ## Installation
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+- crewai
+- crewai-tools
+- streamlit
+- PyYAML
+- pydantic
+- fastapi
+- uvicorn
 
-First, if you haven't already, install uv:
 
-```bash
-pip install uv
-```
+## Startup
 
-Next, navigate to your project directory and install the dependencies:
+1. Clone the repository:
+bash
+bash
+git clone https://github.com/yourusername/confidence-coach-ai.git
+cd confidence-coach-ai
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+2. Install dependencies:
+bash
+pip install -r requirements.txt
 
-- Modify `src/confidence_coach_ai/config/agents.yaml` to define your agents
-- Modify `src/confidence_coach_ai/config/tasks.yaml` to define your tasks
-- Modify `src/confidence_coach_ai/crew.py` to add your own logic, tools and specific args
-- Modify `src/confidence_coach_ai/main.py` to add custom inputs for your agents and tasks
 
-## Running the Project
+3. Set up OpenAI API key in .env file:
+bash
+ OPENAI_API_KEY=<your-openai-api-key>
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
 
-```bash
-$ crewai run
-```
+Note: Run below commands from *confidence_coach_ai_DPS/src/confidence_coach_ai*
+##Interaction Setup
+### STEP1: First start the FastAPI backend
+Run the following command in terminal:
+bash
+uvicorn backend.api:app --reload
 
-This command initializes the confidence_coach_ai Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+### STEP2: Start the Streamlit UI
+On terminal, run the following command:
+bash
+streamlit run streamlit_app.py
 
-## Understanding Your Crew
+**then Finally open
+Local URL provided in terminal for interaction**
+(Note: You need to start both the FastAPI backend and Streamlit UI to interact with the app without any issues. First run the FastAPI backend and then run the Streamlit UI in different terminals)
 
-The confidence_coach_ai Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+### Optional:
+- FastAPI backend docs:
+Local URL: http://localhost:8000/docs for interaction
 
-## Support
-
-For support, questions, or feedback regarding the ConfidenceCoachAi Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+- Runing test score
+1) Run the FASTAPI backend as told above
+2) Run the following command in terminal:
+bash
+python test_api.py
