@@ -1,0 +1,7 @@
+crewai
+crewai-tools
+gradio
+PyYAML
+pydantic
+fastapi
+uvicorn
