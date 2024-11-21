@@ -26,7 +26,6 @@ An AI-powered communication coach that helps users improve their confidence and 
 
 1. Clone the repository:
 bash
-bash
 git clone https://github.com/yourusername/confidence-coach-ai.git
 cd confidence-coach-ai
 
@@ -38,7 +37,7 @@ pip install -r requirements.txt
 
 3. Set up OpenAI API key in .env file:
 bash
- OPENAI_API_KEY=<your-openai-api-key>
+OPENAI_API_KEY=<your-openai-api-key>
 
 
 Note: Run below commands from *confidence_coach_ai_DPS/src/confidence_coach_ai*
