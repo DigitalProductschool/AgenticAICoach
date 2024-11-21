@@ -1,0 +1,7 @@
+crewai
+crewai-tools
+PyYAML
+pydantic
+fastapi
+uvicorn
+streamlit
