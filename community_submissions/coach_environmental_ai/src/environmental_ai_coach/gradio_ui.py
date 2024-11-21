@@ -130,7 +130,13 @@ def gradio_ui():
 
     return demo
 
+
 # Launch the Gradio interface
 if __name__ == "__main__":
     ui = gradio_ui()
-    ui.launch()
+    ui.launch(
+        server_name="0.0.0.0",
+        server_port=int(os.getenv("PORT", 7860)),
+        share=True,
+        auth=None  # Set this to None for public access or implement authentication
+    )
