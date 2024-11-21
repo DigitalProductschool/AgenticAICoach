@@ -13,9 +13,14 @@ An AI-powered communication coach that helps users improve their confidence and 
 
 ## Prerequisites
 
-- Python 3.8+
-- OpenAI API key
-- FFmpeg (for audio processing)
+- crewai
+- crewai-tools
+- streamlit
+- PyYAML
+- pydantic
+- fastapi
+- uvicorn
+
 
 ## Installation
 
