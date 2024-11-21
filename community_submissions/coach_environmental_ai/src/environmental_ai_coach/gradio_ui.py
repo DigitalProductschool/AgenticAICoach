@@ -2,7 +2,7 @@ import gradio as gr
 from crew import crew, implement_gamification, research_task
 from crew import Crew, Task, Process
 import re
-
+import os
 # Function to process user input
 def process_input(location, user_input, user_points=0):
     if not location or not user_input:
