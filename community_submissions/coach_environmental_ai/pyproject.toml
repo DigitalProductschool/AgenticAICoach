@@ -1,0 +1,20 @@
+[project]
+name = "environmental_ai_coach"
+version = "0.1.0"
+description = "environmental_ai_coach using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.80.0,<1.0.0"
+]
+
+[project.scripts]
+environmental_ai_coach = "environmental_ai_coach.main:run"
+run_crew = "environmental_ai_coach.main:run"
+train = "environmental_ai_coach.main:train"
+replay = "environmental_ai_coach.main:replay"
+test = "environmental_ai_coach.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
