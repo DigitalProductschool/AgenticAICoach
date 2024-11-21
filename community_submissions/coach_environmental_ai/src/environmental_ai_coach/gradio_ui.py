@@ -4,6 +4,9 @@ from crew import Crew, Task, Process
 import re
 import os
 # Function to process user input
+
+os.environ["PORT"] = "8080" 
+
 def process_input(location, user_input, user_points=0):
     if not location or not user_input:
         return "Error: Both fields are required.", "", "", "", user_points, "", ""
@@ -136,7 +139,7 @@ if __name__ == "__main__":
     ui = gradio_ui()
     ui.launch(
         server_name="0.0.0.0",
-        server_port=int(os.getenv("PORT", 7860)),
+        server_port=int(os.getenv("PORT", 8080)),
         share=True,
         auth=None  # Set this to None for public access or implement authentication
     )
