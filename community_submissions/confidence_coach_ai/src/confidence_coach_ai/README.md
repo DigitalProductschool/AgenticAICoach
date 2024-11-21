@@ -11,7 +11,7 @@ An AI-powered communication coach that helps users improve their confidence and 
 - 📈 Progress tracking over time
 - 💬 User-friendly chat interface
 
-## Prerequisites
+## Installation
 
 - crewai
 - crewai-tools
@@ -22,7 +22,7 @@ An AI-powered communication coach that helps users improve their confidence and 
 - uvicorn
 
 
-## Installation
+## Startup
 
 1. Clone the repository:
 bash
