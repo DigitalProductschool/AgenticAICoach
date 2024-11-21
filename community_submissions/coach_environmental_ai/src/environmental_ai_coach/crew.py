@@ -5,9 +5,9 @@ from tools.custom_tool import AirQualityTool
 import os
 
 
-
-os.environ["OPENAI_API_KEY"] = ""
-os.environ["SERPER_API_KEY"] = ""
+#uncomment
+# os.environ["OPENAI_API_KEY"] = ""
+# os.environ["SERPER_API_KEY"] = ""
 # Define agents
 
 search_tool = SerperDevTool()
