@@ -25,34 +25,40 @@ An AI-powered communication coach that helps users improve their confidence and 
 ## Startup
 
 1. Clone the repository:
-bash
-bash
+
+```
 git clone https://github.com/yourusername/confidence-coach-ai.git
 cd confidence-coach-ai
+```
 
-
-2. Install dependencies:
-bash
+3. Install dependencies:
+```
 pip install -r requirements.txt
+```
 
-
-3. Set up OpenAI API key in .env file:
-bash
- OPENAI_API_KEY=<your-openai-api-key>
+4. Set up OpenAI API key in .env file:
+```
+OPENAI_API_KEY=<your-openai-api-key>
+```
 
 
 Note: Run below commands from *confidence_coach_ai_DPS/src/confidence_coach_ai*
-##Interaction Setup
+
+
+## Interaction Setup
 ### STEP1: First start the FastAPI backend
 Run the following command in terminal:
-bash
-uvicorn backend.api:app --reload
 
+```
+uvicorn backend.api:app --reload
+```
 
 ### STEP2: Start the Streamlit UI
 On terminal, run the following command:
-bash
+
+```
 streamlit run streamlit_app.py
+```
 
 **then Finally open
 Local URL provided in terminal for interaction**
@@ -65,5 +71,6 @@ Local URL: http://localhost:8000/docs for interaction
 - Runing test score
 1) Run the FASTAPI backend as told above
 2) Run the following command in terminal:
-bash
+```
 python test_api.py
+```
