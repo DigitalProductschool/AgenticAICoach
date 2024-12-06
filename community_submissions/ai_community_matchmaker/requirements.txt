@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+crewai
+crewai_tools
+pyyaml
