@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.responses import FileResponse
+from fastapi.responses import HTMLResponse
 from src.ai_community_matchmaker.crew import AiCommunityMatchmaker
 import os
 import logging
@@ -7,6 +8,22 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 app = FastAPI()
+
+@app.get("/", response_class=HTMLResponse)
+def read_root():
+    return """
+    <html>
+        <head>
+            <title>AiCommunityMatchmaker</title>
+        </head>
+        <body>
+            <h1>Welcome to Ai Community Matchmaker!</h1>
+            <p>
+                <a href="/docs">Go to API Documentation (Swagger UI)</a>
+            </p>
+        </body>
+    </html>
+    """
 
 @app.post("/run-matchmaker/")
 async def run_matchmaker(
