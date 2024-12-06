@@ -56,3 +56,9 @@ uvicorn src.ai_community_matchmaker.api:app --reload
 Access the interactive documentation at http://127.0.0.1:8000/docs.
 
 Endpoint: POST /run-matchmaker/
+
+## Run unit test
+
+```bash
+python -m unittest discover -s tests
+```
