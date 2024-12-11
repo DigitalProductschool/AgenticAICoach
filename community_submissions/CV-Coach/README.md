@@ -99,13 +99,13 @@ We welcome contributions! Follow the [CONTRIBUTING.md](CONTRIBUTING.md) guidelin
 
 ## Screenshots
 ### **Frontend File Upload**
-![File Upload](community_submissions/CV-Coach/screenshots/frontend_upload.png)
+![File Upload](screenshots/frontend_upload.png)
 
 ### **Analysis Results**
-![Analysis Results](community_submissions/CV-Coach/screenshots/frontend_results.png)
+![Analysis Results](screenshots/frontend_results.png)
 
 ### **Backend API Response**
-![Backend API Response](community_submissions/CV-Coach/screenshots/backend_api_response.png)
+![Backend API Response](screenshots/backend_api_response.png)
 
 ### **Testing**
 **Unit Tests**
