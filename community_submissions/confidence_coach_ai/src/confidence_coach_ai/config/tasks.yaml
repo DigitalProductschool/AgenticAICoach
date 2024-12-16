@@ -1,0 +1,44 @@
+analyze_communication_task:
+  description: >
+    Analyze the following text: {text}
+    Look for low-confidence language patterns, such as hedging or apologizing.
+    Provide specific suggestions for improvement and rate the current confidence level.
+  expected_output: >
+    A brief analysis of user input which must include the confidence score, identified low-confidence patterns,
+    and specific suggestions for improvement.
+  agent: analyzer
+  human_input: false
+
+provide_feedback_task:
+  description: >
+    Provide encouraging, actionable feedback to help the user communicate more confidently.
+  expected_output: >
+    A short, encouraging response that includes:
+    1. Recognition of the user's message
+    2. Specific suggestions for improvement
+    3. Positive reinforcement
+  agent: coach
+
+summarize_analyzer_output_task:
+  description: >
+    Summarize the analysis report:
+    The summary should include:
+    1. Confidence score.
+    2. Key insights from the analysis.
+    3. Important actionable suggestions.
+  expected_output: >
+    A concise summary in 2-4 lines, highlighting the confidence score and critical insights from the analysis.
+  agent: summarizer
+
+create_progress_report_task:
+  description: >
+    User data: {progress_data}
+    Create a progress report based on the analyzer's output for all user inputs so far.
+    Highlight trends, improvements, and areas that still need work.
+  expected_output: >
+    A progress report that includes:
+    1. Overall trend in confidence levels
+    2. Specific improvements observed
+    3. Areas that still need attention
+    4. Actionable recommendations for further improvement
+  agent: progress_reporter
