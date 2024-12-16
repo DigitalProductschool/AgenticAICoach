@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+jinja2
+pydantic
+requests
+httpx
+aiohttp
+aiobotocore
+s3fs
+boto3
+botocore
+s3transfer
+aiohttp
+

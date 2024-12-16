@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: confidence-coach-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 8000"
+    plan: free
+    region: us
+    runtime: python3
+    healthCheckPath: "/"

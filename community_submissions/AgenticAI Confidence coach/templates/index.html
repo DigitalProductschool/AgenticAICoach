@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidence Coach</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Confidence Coach</h1>
+    <textarea id="text-input" placeholder="Enter your text here..."></textarea><br>
+    <button onclick="analyzeText()">Analyze</button>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function analyzeText() {
+            const text = document.getElementById('text-input').value;
+
+            fetch('/analyze/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: text })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Server Error: " + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                let result = `<h3>Analysis Result:</h3>`;
+                result += `<p>Total Issues: ${data.total_issues}</p>`;
+                result += `<h3>Suggestions:</h3><ul>`;
+
+                if (Array.isArray(data.suggestions)) {
+                    data.suggestions.forEach(suggestion => {
+                        result += `<li>${suggestion}</li>`;
+                    });
+                } else {
+                    result += `<li>No suggestions available</li>`;
+                }
+
+                result += `</ul>`;
+                result += `<p><strong>Confidence Rating:</strong> ${data.confidence_rating}</p>`;
+                result += `<p><strong>Confidence Score:</strong> ${data.confidence_score} / 10</p>`;
+                document.getElementById('result').innerHTML = result;
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            });
+        }
+    </script>
+</body>
+</html>
