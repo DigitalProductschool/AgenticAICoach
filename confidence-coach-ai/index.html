@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confidence Coach</title>
+    <script>
+        let sessionId = null;
+
+        async function submitText() {
+            const inputText = document.getElementById("inputText").value;
+            const terminate = document.getElementById("terminate").checked;
+
+            const baseUrl = window.location.origin.includes("127.0.0.1") ? "http://127.0.0.1:8000" : "https://confidence-coach-ai.onrender.com";
+
+            const response = await fetch(`${baseUrl}/feedback_loop/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    session_id: sessionId,
+                    text: inputText,
+                    terminate: terminate
+                })
+            });
+            const result = await response.json();
+
+            if (result.session_id) {
+                sessionId = result.session_id;
+            }
+
+            document.getElementById("output").innerText = JSON.stringify(result, null, 2);
+
+            if (terminate) {
+                sessionId = null; // Reset session
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Confidence Coach AI</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="Enter your text here..."></textarea>
+    <br />
+    <label>
+        <input type="checkbox" id="terminate" />
+        End feedback loop
+    </label>
+    <br />
+    <button onclick="submitText()">Submit</button>
+    <h2>Response</h2>
+    <pre id="output"></pre>
+</body>
+</html>
