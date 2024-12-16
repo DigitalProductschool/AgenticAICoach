@@ -1,0 +1,53 @@
+research_task:
+    description: 'Research and provide information about {location}'
+    expected_output: >
+      A summary of key information about {location} in short and concise format
+      Significant natural features and places around this location
+      Suggest user what kind of environmental contribution he/she can make based on this information and location
+      Precise and detailed information about environment, surrounding of the location is required
+      Also return latest PM2.5 and PM10 quiality based on latitude and longitude of location in this format: PM2.5: <value>, \nPM10: <value>
+      Make sure the output is short and kid friendly, even though targeted to adults, not more than 300 words and in proper format
+    agent: location_researcher
+    verbose: True
+
+
+# create_action_plan:
+#     description: >
+#         Develop a highly personalized action plan based on the user's location, lifestyle, interests, and environmental goals, User Input: {user_input}
+#         Make sure the Output should be short and kid friendly, even though targeted to adults, covering all the important points
+#     expected_output: >
+#         A very highly personalized and detailed action plan with specific, achievable steps for positive environmental contributions based on user location
+#         Environmental contribution he/she can make based on this information and location and other user environment related information in concise and kid friendly format
+#         Make sure the output is short and kid friendly, even though targeted to adults, not more than 200 words
+#     agent: action_planner
+
+
+implement_gamification:
+    description: >
+        Create a single quiz question based on environmental topics and the user's action plan. 
+        Format your response exactly like this:\n
+        ---QUIZ---\n
+        QUESTION: What is the most effective way to reduce your carbon footprint?\n
+        OPTIONS:\n
+        a) Drive more\n
+        b) Use public transport\n
+        c) Leave lights on\n
+        d) Use single-use plastics\n
+        ANSWER: b\n
+        ---END---
+    expected_output: >
+        A single quiz question with options and answer in the specified format
+    agent: progress_tracker
+
+
+# analyze_user_input = Task(
+#     description=(
+#         "Analyze this given user input about their location,lifestyle, interests, and environmental goals, User Input: {user_input}"
+#     ),
+#     expected_output=(
+#         "A highly personalized environmental contribution he/she can make based on this information and location and other user environment related information in concise and kid friendly format"
+#         "Keep it short and kid friendly, even though targeted to adults"
+#     ),
+#     agent=environmental_expert,
+#     human_input=False
+# )
