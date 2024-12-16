@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+crewai
+crewai_tools
+pyyaml
+python-multipart

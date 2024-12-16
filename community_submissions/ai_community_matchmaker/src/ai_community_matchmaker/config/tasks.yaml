@@ -1,0 +1,71 @@
+cofounder_search_task:
+  description: >
+    Find many co-founder options for the target user with the following criteria, where most important criteria are mentioned first:
+      - Goal Alignment: Evaluate how well the other member's goals and mission align with target's user 
+      entrepreneurial goals.
+      - Complementary skill set: Analyze whether someone cover the missing skill set of target user to fulfill 
+      startup functions. The skills needed for a startup are: Sales, Marketing, Product Strategy,Design,Engineering,
+      Operations, Fundraising,Leadership,Company building. For example, if one fulfilled the business aspect, the other co founder
+      should cover the tech aspect of the startup.
+      - Assign role and check if put together they would form well-rounded startup team.
+      - Qualitative Scoring: Assign a qualitative score (0-10) representing the overall fit.
+      - Comments: Provide additional comments or observations that support the cofounder fit score.
+
+    - Target User File:
+      {target_user}
+    
+    - Community Members Database
+      {community_members}
+    
+  expected_output: >
+    A detailed assessment report including:
+    - Cofounder fit score (0-10) based on complementary skills and alignment of goals. Cite their profile.
+    - Potential startup setup with each of the cofounder options (one of them is the target user), with assign role (CEO,CTO, COO, CMO, etc)
+    - Supporting analysis and comments providing context for each of the cofounder fit score.
+    - The matches' social media URL
+
+mentor_search_task:
+  description: >
+    Find mentor options for the target user with the following criteria:
+      - A proven track record in the area target user want to grow in.
+      - Hands-on experience and a solid understanding of real-world challenges in target user's area of interest
+      - Expertise align with target user goals
+      - Mentor options should not be redundant to cofounder options. 
+      Omit the option and find new one if this is the case.
+
+    - Target User File:
+      {target_user}
+    
+    - Community Members Database
+      {community_members}
+
+  expected_output: >
+    A detailed assessment report including:
+    - Mentor fit score (0-10) based on alignment of expertises and goals. Cite their profile.
+    - Supporting analysis and comments providing context for each of the mentor fit score.
+    - The matches' social media URL
+
+report_generation_task:
+  description: >
+    Using the response from Cofounder Search Agent and Mentor Search Agent, craft a highly personalized 
+    coaching suggestion for cofounder and mentor matching with people of the highest score in each topic.
+    For each suggested person, ensure that the profiles are comprehensive and
+    accurate, especially the social media url should be the right one with the name.
+    Check for references and sources used to find the information. 
+
+    Make sure that there are no redundant suggestion for potential cofounder and mentor.
+    - Target User File:
+      {target_user}
+    
+    - Community Members Database
+      {community_members}
+  expected_output: >
+    Cofounder matches:
+    - A list of suggested co-founder matches ranked by relevance to the user's goal 
+    - The matches' social media URL for contact information.
+    - A potential startup setup with role (CEO,CTO, COO, CMO, etc)
+    - Include description explaining why the match is suitable.
+    Mentor matches:
+    - A list of suggested mentor matches ranked by relevance to the user's goal 
+    - The matches' social media URL for contact information.
+    - Include description explaining why the match is suitable.
