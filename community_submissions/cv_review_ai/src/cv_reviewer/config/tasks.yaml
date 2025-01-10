@@ -1,0 +1,102 @@
+analyze_job_description:
+  description: >
+    Analyze the provided job description {jd_text} to identify:
+    1. Hard skills: technical expertise such as programming languages, frameworks, and tools.
+    2. Soft skills: core abilities such as communication, teamwork, and leadership.
+    3. Ideal candidate profile: Summarize the ideal background, experience, and capabilities.
+  expected_output: >
+    A detailed analysis with:
+    - A list of hard skills (specific technical keywords).
+    - A list of soft skills (specific interpersonal or behavioral keywords).
+    - A concise ideal candidate profile summary,
+    capturing the essential attributes, qualifications, and skills for the role.
+
+infer_industry_from_cv:
+  description: >
+    Based on the CV {cv_text}, infer the most likely industry the candidate is targeting.
+    Provide insights into typical hard and soft skills for this industry,
+    along with an ideal candidate profile.
+  expected_output: >
+    - Industry inference.
+    - Typical hard and soft skills for the inferred industry.
+    - Ideal candidate profile summary.
+
+analyze_cv_structure:
+  description: >
+    Assess the structure of the CV {cv_text} for completeness and organization,
+    verifying the presence of the following critical sections:
+    1. Contact Information: Ensure the CV includes up-to-date contact details.
+    2. Work Experience: Check for detailed descriptions of past roles and responsibilities.
+    3. Education: Verify the inclusion of relevant academic qualifications.
+    4. Skills: Ensure both technical and non-technical skills are appropriately listed.
+  expected_output: >
+    A structured evaluation including:
+    - Verification of each key section's presence.
+    - Identification of any missing sections.
+    - Recommendations to improve the structure and completeness of the CV.
+
+analyze_cv_relevance_w_jd:
+  description: >
+    Assess the relevance of the CV content {cv_text} to the job description analysis,
+    focusing on alignment with job-specific skills and ideal candidate profile.
+    Highlight areas of strong relevance and identify any gaps.
+  expected_output: >
+    A response that includes:
+    - A list of matched skills (both hard and soft skills).
+    - A list of missing or underrepresented skills based on the job description.
+    - Suggestions for improving alignment with the job description.
+
+analyze_cv_relevance_wo_jd:
+  description: >
+    Analyze the relevance of the CV {cv_text} based on inferred industry context analysis.
+    Identify key skills and traits typical of the industry
+    and evaluate how well the CV matches those expectations.
+  expected_output: >
+    A structured response with:
+    - Inferred industry and ideal candidate traits.
+    - Matched industry-specific hard and soft skills.
+    - Missing or underrepresented industry-specific skills.
+    - Suggestions to better align the CV with common industry expectations.
+
+analyze_cv_language:
+  description: >
+    Analyze the language quality (professionalism) of the CV {cv_text},
+    focusing on spelling, punctuation, and grammar.
+    Identify overly casual/conversational phrases or overly long/complex sentences,
+    and suggest professional, concise alternatives where needed.
+  expected_output: >
+    A response that includes:
+    - A summary of any spelling, punctuation, or grammatical errors.
+    - A list of casual or inappropriate tone and suggestions for professional alternatives.
+    - Recommendations for simplifying complex sentences or improving readability.
+
+analyze_cv_power:
+  description: >
+    Analyze the CV {cv_text} for the power and impact of the experiences described.
+    focusing on the use of action verbs, quantified achievements (e.g., increased sales by 20%),
+    and clear descriptions of roles and responsibilities,
+    identify vague or generic statements that could be described more effectively.
+  expected_output: >
+    A response that includes:
+    - A list of well-written sections with strong use of action verbs and quantified achievements.
+    - A list of sections that lack quantified metrics or actionable language.
+    - Specific suggestions to improve the clarity and impact of the content.
+
+generate_feedback_report:
+  description: >
+    Generate a comprehensive feedback report by combining the following analysis results:
+    - Structure: Checks CV completeness and sections.
+    - Relevance: Assesses content relevance to the job description or industry standards.
+    - Language: Evaluates language clarity, grammar, and tone.
+    - Power: Analyzes the demonstration of achievements and impact.
+    Combine these results to create a comprehensive feedback report.
+    The report should:
+    - Provide scores for each feature: Structure, Relevance, Language, and Power.
+    - Highlight the CV's overall strengths and weaknesses,
+    focusing on its ability to effectively communicate the candidate's competence.
+    - Offer actionable, tailored suggestions to address identified weaknesses and improve the CV.
+  expected_output: >
+    A well-structured feedback report that includes:
+    - Section scores: Ratings and explanation for each criteria.
+    - Overall evaluation: A summary of the CV's strengths, weaknesses and an overall rating.
+    - Improvement suggestions: Specific recommendations to address weaknesses and enhance the CV.
