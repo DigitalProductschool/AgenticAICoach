@@ -1,0 +1,5 @@
+.env
+db/
+__pycache__/
+pytests_cache/
+trained_agents_data.pkl
