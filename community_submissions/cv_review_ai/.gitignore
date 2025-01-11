@@ -2,4 +2,5 @@
 db/
 __pycache__/
 pytests_cache/
+cache/
 trained_agents_data.pkl
