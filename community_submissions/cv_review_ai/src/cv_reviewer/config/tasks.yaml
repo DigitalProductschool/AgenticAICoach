@@ -91,12 +91,13 @@ generate_feedback_report:
     - Power: Analyzes the demonstration of achievements and impact.
     Combine these results to create a comprehensive feedback report.
     The report should:
-    - Provide scores for each feature: Structure, Relevance, Language, and Power.
+    - Provide scores (out of 10) for each feature: Structure, Relevance, Language, and Power.
+    - Include specific examples and detailed explanations for each area.
     - Highlight the CV's overall strengths and weaknesses,
     focusing on its ability to effectively communicate the candidate's competence.
     - Offer actionable, tailored suggestions to address identified weaknesses and improve the CV.
   expected_output: >
     A well-structured feedback report that includes:
-    - Section scores: Ratings and explanation for each criteria.
+    - Section scores: Ratings and detailed explanation with examples for each criteria.
     - Overall evaluation: A summary of the CV's strengths, weaknesses and an overall rating.
     - Improvement suggestions: Specific recommendations to address weaknesses and enhance the CV.
