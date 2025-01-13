@@ -1,10 +1,10 @@
 # CV Review AI Coach
 
-CV Review AI Coach is an AI-powered tool designed to help users optimize their resumes and match specific job requirements or general industry standards. This project is built using CrewAI, FastAPI and Docker and supports deployment on Google Cloud Run.
+CV Review AI Coach is an AI-powered tool designed to help users optimize their resumes and match specific job requirements or general industry standards. This project is built using ```CrewAI```, ```FastAPI``` and ```Docker``` and supports deployment on ```Google Cloud Run```.
 
 ## Features
 
-- **Resume Upload and Parsing**: Supports PDF and DOCX formats.
+- **Resume Upload and Parsing**: Supports ```PDF``` and ```DOCX``` formats.
 - **Comprehensive Resume Analysis**: Analyzes resumes across four key dimensions to provide scores, detailed feedback and actionable suggestions:  
   - **Structure**: Ensures the resume contains all key sections, such as Contact Information, Work Experience, Education, and Skills.
   - **Content Relevance**: Evaluates alignment with the provided job description, identifying relevant and missing skills. If no job description is provided, it compares the resume against typical industry standards.
@@ -12,21 +12,21 @@ CV Review AI Coach is an AI-powered tool designed to help users optimize their r
   - **Power Words**: Highlights strong action words and quantifiable achievements to maximize impact and persuasiveness.  
 - **Detailed Feedback Reports**: Generates modular and comprehensive reports, with download options for individual dimension or the full report.
 - **Web Interaction**: Simple front-end interface for file upload, job description text input (optional), feedback display and report download.
-- **Scalable Deployment**: Runs in Docker containers and deploys to Google Cloud Run.
+- **Scalable Deployment**: Runs in ```Docker``` containers and deploys to ```Google Cloud Run```.
 
 ## Tech Stack
 
-- **Core Components**: CrewAI Framework
+- **Core Components**: ```CrewAI``` Framework
   
     Powers the core functionality with a structured, modular approach using agents and tasks for resume analysis. This enables flexibility in defining analysis workflows and scalable processing.
   - *Agents*: Specialized components responsible for understanding the job description, analyzing various dimensions of the resume, and generating feedback.
   - *Tasks*: Modular units defining specific analysis operations, like Structure Analysis or Language Analysis, which agents execute.
 
-- **Dependency Management**: Poetry
-- **Backend**: FastAPI
-- **Frontend**: HTML + CSS + JavaScript
-- **Containerization**: Docker
-- **Cloud Deployment**: Google Cloud Run
+- **Dependency Management**: ```Poetry```
+- **Backend**: ```FastAPI```
+- **Frontend**: ```HTML + CSS + JavaScript```
+- **Containerization**: ```Docker```
+- **Cloud Deployment**: ```Google Cloud Run```
 
 ## Getting Started
 
@@ -40,7 +40,7 @@ CV Review AI Coach is an AI-powered tool designed to help users optimize their r
 
 2. **Install dependencies**:
    
-    Install dependencies: Ensure you have Python 3.10 and Poetry installed. Then run:
+    Install dependencies: Ensure you have ```Python 3.10``` and ```Poetry``` installed. Then run:
     ```bash
     poetry install
     ```
@@ -80,7 +80,7 @@ CV Review AI Coach is an AI-powered tool designed to help users optimize their r
     ```bash
     gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/cv-reviewer
     ```
-    Replace YOUR_PROJECT_ID with your actual Google Cloud project ID.
+    Replace ```YOUR_PROJECT_ID``` with your actual Google Cloud project ID.
 
 2. **Deploy the container image to Cloud Run**:
     ```bash
@@ -91,7 +91,7 @@ CV Review AI Coach is an AI-powered tool designed to help users optimize their r
         --allow-unauthenticated \
         --port 8000
     ```
-    Replace YOUR_REGION with your desired region (e.g., europe-west2).
+    Replace ```YOUR_REGION``` with your desired region (e.g., ```europe-west2```).
 
 3. **Access your deployed application**:
 
@@ -100,7 +100,7 @@ CV Review AI Coach is an AI-powered tool designed to help users optimize their r
 ## Usage Instructions
 
 Open the web interface.
-1. Upload your resume (supports PDF or DOCX formats).
+1. Upload your resume (supports ```PDF``` or ```DOCX``` formats).
 2. (Optional) Enter a job description to analyze relevance.
 3. Click the Analyze button and wait for the analysis to complete.
 4. The results will be displayed in a modal, including:
@@ -123,7 +123,7 @@ Open the web interface.
 
     ![Analyzing Progress](images/analyzing_progress.jpeg)
 
-3. **Analysis Complete Modal**:
+3. **Analysis Complete**:
 
     ![Analysis Complete](images/analysis_complete.jpeg)
 
