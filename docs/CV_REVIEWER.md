@@ -117,15 +117,15 @@ Open the web interface.
 
 1. **Input Form**:
 
-    ![Input Form](images/input_form.jpeg)
+    ![Input Form](../community_submissions/cv_review_ai/images/input_form.jpeg)
 
 2. **Analyzing Progress**:
 
-    ![Analyzing Progress](images/analyzing_progress.jpeg)
+    ![Analyzing Progress](../community_submissions/cv_review_ai/images/analyzing_progress.jpeg)
 
 3. **Analysis Complete**:
 
-    ![Analysis Complete](images/analysis_complete.jpeg)
+    ![Analysis Complete](../community_submissions/cv_review_ai/images/analysis_complete.jpeg)
 
 ## Project Structure
 
@@ -175,4 +175,4 @@ cv_review_ai/
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](../../LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](../LICENSE) file for details.
