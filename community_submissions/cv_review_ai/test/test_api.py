@@ -15,16 +15,7 @@ def get_test_file(file_name):
     current_dir = os.path.dirname(__file__)
     return os.path.join(current_dir, "data", file_name)
 
-@pytest.fixture
-def setup_test_environment():
-    """
-    Fixture to set up the test environment.
-    Ensures required directories exist before running tests.
-    """
-    os.makedirs("data", exist_ok=True)
-    os.makedirs("output", exist_ok=True)
-
-def test_analyze_with_jd(setup_test_environment):
+def test_analyze_with_jd():
     """
     Test analyzing a CV with a provided job description.
     """
@@ -44,7 +35,7 @@ def test_analyze_with_jd(setup_test_environment):
     assert "result" in json_response.keys(), "Response does not contain 'result'."
     assert json_response["status"] == "success", f"Expected status 'success', got {json_response['status']}"
 
-def test_analyze_without_jd(setup_test_environment):
+def test_analyze_without_jd():
     """
     Test analyzing a CV without a provided job description.
     """
@@ -63,7 +54,7 @@ def test_analyze_without_jd(setup_test_environment):
     assert "result" in json_response.keys(), "Response does not contain 'result'."
     assert json_response["status"] == "success", f"Expected status 'success', got {json_response['status']}"
 
-def test_no_cv_uploaded(setup_test_environment):
+def test_no_cv_uploaded():
     """
     Test uploading a request without a CV file.
     """
