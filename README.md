@@ -1,7 +1,7 @@
 # Scalable Coaching for AI Entrepreneurship
 
 Agentic AI Coach is an open-source project that uses CrewAI for implementation and orchestration of collaborative multi-agentic AI systems to coach AI Entrepreneurs on navigating their challenges. We follow the principles and best practices of human-centered discovery and development to ensure products that solve real user problems and users love using them. This project fosters community contributions by allowing members to submit their own AI agents. 
-It is pioneered by the [AI Makerspace](https://github.com/DigitalProductschool/AI-Makerspace) community of DPS to democratize coaching and make AI entrepreneurship scalable and accessible to all teams. DPS community of AI engineers are all invited to contribute by submitting Agents Tasks, and Crews.
+It is pioneered by the [AI Makerspace](https://github.com/DigitalProductschool/AI-Makerspace) community of DPS to democratize coaching and make AI entrepreneurship coaching scalable and accessible to all teams. DPS community of AI engineers are all invited to contribute by submitting Agents Tasks, and Crews.
 
 ## Features
 
