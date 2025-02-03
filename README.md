@@ -24,7 +24,7 @@ This project is a **collaborative effort** to build AI-driven coaching agents th
 # Technical Implementation
 
 Our open-source project uses CrewAI for the implementation and orchestration of collaborative multi-agentic AI systems.  
-It is pioneered by the [AI Makerspace](https://github.com/DigitalProductschool/AI-Makerspace) community of DPS to democratize coaching and make AI entrepreneurship coaching scalable and accessible to all teams. DPS community of AI engineers are all invited to contribute by submitting Agents Tasks, and Crews.
+It is pioneered by the [AI Makerspace](https://github.com/DigitalProductschool/AI-Makerspace) community of DPS to make AI entrepreneurship coaching scalable and accessible to all teams. DPS community of AI engineers are all invited to contribute by submitting Agents Tasks, and Crews.
 
 ## Features
 
