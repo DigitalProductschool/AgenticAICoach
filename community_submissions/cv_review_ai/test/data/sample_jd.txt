@@ -1,0 +1,21 @@
+Programming Languages Research Engineer – Contractor
+Job Summary
+• Development and maintenance of compilers and compiler development tools, including high-level 
+and low-level compiler optimisations, type systems, and code generation.
+• Developing and maintaining programming language solutions for heterogeneous architectures, AI 
+frameworks, and high-performance code generators.
+• Benchmarking applications in a reliable and reproducible way on a wide range of hardware; 
+identifying opportunities for compiler optimisations based on the obtained results.
+• Collaboration with academia on programming-language-related topics, transferring results and 
+ideas from academia to industry.
+We wish you have at least one of the following expertise and preferably more:
+• Background in Computer Science or related fields
+• Proficiency in one of C++/Java/Swift/Kotlin
+• Familiarity with modern version management and feature tracking software
+• Some understanding of programming language and compiler principles
+• Some experience with mainstream compilers (e.g., LLVM/GCC) or projects of similar size and scope
+We Wish You are:
+• Senior BSc or MSc Student/Candidate/Recent graduate in Computing Science or related disciplines;
+• Good academic background and programming skills, publications in conferences or journals in the 
+related fields, contributions to open source (or other evidence of independent activity);
+• Able to work full time for at least 4 months

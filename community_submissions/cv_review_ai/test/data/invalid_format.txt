@@ -1,0 +1,27 @@
+﻿Harry Kidston
+City, Country | Email Address | Phone | LinkedIn | GitHub/Website
+Technical Skills
+Programming: Java (expert), Python (intermediate), C/C++ (intermediate), JavaScript, Kotlin, HTML, CSS, React Databases: SQL, MySQL Miscellaneous: Git, GitHub, Docker, Unity, Windows, Linux
+Education
+BSc (Hons) Computer Science, University of Warwick, Coventry, UK Sept 2021 – June 2024 Achieved 2.1 in Year 2
+• Relevant modules: Software Engineering, Logic and Verification, Algorithms, Web Development • Final Year Project: Compression of AI weights for improving neural throughput.
+Bath Secondary School, Bath, UK Sept 2014 – July 2021
+• A Levels: Computer Science (A*), Mathematics (A*), Physics (A)
+• 10 GCSE’s grade 9-4 including Mathematics (9), Computer Science (9) and English Language (8)
+Experience
+Software Engineering Internship, XYZ Tech London, UK June 2023 – Sept 2023
+• Collaborated with multifunctional team of engineers and designers to develop a new product.
+• Assisted in development of new product features primarily using C and C++ meeting project milestones. • Conducted code reviews providing feedback to the team contributing to improving product reliability. • Participated in project planning meetings gaining understanding of agile development processes using Jira.
+Maths Tutoring, ABC Tutors Bath, UK Sept 2020 – June 2021
+• Provided group tutoring sessions to school age pupils covering GCSE Mathematics curriculum.
+• Adapted teaching methods to suit student needs and skill levels to ensure clear understanding of concepts. • Organised lesson plans and content in order to cover topics to required deadlines and manage time in class.
+Projects
+Mobile Game Personal Project (Unity and Kotlin) March 2023 – Present
+• Independently designed and developed a mobile game for Android using Unity and Kotlin.
+• Integrated touch controls, user interfaces, and game mechanics for an engaging player experience.
+Coursework Project (HTML, CSS, React) Sept 2022 – March 2023  • Collaborated with project team to design and implement a full-stack e-commerce website.  • Developed the front-end using HTML, CSS, and React for enhanced user experience.  • Integrated user authentication, product catalogue, and a shopping feature.
+• Conducted regular code reviews and maintained project documentation.
+Hackathon Event March 2022  • Worked as part of a team during 24-hour hackathon to develop a solution for an environmental non-profit  • Analysed issues under pressure to create a solution using Python and React delivering a working protype
+Interests
+Active member of University Chess club, organising social events and competitions for 100 members. Served on technical executive team contributing to the design, development and maintenance of the club webpages.
+References available on request.

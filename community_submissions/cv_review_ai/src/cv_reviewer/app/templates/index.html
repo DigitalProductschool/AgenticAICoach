@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Reviewer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>CV Reviewer</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <label for="cv-file">Upload CV (PDF/DOCX):</label>
+        <input type="file" id="cv-file" name="cv-file" accept=".pdf,.docx" required>
+        <br>
+        <label for="job-description">Job Description (optional):</label>
+        <textarea id="job-description" name="job-description" rows="4"></textarea>
+        <br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    <!-- Loading Indicator -->
+    <div id="analyzing-container" style="display: none;">
+        <p>Analyzing... Please wait.</p>
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Modal for Result -->
+    <div id="result-modal" style="display: none;">
+        <div class="modal-content">
+            <button id="close-modal" class="close-button">&times;</button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>
