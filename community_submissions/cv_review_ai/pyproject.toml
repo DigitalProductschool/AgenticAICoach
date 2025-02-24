@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "cv_reviewer"
+version = "0.1.0"
+description = "Help individuals improve their CVs"
+authors = ["Hanzhi Zhang <hanzhizhang1007@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.35.8" }
+crewai-tools = "^0.4.6"
+python-docx = "^1.1.2"
+pypdf = "^4.0.1"
+python-multipart = "^0.0.20"
+jinja2 = "^3.1.5"
+
+[tool.poetry.scripts]
+cv_reviewer = "cv_reviewer.main:run"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

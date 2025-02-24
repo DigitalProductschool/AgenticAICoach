@@ -1,0 +1,182 @@
+/* General styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Centered header style */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Form container styling */
+form {
+    max-width: 1000px; /* Maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Inner spacing for better readability */
+    background: white; /* White background for contrast */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Labels for input fields */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Input, textarea, and button shared styling */
+input, textarea, button {
+    width: 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+    padding: 10px; /* Inner padding for usability */
+    margin-bottom: 15px; /* Space between elements */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 3px; /* Rounded edges */
+    box-sizing: border-box; /* Consistent sizing */
+}
+
+/* Textarea specific styles */
+textarea {
+    resize: vertical; /* Allow resizing vertically */
+    min-height: 200px; /* Minimum height for better usability */
+}
+
+/* Submit button styles */
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    border: none; /* Remove border */
+}
+
+button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+/* Analyzing container (centered spinner and message) */
+#analyzing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent overlay */
+    z-index: 1000;
+}
+
+/* Text style for analyzing message */
+#analyzing-container p {
+    color: #336699; /* Soft blue color */
+    font-size: 1.5rem; /* Large font size */
+    font-weight: bold; /* Bold font */
+    text-align: center; /* Center the text */
+    margin: 0 10px; /* Small spacing */
+}
+
+/* Spinner for loading animation */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* Light border */
+    border-top: 4px solid #336699; /* Blue spinner */
+    border-radius: 50%; /* Circle shape */
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite; /* Rotating animation */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal container for results */
+#result-modal {
+    position: absolute; /* Positioning relative to the viewport */
+    top: 0; /* Align to the top */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 0); /* Adjust for centering */
+    width: 80%; /* Width relative to the viewport */
+    max-width: 1000px; /* Limit the maximum width */
+    background: #ffffff; /* White background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 2000;
+    padding: 20px; /* Inner padding */
+    display: none; /* Hidden by default */
+    overflow: auto; /* Scrollable if content overflows */
+}
+
+/* Header inside the result modal */
+#result-modal h3 {
+    text-align: center; /* Center the title */
+    font-size: 1.8rem; /* Large font size */
+    color: #333; /* Dark gray */
+    margin-bottom: 15px; /* Spacing below header */
+}
+
+/* Paragraph text inside the result modal */
+#result-modal p {
+    padding-left: 25px;
+}
+
+/* Unordered list inside the result modal */
+#result-modal ul {
+    padding-left: 25px; /* Spacing from the left */
+    list-style: none; /* Remove default bullet points */
+}
+
+/* Links inside the result modal */
+#result-modal ul li a {
+    color: #336699; /* Blue text */
+    text-decoration: none; /* Remove underline */
+}
+
+#result-modal ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Close button for the modal */
+#result-modal .close-btn {
+    display: block; /* Button display */
+    width: 80%; /* Button width */
+    margin: 0 auto; /* Center horizontally */
+    margin-top: 20px; /* Spacing above the button */
+    margin-bottom: 15px; /* Spacing below the button */
+    padding: 10px 20px; /* Padding for click area */
+    background-color: #ff6666; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded edges */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    text-align: center; /* Center text inside button */
+}
+
+#result-modal .close-btn:hover {
+    background-color: #ff4c4c; /* Darker red on hover */
+}
+
+/* Markdown rendering style */
+#result-modal .markdown-content {
+    white-space: normal; /* Preserve line breaks */
+    word-wrap: break-word; /* Break long lines */
+    background-color: #f5f5f5; /* Light gray background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Inner padding */
+    font-family: Arial, sans-serif; /* Monospace font */
+    margin: 15px; /* Spacing around markdown content */
+    margin-top: 25px; /* Larger spacing at the top */
+    margin-bottom: 25px; /* Larger spacing at the bottom */
+}
