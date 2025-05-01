@@ -1,0 +1,28 @@
+analyze_communication_task:
+  description: >
+    Analyze the input: {text}. Detect hedging, apologies, minimizing, and passive tone.
+  expected_output: >
+    Provide a confidence score (1-10), detected weak expressions, and assertive alternatives.
+  agent: analyzer
+  human_input: false
+
+provide_feedback_task:
+  description: >
+    Respond with warm, supportive feedback and include specific advice to improve tone.
+  expected_output: >
+    A short, encouraging message with actionable tips.
+  agent: coach
+
+summarize_analyzer_output_task:
+  description: >
+    Create a 2–4-line summary of the analyzer's results with key insights.
+  expected_output: >
+    A compact summary with confidence score and improvement highlights.
+  agent: summarizer
+
+create_progress_report_task:
+  description: >
+    Using past inputs: {progress_data}, summarize confidence trends and give improvement suggestions.
+  expected_output: >
+    A multi-point progress report with trends, changes, and recommendations.
+  agent: progress_reporter
