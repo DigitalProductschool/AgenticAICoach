@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pitch Coach</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>AI Pitch Coach</h1>
+            <p>Craft a compelling startup pitch with guided coaching</p>
+        </header>
+        
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will appear here -->
+            </div>
+            
+            <div class="chat-input-container">
+                <textarea id="user-input" placeholder="Type your response here..." rows="3"></textarea>
+                <button id="send-button" class="send-button">Send</button>
+            </div>
+        </div>
+        
+        <div class="pitch-preview-container" id="pitch-preview-container" style="display: none;">
+            <h2>Your Complete Pitch</h2>
+            <div class="pitch-content" id="pitch-content"></div>
+            
+            <div class="action-buttons">
+                <button id="qa-button" class="action-button">Simulate Q&A</button>
+                <button id="feedback-button" class="action-button">Get Feedback</button>
+                <button id="export-button" class="action-button">Export Pitch</button>
+            </div>
+        </div>
+        
+        <div class="action-results" id="action-results" style="display: none;">
+            <h3 id="action-title">Results</h3>
+            <div id="action-content"></div>
+        </div>
+    </div>
+    
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
