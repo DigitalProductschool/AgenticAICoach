@@ -1,0 +1,37 @@
+Confidence Scoring System
+
+======================================================================================================================================================================================================
+CATEGORY (SPEECH-BASED)         | POINT VALUE | RATIONALE                                                                                                                                   | EXAMPLE (TEXT)
+======================================================================================================================================================================================================
+
+POSITIVE INDICATORS (+ POINTS)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assertive Statements              | +2          | Direct and declarative statements demonstrate conviction.                                                                                   | "I will complete the task by Friday."
+Strong Verbs                      | +1          | Using strong verbs (e.g., "will," "shall," "must") indicates decisiveness.                                                                | "We will implement the solution immediately."
+Ownership Language                | +2          | Taking ownership with "I" or "We" shows responsibility.                                                                                    | "I made a mistake, and I will fix it."
+Specificity                       | +1          | Providing specific details shows competence and certainty.                                                                                    | "The project will be completed by October 27th."
+Positive Emotion/Enthusiasm       | +1          | Expressing positive emotions or enthusiasm enhances confidence.                                                                               | "I'm excited to lead this project!"
+Proactive Language                | +2          | Taking initiative and proposing solutions demonstrates confidence.                                                                            | "I recommend we implement this strategy."
+Direct Requests                   | +1          | Clear and direct requests show assertiveness.                                                                                                | "Please provide the report by tomorrow."
+Declarative Questions            | +1          | Asking declarative questions showcases awareness.                                                                                    | “What are the next steps for implementing this?”
+Confident Predictions             | +2          | Projecting confidence into the future enhances credibility.                                                                              | “We’re on track to reach our objectives, that’s something I know”
+Clear and Concise Language                                | +1          | Avoids unnecessary jargon or complexity, promoting confidence in understanding and communication.                                                                              | “That is to say”
+
+NEGATIVE INDICATORS (- POINTS)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hedging Language                  | -1          | Using hedging words (e.g., "might," "maybe," "could") undermines confidence.                                                              | "I think this might work."
+Minimizing Language               | -1          | Phrases that downplay one's contributions or abilities reduce perceived confidence.                                                      | "It's just a small thing..."
+Passive Voice                     | -2          | Using the passive voice obscures responsibility and weakens the message.                                                                 | "Mistakes were made."
+Excessive Apologizing             | -1          | Over-apologizing diminishes one's perceived value.                                                                                        | "Sorry for bothering you..."
+Tentative Language                | -1          | Expressing uncertainty or tentativeness undermines confidence.                                                                           | "I'm not sure, but..."
+Qualifying Statements             | -1          | Adding qualifiers (e.g., "sort of," "kind of") weakens the message.                                                                       | "I sort of agree with that."
+Downplaying Language         | -2          | Phrases that minimizes language, diminish self importances.  | "I don’t want to sound stupid, but..."
+Discouraging Remarks (Intent)     | -2          | Discouraging or negative comments intended to undermine others.                                                                         | "That's not your area of expertise."
+Blaming/Shifting Responsibility (Intent) | -2          | Attributing failures to others diminishes accountability.                                                                                   | "It's not my fault; the vendor was late."
+Permission-Seeking Language       | -1          | Seeking permission before stating an opinion diminishes ownership.                                                                         | "If it's okay to suggest..."
+Unnecessary Jargon/Complexity           | -1          | Using confusing terms to make the speaker seem smarter.                            | “Let’s leverage our synergies.”
+Unclear Instructions                  | -1          | Uses confusing wording that lacks clarification.                            | “Going forward, we have to get that done at some point.”
+Unclear Explanations                 | -1          | Uses confusing wording that doesn’t really explain.                            | “It’s important because of the current environment.”
+Overgeneralization                   | -1          | Uses confusing terms to make the speaker seem smarter.                            | “Everyone knows…”
+Lack of Details                 | -1          | Doesn’t provide context or details                            | “We’ll get there in the end.”
+Lack of Follow-Up           | -1          | Doesn’t confirm action or response.                            | "Thanks!.”

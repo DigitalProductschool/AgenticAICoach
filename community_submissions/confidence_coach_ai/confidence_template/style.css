@@ -1,0 +1,39 @@
+/* Main container */
+.stApp {
+    background-color: #393D47;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headers */
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: #3498db;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+/* Text areas */
+.stTextArea>textarea {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Containers */
+.stContainer {
+    border-radius: 12px;
+    padding: 16px;
+    background-color: #807E78;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.analysis-container {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border-left: 4px solid #3498db;
+}

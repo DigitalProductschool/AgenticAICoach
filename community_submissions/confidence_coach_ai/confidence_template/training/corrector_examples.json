@@ -1,0 +1,254 @@
+{
+"Hedging": [ 
+  {"input": "I'm not sure, but...", "output": {"recommendation": "Here's what I think...", "context": ["removes doubt and directly takes ownership of the idea"]}},
+  {"input": "It seems like...", "output": {"recommendation": "It is clear that...", "context": ["replaces vagueness with decisiveness"]}},
+  {"input": "I believe it could be...", "output": {"recommendation": "I believe it is...", "context": ["strengthens conviction in your belief"]}},
+  {"input": "I'm not 100% sure, but...", "output": {"recommendation": "Based on what I know...", "context": ["acknowledges limitations without sounding unsure"]}},
+  {"input": "I could be wrong, but...", "output": {"recommendation": "From my perspective...", "context": ["frames it as a viewpoint rather than uncertainty"]}},
+  {"input": "It seems possible...", "output": {"recommendation": "It’s likely that...", "context": ["uses stronger likelihood language"]}},
+  {"input": "There’s a chance that...", "output": {"recommendation": "It’s possible that...", "context": ["removes ambiguity while staying realistic"]}},
+  {"input": "Not entirely sure, but...", "output": {"recommendation": "Let’s explore this option...", "context": ["moves from uncertainty to constructive action"]}},
+  {"input": "Just putting this out there...", "output": {"recommendation": "Here’s an idea to consider...", "context": ["makes the suggestion sound intentional and valuable"]}},
+  {"input": "I’d say it might...", "output": {"recommendation": "I’d say it will...", "context": ["adds certainty to your opinion"]}},
+  {"input": "Could it be that...?", "output": {"recommendation": "It is likely that...", "context": ["turns a passive question into an assertive statement"]}},
+  {"input": "Maybe it's just me, but...", "output": {"recommendation": "What I’ve noticed is...", "context": ["removes self-doubt and emphasizes observation"]}},
+  {"input": "It’s looking like...", "output": {"recommendation": "The data shows that...", "context": ["grounds the statement in evidence"]}},
+  {"input": "You might want to consider...", "output": {"recommendation": "I recommend considering...", "context": ["positions the speaker as a proactive contributor"]}},
+  {"input": "It might help if...", "output": {"recommendation": "It will help if...", "context": ["adds directness to the advice"]}},
+  {"input": "Possibly worth considering...", "output": {"recommendation": "Definitely worth considering...", "context": ["conveys a stronger endorsement"]}},
+  {"input": "I hesitate to say, but...", "output": {"recommendation": "It’s important to mention...", "context": ["asserts the importance of the point"]}},
+  {"input": "If it’s okay to suggest...", "output": {"recommendation": "Here’s a suggestion...", "context": ["removes permission-seeking tone"]}},
+  {"input": "Just a suggestion, but...", "output": {"recommendation": "I suggest...", "context": ["removes passivity and presents a direct idea"]}},
+  {"input": "I’m not an expert, but...", "output": {"recommendation": "From my experience...", "context": ["adds credibility without downplaying input"]}},
+  {"input": "There might be a case for...", "output": {"recommendation": "There is a strong case for...", "context": ["asserts the validity of the argument"]}},
+  {"input": "It wouldn’t hurt to try...", "output": {"recommendation": "It’s worth trying...", "context": ["turns a soft suggestion into a confident action"]}},
+  {"input": "Slight chance that...", "output": {"recommendation": "There is a possibility that...", "context": ["still cautious, but more grounded"]}},
+  {"input": "This may not be accurate, but...", "output": {"recommendation": "Here’s what I’m seeing...", "context": ["shares observations without undermining credibility"]}},
+  {"input": "I sort of noticed...", "output": {"recommendation": "I noticed...", "context": ["drops unnecessary qualifiers"]}},
+  {"input": "Could be nothing, but...", "output": {"recommendation": "This might be significant...", "context": ["adds value and direction to the point"]}},
+  {"input": "We might think about...", "output": {"recommendation": "Let’s think about...", "context": ["uses inclusive, confident language"]}},
+  {"input": "Tentatively, we could...", "output": {"recommendation": "We can consider...", "context": ["keeps flexibility but adds clarity"]}},
+  {"input": "At a glance, it seems...", "output": {"recommendation": "The initial assessment shows...", "context": ["sounds more professional and grounded"]}},
+  {"input": "I might recommend...", "output": {"recommendation": "I recommend...", "context": ["directs attention confidently"]}}
+],
+"Minimizing Language": [
+  {"input": "This might be a dumb question, but...", "output": {"recommendation": "Here's a question to consider...", "context": ["removes self-deprecation and presents curiosity as valid"]}},
+  {"input": "I'm probably wrong, but...", "output": {"recommendation": "Here’s how I see it...", "context": ["states a perspective without apologizing"]}},
+  {"input": "I know this isn’t much, but...", "output": {"recommendation": "This could add value...", "context": ["recognizes contribution as potentially meaningful"]}},
+  {"input": "It’s just a little thing...", "output": {"recommendation": "One detail worth noting is...", "context": ["emphasizes precision without minimizing"]}},
+  {"input": "I don’t know if this matters, but...", "output": {"recommendation": "This may be relevant to consider...", "context": ["opens up space for relevance without doubt"]}},
+  {"input": "This might not be important...", "output": {"recommendation": "This could be worth noting...", "context": ["asserts that the input may have merit"]}},
+  {"input": "Just a small thought...", "output": {"recommendation": "Here’s a thought to add...", "context": ["frames idea as valuable"]}},
+  {"input": "It's probably nothing, but...", "output": {"recommendation": "There may be something here to look into...", "context": ["acknowledges potential insight"]}},
+  {"input": "I could be overreacting...", "output": {"recommendation": "This feels significant to me because...", "context": ["validates emotional or intuitive input"]}},
+  {"input": "Maybe I’m making too much of this...", "output": {"recommendation": "This stands out and here’s why...", "context": ["adds logic behind concern"]}},
+  {"input": "I know this sounds silly...", "output": {"recommendation": "This might sound unconventional, but...", "context": ["frames idea as innovative rather than silly"]}},
+  {"input": "I’m not an expert, but...", "output": {"recommendation": "From my experience or understanding...", "context": ["avoids discrediting yourself"]}},
+  {"input": "I’m probably overthinking this...", "output": {"recommendation": "I’ve considered this from multiple angles...", "context": ["frames depth as thoughtful"]}},
+  {"input": "This may be trivial, but...", "output": {"recommendation": "A detail to consider is...", "context": ["asserts value even in small observations"]}},
+  {"input": "I know I might be off here...", "output": {"recommendation": "One possible take is...", "context": ["adds confidence to contribution"]}},
+  {"input": "Just tossing this out there...", "output": {"recommendation": "Here’s an idea to explore...", "context": ["makes it sound intentional and constructive"]}},
+  {"input": "I don’t want to sound stupid, but...", "output": {"recommendation": "Let me share a thought...", "context": ["removes fear of judgment"]}},
+  {"input": "You’ve probably thought of this already...", "output": {"recommendation": "To add to the conversation...", "context": ["avoids assumption and presents new input"]}},
+  {"input": "This is probably obvious, but...", "output": {"recommendation": "To clarify something upfront...", "context": ["makes it sound like a helpful reminder"]}},
+  {"input": "I’m just spitballing...", "output": {"recommendation": "Here’s a creative take...", "context": ["adds value to brainstorming"]}},
+  {"input": "I might be way off...", "output": {"recommendation": "Another angle could be...", "context": ["adds a different perspective without doubt"]}},
+  {"input": "This is just my two cents...", "output": {"recommendation": "My perspective is...", "context": ["removes diminishment of input"]}},
+  {"input": "It's just a thought...", "output": {"recommendation": "Here’s an idea...", "context": ["gives the thought more presence"]}},
+  {"input": "I know this is minor...", "output": {"recommendation": "This detail may have an impact...", "context": ["points out value in the small"]}},
+  {"input": "It’s probably not useful...", "output": {"recommendation": "This may be useful to consider...", "context": ["gives your insight a purpose"]}},
+  {"input": "This is likely unimportant...", "output": {"recommendation": "This might be worth a quick look...", "context": ["suggests minimal effort with potential value"]}},
+  {"input": "Maybe this doesn’t make sense...", "output": {"recommendation": "Tell me what you think of this...", "context": ["invites collaboration, not doubt"]}},
+  {"input": "I might not be the right person to say this...", "output": {"recommendation": "Here’s my take...", "context": ["respects input regardless of role"]}},
+  {"input": "I’m just wondering...", "output": {"recommendation": "I’d like to explore this idea...", "context": ["shows initiative, not uncertainty"]}},
+  {"input": "It might sound crazy, but...", "output": {"recommendation": "Here’s a bold idea...", "context": ["embraces creativity confidently"]}},
+  {"input": "This is probably unnecessary...", "output": {"recommendation": "To be thorough, I’d like to add...", "context": ["frames it as comprehensive, not excessive"]}},
+  {"input": "It’s just an idea...", "output": {"recommendation": "I propose this idea...", "context": ["adds assertiveness to suggestion"]}},
+  {"input": "It’s probably not a big deal...", "output": {"recommendation": "This could impact things, depending on...", "context": ["offers value through nuance"]}},
+  {"input": "Maybe this is irrelevant...", "output": {"recommendation": "This could connect in an unexpected way...", "context": ["keeps idea open to consideration"]}},
+  {"input": "I could be wrong here...", "output": {"recommendation": "Here’s what I think based on the facts...", "context": ["grounds idea in reasoning"]}},
+  {"input": "It’s just a random thought...", "output": {"recommendation": "A spontaneous idea I had is...", "context": ["gives spontaneity a role"]}},
+  {"input": "You might already know this, but...", "output": {"recommendation": "To recap or reinforce...", "context": ["adds emphasis rather than redundancy"]}},
+  {"input": "Just thinking out loud...", "output": {"recommendation": "Here’s something I’m considering...", "context": ["makes reflection sound thoughtful"]}},
+  {"input": "Probably not helpful, but...", "output": {"recommendation": "This might contribute to the solution...", "context": ["frames contribution as support"]}},
+  {"input": "I know it’s a long shot...", "output": {"recommendation": "It’s a bold possibility, but worth a look...", "context": ["adds ambition, not doubt"]}},
+  {"input": "I know I’m new here, but...", "output": {"recommendation": "Here’s what I’ve observed so far...", "context": ["frames fresh perspective as valuable"]}},
+  {"input": "Sorry if this is basic...", "output": {"recommendation": "Let’s start with the fundamentals...", "context": ["makes clarity sound strategic"]}},
+  {"input": "This might not make sense...", "output": {"recommendation": "Let me know if this needs clarification...", "context": ["assumes idea has merit, invites feedback"]}},
+  {"input": "I realize this is a stretch...", "output": {"recommendation": "Here’s a bold link to explore...", "context": ["adds vision and imagination"]}},
+  {"input": "Maybe this is overkill...", "output": {"recommendation": "This approach covers all the bases...", "context": ["frames it as thorough rather than excessive"]}},
+  {"input": "It’s probably a dumb idea...", "output": {"recommendation": "This idea might push boundaries...", "context": ["positions risk-taking as creative"]}},
+  {"input": "This is just a wild guess...", "output": {"recommendation": "One possibility is...", "context": ["removes randomness and adds intention"]}},
+  {"input": "This may be too early to say...", "output": {"recommendation": "Preliminary thoughts suggest...", "context": ["positions idea in early-stage thinking"]}},
+  {"input": "This might be too much detail...", "output": {"recommendation": "To be precise...", "context": ["presents detail as a strength"]}},
+  {"input": "You can ignore this if it’s not relevant...", "output": {"recommendation": "Use this if it’s helpful...", "context": ["offers value without discrediting the input"]}}
+],
+"Passive Voice": [
+    {"input": "Mistakes were made.", "output": {"recommendation": "We made mistakes.", "context": ["shows accountability and ownership"]}},
+    {"input": "It was decided that...", "output": {"recommendation": "The team decided that...", "context": ["adds clarity on who made the decision"]}},
+    {"input": "The meeting was canceled.", "output": {"recommendation": "Sarah canceled the meeting.", "context": ["specifies who took the action"]}},
+    {"input": "The form has been submitted.", "output": {"recommendation": "I submitted the form.", "context": ["shows initiative and clarity"]}},
+    {"input": "It is expected that...", "output": {"recommendation": "We expect that...", "context": ["clarifies the source of expectation"]}},
+    {"input": "It was assumed that...", "output": {"recommendation": "They assumed that...", "context": ["makes the assumption traceable"]}},
+    {"input": "Changes were implemented.", "output": {"recommendation": "The developers implemented the changes.", "context": ["clarifies who acted"]}},
+    {"input": "The issue has been resolved.", "output": {"recommendation": "Our support team resolved the issue.", "context": ["shows resolution by a responsible party"]}},
+    {"input": "The document was updated.", "output": {"recommendation": "I updated the document.", "context": ["shows responsibility"]}},
+    {"input": "The data was reviewed.", "output": {"recommendation": "The analyst reviewed the data.", "context": ["adds precision and clarity"]}},
+    {"input": "The report will be sent.", "output": {"recommendation": "Alex will send the report.", "context": ["clarifies responsibility"]}},
+    {"input": "Approval was granted.", "output": {"recommendation": "The manager granted approval.", "context": ["specifies the authority involved"]}},
+    {"input": "The system was upgraded.", "output": {"recommendation": "IT upgraded the system.", "context": ["assigns credit or responsibility"]}},
+    {"input": "The problem was identified.", "output": {"recommendation": "We identified the problem.", "context": ["shows initiative and awareness"]}},
+    {"input": "The error has been fixed.", "output": {"recommendation": "The dev team fixed the error.", "context": ["indicates ownership of resolution"]}},
+    {"input": "The message was delivered.", "output": {"recommendation": "John delivered the message.", "context": ["clarifies who took action"]}},
+    {"input": "It has been noted that...", "output": {"recommendation": "We noted that...", "context": ["shows first-person awareness"]}},
+    {"input": "The suggestion was taken.", "output": {"recommendation": "The committee accepted the suggestion.", "context": ["specifies who acted on it"]}},
+    {"input": "The timeline was changed.", "output": {"recommendation": "The project lead changed the timeline.", "context": ["adds clarity to project actions"]}},
+    {"input": "The email was received.", "output": {"recommendation": "I received the email.", "context": ["shows active listening or communication"]}},
+    {"input": "The invitation was accepted.", "output": {"recommendation": "They accepted the invitation.", "context": ["adds clarity to interaction"]}},
+    {"input": "The project was delayed.", "output": {"recommendation": "Vendor delays caused the project to slip.", "context": ["offers reasoning and agency"]}},
+    {"input": "The results were analyzed.", "output": {"recommendation": "The research team analyzed the results.", "context": ["attributes credit and responsibility"]}},
+    {"input": "The plan was executed.", "output": {"recommendation": "Our operations team executed the plan.", "context": ["adds visibility to responsible team"]}},
+    {"input": "The policy was changed.", "output": {"recommendation": "HR changed the policy.", "context": ["makes origin of change clear"]}},
+    {"input": "Feedback was provided.", "output": {"recommendation": "Maria provided the feedback.", "context": ["specifies contributor"]}},
+    {"input": "The task was completed.", "output": {"recommendation": "I completed the task.", "context": ["shows ownership of the work"]}},
+    {"input": "The test was passed.", "output": {"recommendation": "The students passed the test.", "context": ["indicates the performer"]}},
+    {"input": "The warning was issued.", "output": {"recommendation": "The safety officer issued the warning.", "context": ["clarifies who raised the concern"]}},
+    {"input": "The proposal was accepted.", "output": {"recommendation": "The board accepted the proposal.", "context": ["adds agency and finality"]}},
+    {"input": "The action was taken.", "output": {"recommendation": "The manager took action.", "context": ["shows leadership and initiative"]}},
+    {"input": "It has been concluded that...", "output": {"recommendation": "We concluded that...", "context": ["direct and clear ownership of insights"]}},
+    {"input": "The process was followed.", "output": {"recommendation": "The team followed the process.", "context": ["indicates compliance by someone"]}},
+    {"input": "The system was designed to...", "output": {"recommendation": "Our engineers designed the system to...", "context": ["credits creators or originators"]}},
+    {"input": "The document was shared.", "output": {"recommendation": "Lisa shared the document.", "context": ["adds clarity and action"]}},
+    {"input": "The deadline was extended.", "output": {"recommendation": "Management extended the deadline.", "context": ["shows decision-making authority"]}},
+    {"input": "The code was deployed.", "output": {"recommendation": "The devops team deployed the code.", "context": ["indicates technical ownership"]}},
+    {"input": "The account was created.", "output": {"recommendation": "I created the account.", "context": ["shows user action"]}},
+    {"input": "The application was submitted.", "output": {"recommendation": "The candidate submitted the application.", "context": ["clearly identifies actor"]}},
+    {"input": "The meeting was rescheduled.", "output": {"recommendation": "Julie rescheduled the meeting.", "context": ["clarifies decision and action"]}},
+    {"input": "The product was delivered.", "output": {"recommendation": "The supplier delivered the product.", "context": ["adds clarity and source"]}},
+    {"input": "The request was approved.", "output": {"recommendation": "The director approved the request.", "context": ["shows hierarchy and authority"]}},
+    {"input": "The server was restarted.", "output": {"recommendation": "The admin restarted the server.", "context": ["shows direct action"]}},
+    {"input": "The client was contacted.", "output": {"recommendation": "Our team contacted the client.", "context": ["shows proactive communication"]}},
+    {"input": "The strategy was implemented.", "output": {"recommendation": "Leadership implemented the strategy.", "context": ["adds agency and vision"]}},
+    {"input": "The issue will be addressed.", "output": {"recommendation": "We will address the issue.", "context": ["demonstrates commitment"]}},
+    {"input": "The invoice was paid.", "output": {"recommendation": "The finance team paid the invoice.", "context": ["clarifies responsible party"]}},
+    {"input": "The decision was made.", "output": {"recommendation": "The team made the decision.", "context": ["adds transparency"]}},
+    {"input": "The feedback was taken into account.", "output": {"recommendation": "We considered the feedback.", "context": ["shows active engagement"]}},
+    {"input": "The service was discontinued.", "output": {"recommendation": "The company discontinued the service.", "context": ["adds authority and ownership"]}}
+],
+"Discouraging Language":
+[
+    {"input": "That's not your area of expertise.", "output": {"recommendation": "Let's collaborate with your strengths in mind.", "context": ["encourages cross-functional contribution without exclusion"]}},
+    {"input": "Let's stick to what we know.", "output": {"recommendation": "Let’s explore new ideas alongside what’s worked before.", "context": ["welcomes innovation without dismissing proven methods"]}},
+    {"input": "That's a bit too ambitious.", "output": {"recommendation": "That's a bold goal—how can we make it achievable?", "context": ["reframes ambition as positive and actionable"]}},
+    {"input": "Are you sure about that?", "output": {"recommendation": "What led you to that conclusion?", "context": ["invites reasoning rather than casting doubt"]}},
+    {"input": "That's not a priority right now.", "output": {"recommendation": "Let’s revisit this at the right time to give it focus.", "context": ["acknowledges timing without dismissing value"]}},
+    {"input": "Just do what you're told.", "output": {"recommendation": "Here’s the direction—let me know if you see improvements.", "context": ["invites ownership while setting expectations"]}},
+    {"input": "Don't rock the boat.", "output": {"recommendation": "Let’s challenge the process where it helps us grow.", "context": ["encourages constructive questioning"]}},
+    {"input": "That's not how things are done around here.", "output": {"recommendation": "That’s a new approach—let’s see how it compares.", "context": ["opens room for evolution of norms"]}},
+    {"input": "You're overcomplicating things.", "output": {"recommendation": "Let’s simplify while keeping the important details.", "context": ["balances thoroughness with clarity"]}},
+    {"input": "It's fine, don't worry about it", "output": {"recommendation": "Let’s look into that together if it's concerning.", "context": ["validates concern rather than brushing it off"]}},
+    {"input": "Let's move on.", "output": {"recommendation": "Let’s capture that thought and revisit if needed.", "context": ["acknowledges input even when shifting focus"]}},
+    {"input": "Anyone could do that.", "output": {"recommendation": "Your contribution made a real difference here.", "context": ["recognizes individual effort"]}},
+    {"input": "It's not rocket science.", "output": {"recommendation": "You’re learning quickly—great job building those skills.", "context": ["acknowledges growth rather than trivializing"]}},
+    {"input": "You're lucky to still have a job here.", "output": {"recommendation": "Let’s work together on ways to improve and thrive.", "context": ["focuses on support, not threat"]}},
+    {"input": "This is basic stuff.", "output": {"recommendation": "Let’s build on these fundamentals as we grow.", "context": ["treats all learning as valuable"]}},
+    {"input": "Maybe this isn't the right role for you.", "output": {"recommendation": "Let’s look at how your strengths align with this role.", "context": ["guides development rather than excluding"]}},
+    {"input": "You always make mistakes.", "output": {"recommendation": "We all have areas to improve—let’s focus on this one together.", "context": ["normalizes growth and learning"]}},
+    {"input": "That's a rookie mistake.", "output": {"recommendation": "This is a great opportunity to learn something new.", "context": ["frames error as developmental"]}},
+    {"input": "Are you even listening?", "output": {"recommendation": "Let’s check in—what are your thoughts so far?", "context": ["invites engagement rather than criticism"]}},
+    {"input": "I'll just do it myself.", "output": {"recommendation": "How about we work through it together this time?", "context": ["encourages collaboration and learning"]}},
+    {"input": "Don't you understand?", "output": {"recommendation": "Let me know if anything is unclear—we’ll sort it out.", "context": ["invites clarification without judgment"]}},
+    {"input": "It's probably too difficult for you.", "output": {"recommendation": "This might be a stretch goal—want to give it a try?", "context": ["supports challenge with encouragement"]}},
+    {"input": "That's the bare minimum.", "output": {"recommendation": "Nice work—let’s keep building from here.", "context": ["encourages further growth without dismissing effort"]}},
+    {"input": "It's about time you finished that.", "output": {"recommendation": "Thanks for sticking with it and getting it done.", "context": ["appreciates completion over criticism"]}},
+    {"input": "So, what's the big deal?", "output": {"recommendation": "That seems important—want to tell me more?", "context": ["opens dialogue instead of diminishing"]}},
+    {"input": "That's not really an accomplishment.", "output": {"recommendation": "Every step counts—this is part of the bigger picture.", "context": ["values small wins"]}},
+    {"input": "You got lucky.", "output": {"recommendation": "Nice outcome—you put yourself in a position to succeed.", "context": ["attributes success to effort"]}},
+    {"input": "It was a team effort.", "output": {"recommendation": "Your role in the team’s success really stood out.", "context": ["acknowledges individual contribution within teamwork"]}},
+    {"input": "Don't get too excited.", "output": {"recommendation": "Celebrate that win—you earned it.", "context": ["supports positive morale"]}},
+    {"input": "It's just part of your job.", "output": {"recommendation": "Great follow-through on that responsibility.", "context": ["affirms doing the job well"]}},
+    {"input": "We all have to do things we don't like.", "output": {"recommendation": "Let’s see how we can make this task more manageable.", "context": ["shows empathy and support"]}},
+    {"input": "It could have been better.", "output": {"recommendation": "This was a solid start—let’s refine it further.", "context": ["acknowledges progress while motivating improvement"]}},
+    {"input": "Nobody cares about that.", "output": {"recommendation": "That matters—thanks for raising it.", "context": ["validates contribution and curiosity"]}},
+    {"input": "Don't get your hopes up.", "output": {"recommendation": "Let’s give it our best shot and see what happens.", "context": ["balances realism with optimism"]}},
+    {"input": "It's a waste of time.", "output": {"recommendation": "Let’s evaluate the value before deciding next steps.", "context": ["invites assessment rather than dismissal"]}},
+    {"input": "Good luck with that.", "output": {"recommendation": "Sounds ambitious—how can I support you?", "context": ["offers encouragement and partnership"]}},
+    {"input": "You'll get used to it.", "output": {"recommendation": "Let’s make this experience more positive together.", "context": ["pushes for improvement over resignation"]}},
+    {"input": "Just try to survive.", "output": {"recommendation": "Let’s find ways to thrive, not just survive.", "context": ["moves from coping to growing"]}}
+  ],
+  "Excessive Apologizing":
+  [
+    {
+      "input": "Sorry if this is a stupid question...",
+      "output": {
+        "recommendation": "Here’s a question I’ve been thinking about...",
+        "context": ["removes apology and validates curiosity"]
+      }
+    },
+    {
+      "input": "Sorry for bothering you...",
+      "output": {
+        "recommendation": "When you have a moment, I’d appreciate your input...",
+        "context": ["respects others’ time without self-blame"]
+      }
+    },
+    {
+      "input": "I’m really sorry I’m asking again...",
+      "output": {
+        "recommendation": "Just circling back on this for clarity...",
+        "context": ["frames follow-up as reasonable, not burdensome"]
+      }
+    },
+    {
+      "input": "Sorry, I just thought...",
+      "output": {
+        "recommendation": "I wanted to share a thought...",
+        "context": ["expresses opinion without apology"]
+      }
+    },
+    {
+      "input": "Sorry, I didn’t mean to interrupt...",
+      "output": {
+        "recommendation": "I’d like to add something to the discussion...",
+        "context": ["acknowledges participation without guilt"]
+      }
+    },
+    {
+      "input": "I’m sorry, I should have known that...",
+      "output": {
+        "recommendation": "Thanks for pointing that out — I’ve learned something new.",
+        "context": ["focuses on growth instead of regret"]
+      }
+    },
+    {
+      "input": "Sorry, I’m probably overthinking...",
+      "output": {
+        "recommendation": "I’ve been considering a few angles on this...",
+        "context": ["frames thoughtfulness as a strength"]
+      }
+    },
+    {
+      "input": "Sorry, this might be wrong...",
+      "output": {
+        "recommendation": "Here’s one possibility to consider...",
+        "context": ["removes disclaimer and offers a suggestion"]
+      }
+    },
+    {
+      "input": "Sorry if I’m being too much...",
+      "output": {
+        "recommendation": "I care deeply about this, so I’m engaged...",
+        "context": ["reframes enthusiasm or intensity as commitment"]
+      }
+    },
+    {
+      "input": "I’m sorry, I’m not very good at this...",
+      "output": {
+        "recommendation": "I’m still building my skills here, but here’s what I think...",
+        "context": ["acknowledges learning without self-judgment"]
+      }
+    }
+  ]
+  
+
+}

@@ -1,0 +1,132 @@
+{
+    "Assertive Statements": [
+      {"example": "I will complete the task by Friday.", "context": "Taking ownership of a task and setting a clear deadline."},
+      {"example": "We are implementing the new strategy immediately.", "context": "Demonstrating decisiveness and a sense of urgency."},
+      {"example": "The decision is final, and we are moving forward.", "context": "Conveying certainty and a commitment to action."}
+    ],
+    "Strong Verbs": [
+      {"example": "We will implement the solution immediately.", "context": "Expressing confidence in the ability to act swiftly."},
+      {"example": "The team shall deliver the project on time.", "context": "Conveying a firm commitment and expectation of success."},
+      {"example": "The company must achieve its goals this quarter.", "context": "Emphasizing the importance of achieving objectives."}
+    ],
+    "Ownership Language": [
+      {"example": "I made a mistake, and I will fix it.", "context": "Taking responsibility for errors and showing a commitment to resolving them."},
+      {"example": "We are responsible for the success of this project.", "context": "Acknowledging accountability for the outcome of the project."},
+      {"example": "I take full ownership of this decision.", "context": "Demonstrating accountability and decisiveness."}
+    ],
+    "Specificity": [
+      {"example": "The project will be completed by October 27th.", "context": "Providing a precise completion date."},
+      {"example": "The budget for this initiative is $15,000.", "context": "Specifying a concrete financial commitment."},
+      {"example": "We will increase sales by 15% in Q4.", "context": "Setting a clear and measurable performance goal."}
+    ],
+    "Positive Emotion/Enthusiasm": [
+      {"example": "I'm excited to lead this project!", "context": "Expressing enthusiasm and eagerness to take on a leadership role."},
+      {"example": "We are thrilled to announce our partnership.", "context": "Sharing positive emotions about a new collaboration."},
+      {"example": "This is a fantastic opportunity for growth.", "context": "Highlighting the potential benefits of a situation."}
+    ],
+    "Proactive Language": [
+      {"example": "I recommend we implement this strategy.", "context": "Taking the initiative to suggest a course of action."},
+      {"example": "I suggest we explore this option further.", "context": "Proposing a solution and encouraging further investigation."},
+      {"example": "We should take action immediately to address this issue.", "context": "Emphasizing the need for prompt action."}
+    ],
+    "Direct Requests": [
+      {"example": "Please provide the report by tomorrow.", "context": "Making a clear and concise request with a specific deadline."},
+      {"example": "I need your feedback by the end of the day.", "context": "Requesting input with a defined timeframe."},
+      {"example": "Submit your proposals by next week.", "context": "Setting a clear expectation for submission."}
+    ],
+    "Declarative Questions": [
+      {"example": "What are the next steps for implementing this?", "context": "Shows high competence, as to how this is implemented and where to go"},
+      {"example": "When can we expect a response from the client?", "context": "Is focused on what's happening with the client"},
+      {"example": "How would we go about starting this project?", "context": "A question regarding how to get something done"}
+    ],
+    "Confident Predictions": [
+      {"example": "I see a strong case for what we are about to do, I’m sure we will do an awesome job", "context": "Confident prediction in something and complimenting a team"},
+      {"example": "We're on track to reach our objectives, that’s something I know", "context": "Knows everything is on track, knows the future of company"},
+      {"example": "We're going to come out on top from this, I believe", "context": "Believing that something is coming out on top"}
+    ],
+    "Clear and Concise Language": [
+      {"example": "That is to say", "context": "It clarifies something that could be complex"},
+      {"example": "Put another way", "context": "Phrasing differently for people to understand what's happening"},
+      {"example": "Simply put", "context": "Explaining something in simple way to make things understandable"}
+    ],
+    "Hedging Language": [
+      {"example": "I think this might work.", "context": "Expressing uncertainty about the outcome."},
+      {"example": "It could be a good idea.", "context": "Qualifying the potential value of a suggestion."},
+      {"example": "Maybe we should consider this.", "context": "Expressing a tentative recommendation."}
+    ],
+    "Minimizing Language": [
+      {"example": "It's just a small thing...", "context": "Downplaying the significance of a contribution."},
+      {"example": "I'm not an expert, but...", "context": "Undermining one's own knowledge or skills."},
+      {"example": "This is probably obvious, but...", "context": "Diminishing the value of an observation."}
+    ],
+    "Passive Voice": [
+      {"example": "Mistakes were made.", "context": "Avoiding responsibility for errors."},
+      {"example": "It was decided that...", "context": "Obscuring who made the decision."},
+      {"example": "The project was delayed.", "context": "Avoiding direct mention of the cause of the delay."}
+    ],
+    "Excessive Apologizing": [
+      {"example": "Sorry for bothering you...", "context": "Expressing unnecessary remorse for a simple request."},
+      {"example": "Sorry if this is a stupid question...", "context": "Apologizing in advance for asking a question."},
+      {"example": "I'm really sorry I'm asking again...", "context": "Excessively apologizing for following up on a request."}
+    ],
+    "Tentative Language": [
+      {"example": "I'm not sure, but...", "context": "Expressing uncertainty and lack of conviction."},
+      {"example": "I think that...", "context": "Qualifying a statement with doubt."},
+      {"example": "I believe it could be...", "context": "Using conditional language to avoid commitment."}
+    ],
+    "Qualifying Statements": [
+      {"example": "I sort of agree with that.", "context": "Weakening an agreement with a qualifier."},
+      {"example": "It's kind of interesting...", "context": "Diminishing the level of interest with a qualifier."},
+      {"example": "It's somewhat important.", "context": "Reducing the significance of something with a qualifier."}
+    ],
+    "Downplaying Language": [
+      {"example": "I don’t want to sound stupid, but…", "context": "Is afrain of sounding stupid"},
+      {"example": "This may be trivial, but…", "context": "Something might not be that important"},
+      {"example": "Just my two cents", "context": "Something might not help much"}
+    ],
+    "Discouraging Remarks (Intent)": [
+      {"example": "That's not your area of expertise.", "context": "Attempting to exclude someone from a discussion."},
+      {"example": "Let's stick to what we know.", "context": "Resisting new ideas or approaches."},
+      {"example": "That's a bit too ambitious.", "context": "Dampening enthusiasm and discouraging initiative."}
+    ],
+    "Blaming/Shifting Responsibility (Intent)": [
+      {"example": "It's not my fault; the vendor was late.", "context": "Avoiding responsibility for a delay."},
+      {"example": "I can't be held responsible for that.", "context": "Refusing to accept accountability."},
+      {"example": "That was their decision, not mine.", "context": "Distancing oneself from a negative outcome."}
+    ],
+    "Permission-Seeking Language": [
+      {"example": "If it's okay to suggest...", "context": "Seeking approval before offering an idea."},
+      {"example": "Would it be alright if I...", "context": "Requesting permission to take action."},
+      {"example": "May I offer a suggestion?", "context": "Asking for permission to contribute."}
+    ],
+      "Unnecessary Jargon/Complexity": [
+      {"example": "Let’s leverage our synergies.", "context": "To make something simple appear complex"},
+      {"example": "Let’s think outside of the box", "context": "Suggesting the action of thinking outside of the box"},
+      {"example": "To be quite honest", "context": "Adding unnessary words that bring nothing"}
+    ],
+     "Unclear Instructions": [
+      {"example": "Going forward, we have to get that done at some point.", "context": "Vague timeline and action that doesn't help"},
+      {"example": "It’s very, very doable", "context": "Doesn't explains how it's doable or what needs to happen"},
+      {"example": "We might want to consider this.", "context": "Doesn't know if something should be considered or not, needs advice"}
+    ],
+     "Unclear Explanations": [
+      {"example": "It’s important because of the current environment", "context": "Doesn't explain anything with what's happening"},
+      {"example": "It’s doable if we really wanna get it done", "context": "It's not clear on how something can get done, might not really be possible"},
+      {"example": "Here me out with a new idea", "context": "The new idea has to get to point, has to say if it's doable"}
+    ],
+     "Overgeneralization": [
+      {"example": "Everyone knows this!", "context": "If doesn't know something, then they might feel insecure"},
+      {"example": "We will have to improve something for sure", "context": "No ideas on what to improve"},
+      {"example": "I’m just wondering if it’s possible.", "context": "Afraid of failing"}
+    ],
+     "Lack of Details": [
+      {"example": "We’ll get there in the end", "context": "Nothing clear on how or what to do to get to the end goal"},
+      {"example": "I will find some ways to fix it", "context": "Doesn't clearly explain HOW they'll fix"},
+      {"example": "Hopefully we don’t fall behind.", "context": "Hoping is not enought there are ways of preventing something"}
+    ],
+      "Lack of Follow-Up": [
+      {"example": "Thanks!", "context": "Thanks is ok but it doesn't help"},
+      {"example": "Thanks for telling me!", "context": "Doesn't do anything to improve it, just says thanks"},
+      {"example": "You understand, right?", "context": "Has to get the approval of someone to feel confident, or insecure"}
+    ]
+  }

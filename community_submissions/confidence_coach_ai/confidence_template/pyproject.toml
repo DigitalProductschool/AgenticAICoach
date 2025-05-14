@@ -1,0 +1,31 @@
+[project]
+name = "confidence_coach_ai"
+version = "0.1.0"
+description = "Confidence Coach AI application"
+authors = ["Zeyad ElSharkawy <ziadelsharkawy02@gmail.com>"]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+crewai = "*"
+google-generativeai = "*"
+python-dotenv = "*"
+langchain = "*"
+whisper = "*"
+streamlit = "*"
+requests = "*"
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+fastapi-middleware-cors = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
