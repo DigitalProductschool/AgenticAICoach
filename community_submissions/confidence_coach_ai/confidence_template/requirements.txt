@@ -2,15 +2,12 @@ fastapi==0.115.12
 protobuf==6.31.0
 pytest==8.3.4
 python-dotenv==1.1.0
-crewai = "*"
-google-generativeai = "*"
-python-dotenv = "*"
-langchain = "*"
-whisper = "*"
-streamlit = "*"
-requests = "*"
-fastapi = "*"
-uvicorn = "*"
-pydantic = "*"
-fastapi-middleware-cors = "*"
-whisper = "*"
+crewai  # or crewai==  (if you want any version)
+google-generativeai  # or google-generativeai== (if you want any version)
+langchain
+whisper
+streamlit
+requests
+uvicorn
+pydantic
+fastapi-middleware-cors
