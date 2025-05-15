@@ -5,9 +5,8 @@ python-dotenv
 crewai  # or crewai==  (if you want any version)
 google-generativeai  # or google-generativeai== (if you want any version)
 langchain
-whisper
+openai-whisper
 streamlit
 requests
 uvicorn
 pydantic
-fastapi-middleware-cors
