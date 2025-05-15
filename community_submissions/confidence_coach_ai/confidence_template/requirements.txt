@@ -10,3 +10,5 @@ streamlit
 requests
 uvicorn
 pydantic
+python-multipart
+openai
