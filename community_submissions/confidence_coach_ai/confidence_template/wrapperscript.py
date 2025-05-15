@@ -2,25 +2,27 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+import toml 
+import os
 
-def install_requirements():
-    """Install all packages from requirements.txt"""
-    requirements_file = Path("requirements.txt")
-    if not requirements_file.exists():
-        print("Error: requirements.txt not found!", file=sys.stderr)
-        sys.exit(1)
+def load_secrets():
+    """Load secrets from TOML file and set as environment variables"""
+    secrets_file = Path("secrets.toml")
+    if not secrets_file.exists():
+        print("Warning: secrets.toml not found - using system env vars", file=sys.stderr)
+        return
     
     try:
-        subprocess.run(
-            [sys.executable, "-m", "pip", "install", "-r", "requirements.txt"],
-            check=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        print("Successfully installed all requirements")
-    except subprocess.CalledProcessError as e:
-        print(f"Failed to install requirements:\n{e.stderr}", file=sys.stderr)
+        secrets = toml.load(secrets_file)
+        # Set environment variables
+        os.environ.update({
+            "GEMINI_API_KEY": secrets["api_keys"]["GEMINI_API_KEY"],
+            "MODEL": secrets["model"]["MODEL"],
+            "PROJECT_ID": secrets["project"]["PROJECT_ID"]
+        })
+        print("Successfully loaded secrets")
+    except Exception as e:
+        print(f"Error loading secrets: {str(e)}", file=sys.stderr)
         sys.exit(1)
 
 def run_api():
@@ -50,9 +52,8 @@ def run_streamlit_app():
         print("\nStreamlit app closed by user")
 
 def main():
-    # 1. Install requirements
-    install_requirements()
-    
+    load_secrets()
+
     # 2. Start API
     print("Starting API server...")
     api_process = run_api()
