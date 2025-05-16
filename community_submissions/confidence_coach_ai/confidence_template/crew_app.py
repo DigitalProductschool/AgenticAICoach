@@ -65,8 +65,6 @@ try:
 except:
     st.error("Could not connect to API. Check logs for details.")
 
-# Streamlit UI Config
-st.set_page_config(page_title="Confidence Coach", layout="wide")
 
 def local_css(file_name):
     """Load local CSS with absolute path"""
