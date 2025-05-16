@@ -9,18 +9,24 @@ import tempfile
 import asyncio
 import os
 from crew import ConfidenceCrew
+import sys
+import asyncio
 
-
+if sys.version_info[0] == 3 and sys.version_info[1] >= 8:
+    asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
 
 # Initialize the crew
 crew = ConfidenceCrew()
 
 st.set_page_config(page_title="Confidence Coach", layout="wide")
 
-# Apply custom CSS
 def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    try:
+        path = os.path.join(os.path.dirname(__file__), file_name)
+        with open(path) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.warning(f"CSS file {file_name} not found")
 
 local_css("style.css")
 
