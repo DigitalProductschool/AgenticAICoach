@@ -10,6 +10,7 @@ An AI-powered conversational coach that helps entrepreneurs design and execute l
 - 🤖 **Content & Automation**: Implement AI-driven content creation and marketing automation
 - 📊 **Growth Analytics**: Track key metrics and iterate on strategies
 - 🧠 **Contextual Memory**: The coach remembers your previous conversations and company details
+- 🔄 **Streamlit Integration**: User-friendly chat interface built with Streamlit
 
 ## Installation
 
@@ -58,21 +59,7 @@ SERPER_API_KEY=your_actual_serper_key_here
 
 ### Quick Start
 
-Run both the API server and Streamlit interface with a single command:
-
-```bash
-python run.py
-```
-
-This will:
-1. Start the FastAPI server
-2. Start the Streamlit interface
-3. Open your browser to the chat interface
-4. Handle graceful shutdown with Ctrl+C
-
-### Manual Start
-
-If you prefer to start the components separately:
+Start the components separately:
 
 #### API Server
 
@@ -106,6 +93,28 @@ The Streamlit interface provides a user-friendly chat experience:
 ### API Endpoint
 
 - **POST /query**: Send a message to the Growth Hacking Coach
+
+#### API Request Format
+
+The API accepts a JSON payload with the following structure:
+
+```json
+{
+  "message": "Your question or message here",
+  "conversation_history": [
+    {
+      "role": "user",
+      "content": "Previous user message"
+    },
+    {
+      "role": "assistant",
+      "content": "Previous assistant response"
+    }
+  ]
+}
+```
+
+The `conversation_history` field is optional and allows you to provide context from previous interactions.
 
 ### Example API Request
 
@@ -143,9 +152,37 @@ The system follows a conversational flow where:
 3. The Lead Coach synthesizes this input into a cohesive, conversational response
 4. If more information is needed, the Lead Coach will ask follow-up questions
 
+## Development
+
+### Poetry Lock File
+
+This project includes a `poetry.lock` file that locks all dependencies to specific versions, ensuring consistent installations across different environments. If you make changes to the `pyproject.toml` file, update the lock file by running:
+
+```bash
+poetry lock
+```
+
+### Testing
+
+The project includes a test suite to ensure functionality works as expected:
+
+```bash
+# Run all tests
+python -m pytest tests/
+
+# Run specific test file
+python -m pytest tests/test_api.py
+```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 

@@ -2,7 +2,7 @@
 name = "growth_hacking_coach"
 version = "0.1.0"
 description = "AI Growth Hacking & Viral Marketing Coach using CrewAI"
-authors = ["Your Name <your.email@example.com>"]
+authors = ["Ansuman <ansuman00edu@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
