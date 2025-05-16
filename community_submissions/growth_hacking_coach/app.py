@@ -208,7 +208,7 @@ def query_growth_coach(message: str) -> str:
     try:
         # Send the request to the API with conversation history
         response = requests.post(
-            "http://127.0.0.1:8000/query",
+            "https://agenticaicoach-atbf.onrender.com/query",
             json={
                 "message": message,
                 "conversation_history": conversation_history  # Include full conversation history
