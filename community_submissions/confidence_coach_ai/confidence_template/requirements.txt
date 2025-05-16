@@ -12,3 +12,6 @@ uvicorn
 pydantic
 python-multipart
 openai
+crewai
+pysqlite3-binary>=0.5.0
+chromadb>=0.4.0
