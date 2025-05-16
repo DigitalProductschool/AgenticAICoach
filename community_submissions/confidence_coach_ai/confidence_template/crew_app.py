@@ -212,5 +212,4 @@ def main():
                 st.warning("Please start your sentence with 'I feel...'")
 
 if __name__ == "__main__":
-    run_api()
     main()
