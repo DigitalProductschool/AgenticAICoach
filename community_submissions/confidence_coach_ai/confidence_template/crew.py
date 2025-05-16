@@ -4,12 +4,26 @@ from agents.corrector import ConfidenceCorrectorAgent
 from agents.rater import ConfidenceRaterAgent
 from agents.transcriber import TranscriberAgent
 import asyncio
+import os
 
 # Define training file paths
-RATER_TRAINING_FILE = 'training/rater_examples.json'
-RATING_TABLE_FILE = 'training/rating_table.txt'
-ADVICE_TRAINING_FILE = 'training/advice_examples.json'
-CORRECTOR_TRAINING_FILE = 'training/corrector_examples.json'
+
+
+
+
+
+# Get the directory containing the current script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_absolute_path(relative_path):
+    """Convert relative paths to absolute paths"""
+    return os.path.join(BASE_DIR, relative_path)
+
+ADVICE_TRAINING_FILE = get_absolute_path("training/advice_examples.json")
+RATER_TRAINING_FILE = get_absolute_path("training/rater_examples.json")
+RATING_TABLE_FILE = get_absolute_path("training/rating_table.txt")
+CORRECTOR_TRAINING_FILE = get_absolute_path("training/corrector_examples.json")
+
 
 class ConfidenceCrew:
     def __init__(self):

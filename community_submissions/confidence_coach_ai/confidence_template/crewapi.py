@@ -52,10 +52,15 @@ def get_analysis_by_id(analysis_id: str, filepath: str = "analysis_history.json"
         logger.error("Error decoding JSON. Returning None.")
         return None
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+def get_absolute_path(relative_path):
+    """Convert relative paths to absolute paths"""
+    return os.path.join(BASE_DIR, relative_path)
+
 # File paths for storage
-ANALYSIS_HISTORY_FILE = "data/analysis_history.json"
-RATING_HISTORY_FILE = "data/rating_history.json"
-REFINEMENT_HISTORY_FILE = "data/refinement_history.json"
+ANALYSIS_HISTORY_FILE = get_absolute_path("data/analysis_history.json")
+RATING_HISTORY_FILE = get_absolute_path("data/rating_history.json")
+REFINEMENT_HISTORY_FILE = get_absolute_path("data/refinement_history.json")
 
 # Ensure data directory exists
 os.makedirs("data", exist_ok=True)

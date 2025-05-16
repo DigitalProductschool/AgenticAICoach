@@ -18,6 +18,15 @@ if sys.version_info[0] == 3 and sys.version_info[1] >= 8:
 # Initialize the crew
 crew = ConfidenceCrew()
 
+# Get the directory containing the current script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_absolute_path(relative_path):
+    """Convert relative paths to absolute paths"""
+    return os.path.join(BASE_DIR, relative_path)
+
+
+
 st.set_page_config(page_title="Confidence Coach", layout="wide")
 
 def local_css(file_name):
@@ -29,6 +38,35 @@ def local_css(file_name):
         st.warning(f"CSS file {file_name} not found")
 
 local_css("style.css")
+
+import subprocess
+import atexit
+import time
+
+# API Management
+API_PROCESS = None
+API_PORT = 8000
+
+def start_api():
+    """Launch the API in a background process"""
+    global API_PROCESS
+    if API_PROCESS is None:
+        API_PROCESS = subprocess.Popen(
+            [sys.executable, get_absolute_path("crewapi.py")],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        time.sleep(5)  # Wait for API to start
+        atexit.register(stop_api)
+
+def stop_api():
+    """Cleanup API process"""
+    if API_PROCESS:
+        API_PROCESS.terminate()
+        API_PROCESS.wait()
+
+# Start API when Streamlit launches
+start_api()
 
 # Configuration
 USER_ID = str(uuid.uuid4())  # Generate a unique user ID for the session
