@@ -30,7 +30,7 @@ def run_api():
     try:
         # Using Popen so we can terminate it later
         return subprocess.Popen(
-            [sys.executable, "crewapi.py"],
+            [sys.executable, "community_submissions/confidence_coach_ai/confidence_template/crewapi.py"],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
@@ -43,7 +43,7 @@ def run_streamlit_app():
     """Run the Streamlit application"""
     try:
         subprocess.run(
-            [sys.executable, "-m", "streamlit", "run", "crew_app.py"],
+            [sys.executable, "-m", "streamlit", "run", "community_submissions/confidence_coach_ai/confidence_template/crew_app.py"],
             check=True
         )
     except subprocess.CalledProcessError as e:
