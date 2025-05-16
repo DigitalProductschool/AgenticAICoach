@@ -1,72 +1,85 @@
+# Fix SQLite first (must be absolute first lines)
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+# Then fix asyncio event loop before other imports
+import asyncio
+import os
+if sys.version_info[0] == 3 and sys.version_info[1] >= 8:
+    if sys.platform == "win32":
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    else:
+        asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+
+# Now import other packages
 import streamlit as st
 import requests
 import uuid
 import tempfile
-import asyncio
-import os
 from crew import ConfidenceCrew
-import sys
-import asyncio
-
-if sys.version_info[0] == 3 and sys.version_info[1] >= 8:
-    asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+import subprocess
+import atexit
+import time
+from threading import Thread
 
 # Initialize the crew
 crew = ConfidenceCrew()
 
-# Get the directory containing the current script
+# Get absolute paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 def get_absolute_path(relative_path):
-    """Convert relative paths to absolute paths"""
     return os.path.join(BASE_DIR, relative_path)
 
-
-
-st.set_page_config(page_title="Confidence Coach", layout="wide")
-
-def local_css(file_name):
-    try:
-        path = os.path.join(os.path.dirname(__file__), file_name)
-        with open(path) as f:
-            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.warning(f"CSS file {file_name} not found")
-
-local_css("style.css")
-
-import subprocess
-import atexit
-import time
-
-# API Management
-API_PROCESS = None
+# API Configuration
 API_PORT = 8000
+API_URL = f"http://localhost:{API_PORT}"
+API_PROCESS = None
 
-def start_api():
-    """Launch the API in a background process"""
+def run_api():
+    """Run the API in a separate thread"""
     global API_PROCESS
-    if API_PROCESS is None:
-        API_PROCESS = subprocess.Popen(
-            [sys.executable, get_absolute_path("crewapi.py")],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE
-        )
-        time.sleep(5)  # Wait for API to start
-        atexit.register(stop_api)
+    API_PROCESS = subprocess.Popen(
+        [sys.executable, get_absolute_path("crewapi.py")],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
+    atexit.register(stop_api)
 
 def stop_api():
-    """Cleanup API process"""
+    """Stop the API process"""
     if API_PROCESS:
         API_PROCESS.terminate()
         API_PROCESS.wait()
 
-# Start API when Streamlit launches
-start_api()
+# Start API in background thread
+api_thread = Thread(target=run_api, daemon=True)
+api_thread.start()
+time.sleep(5)  # Give API time to start
+
+# Verify API is running
+try:
+    response = requests.get(f"{API_URL}/health", timeout=5)
+    if response.status_code != 200:
+        st.error("API failed to start properly")
+except:
+    st.error("Could not connect to API. Check logs for details.")
+
+# Streamlit UI Config
+st.set_page_config(page_title="Confidence Coach", layout="wide")
+
+def local_css(file_name):
+    """Load local CSS with absolute path"""
+    try:
+        path = get_absolute_path(file_name)
+        with open(path) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.warning(f"CSS file {path} not found")
+
+local_css("style.css")
+
+
 
 # Configuration
 USER_ID = str(uuid.uuid4())  # Generate a unique user ID for the session
@@ -201,4 +214,5 @@ def main():
                 st.warning("Please start your sentence with 'I feel...'")
 
 if __name__ == "__main__":
+    run_api()
     main()

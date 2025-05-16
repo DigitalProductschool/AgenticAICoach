@@ -84,6 +84,13 @@ def _get_timestamp() -> str:
     return datetime.now().isoformat()
 
 # API Endpoints
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for API monitoring"""
+    return {"status": "healthy", "timestamp": _get_timestamp()}
+
+
+
 @app.post("/analyze")
 async def analyze_text(request: TextAnalysisRequest):
     """Analyze text for confidence-related insights"""
