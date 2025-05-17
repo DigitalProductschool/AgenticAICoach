@@ -1,46 +1,16 @@
-# 1. Event loop fixes - MUST BE FIRST
-import asyncio
+# Fix SQLite first (must be absolute first lines)
+__import__('pysqlite3')
 import sys
-import os
-
-if sys.platform == "win32":
-    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
-else:
-    asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
-
-# 2. API Process Management
-import subprocess
-from threading import Thread
-import time
-import atexit
-
-API_PORT = 8000
-API_URL = f"http://localhost:{API_PORT}"
-API_PROCESS = None
-
-def start_api():
-    global API_PROCESS
-    try:
-        API_PROCESS = subprocess.Popen(
-            [sys.executable, "crewapi.py"],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            env=os.environ
-        )
-        atexit.register(stop_api)
-        time.sleep(3)  # Give API time to start
-    except Exception as e:
-        print(f"Failed to start API: {e}")
-
-def stop_api():
-    if API_PROCESS:
-        API_PROCESS.terminate()
-        API_PROCESS.wait()
-
-# Start API in background
-api_thread = Thread(target=start_api, daemon=True)
-api_thread.start()
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# Then fix asyncio event loop before other imports
+import asyncio
+import os
+if sys.version_info[0] == 3 and sys.version_info[1] >= 8:
+    if sys.platform == "win32":
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    else:
+        asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
 
 # Now import other packages
 import streamlit as st
@@ -61,6 +31,40 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def get_absolute_path(relative_path):
     return os.path.join(BASE_DIR, relative_path)
 
+# API Configuration
+API_PORT = 8000
+API_URL = f"http://localhost:{API_PORT}"
+API_PROCESS = None
+
+def run_api():
+    """Run the API in a separate thread"""
+    global API_PROCESS
+    API_PROCESS = subprocess.Popen(
+        [sys.executable, get_absolute_path("crewapi.py")],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
+    atexit.register(stop_api)
+
+def stop_api():
+    """Stop the API process"""
+    if API_PROCESS:
+        API_PROCESS.terminate()
+        API_PROCESS.wait()
+
+# Start API in background thread
+api_thread = Thread(target=run_api, daemon=True)
+api_thread.start()
+time.sleep(5)  # Give API time to start
+
+# Verify API is running
+try:
+    response = requests.get(f"{API_URL}/health", timeout=5)
+    if response.status_code != 200:
+        st.error("API failed to start properly")
+except:
+    st.error("Could not connect to API. Check logs for details.")
+
 
 def local_css(file_name):
     """Load local CSS with absolute path"""
@@ -77,7 +81,9 @@ local_css("style.css")
 
 # Configuration
 USER_ID = str(uuid.uuid4())  # Generate a unique user ID for the session
+API_URL = "http://localhost:8000"
 
+# Define the async functions outside of main
 async def analyze_text(text):
     """Calls the analyze API analyze text"""
     try:
@@ -141,7 +147,9 @@ def main():
         if st.button("Analyze Text", key="analyze_text"):
             if text_input.strip():
                 with st.spinner("Analyzing your text..."):
-                    result = asyncio.run(analyze_text(text_input))
+                    # Use asyncio.get_event_loop().run_until_complete instead of asyncio.run
+                    loop = asyncio.get_event_loop()
+                    result = loop.run_until_complete(analyze_text(text_input))
                     if result:
                         st.success("Analysis Complete!")
                         col1, col2 = st.columns(2)
@@ -168,7 +176,9 @@ def main():
 
             if st.button("Transcribe and Analyze", key="analyze_upload"):
                 with st.spinner("Processing your audio..."):
-                    result = asyncio.run(transcribe_and_analyze(tmp_path))
+                    # Use asyncio.get_event_loop().run_until_complete instead of asyncio.run
+                    loop = asyncio.get_event_loop()
+                    result = loop.run_until_complete(transcribe_and_analyze(tmp_path))
                     if result:
                         st.success("Analysis Complete!")
                         st.subheader("Transcription:")
@@ -199,7 +209,9 @@ def main():
         if st.button("Get Emotional Advice"):
             if feeling_text.strip().lower().startswith("i feel"):
                 with st.spinner("Analyzing your feelings..."):
-                    advice = asyncio.run(get_emotional_advice(feeling_text))
+                    # Use asyncio.get_event_loop().run_until_complete instead of asyncio.run
+                    loop = asyncio.get_event_loop()
+                    advice = loop.run_until_complete(get_emotional_advice(feeling_text))
                     if advice:
                         st.success("Here's some advice for you:")
                         st.write(advice.get("advice", "No advice available"))
