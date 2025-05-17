@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Define the audio file path
-AUDIO_FILE = 'testaudio.mp3'  # Make sure this file exists
+AUDIO_FILE = 'D:\DPS-Germany\AgenticAICoach\community_submissions\confidence_coach_ai\confidence_template\\testaudio.mp3'  # Make sure this file exists
 
 # Initialize the TranscriberAgent
 transcriber_agent = TranscriberAgent()

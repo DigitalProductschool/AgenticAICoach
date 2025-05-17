@@ -8,10 +8,13 @@ from datetime import datetime
 from typing import List, Dict, Any, Optional
 import uuid
 import logging
+import argparse  # Import argparse
+import uvicorn
 
 app = FastAPI()
 
 # Configure CORS
+origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -277,12 +280,17 @@ async def get_emotional_advice(request: TextAnalysisRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if not set
-    uvicorn.run(
+def run_server():
+    port = int(os.environ.get("PORT", 8000))
+    config = uvicorn.Config(
         app,
-        host="0.0.0.0",  # Critical for Streamlit Cloud
+        host="0.0.0.0",
         port=port,
+        log_level="info",
+        access_log=True
     )
+    server = uvicorn.Server(config)
+    server.run()
 
+if __name__ == "__main__":
+    run_server()

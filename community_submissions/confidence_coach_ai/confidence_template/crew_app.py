@@ -33,7 +33,7 @@ def get_absolute_path(relative_path):
 
 # API Configuration
 API_PORT = 8000
-API_URL = f"http://localhost:{API_PORT}"
+API_URL = f"https://ai-confidence-coach-6310b99177bf.herokuapp.com/"
 API_PROCESS = None
 
 def run_api():
