@@ -40,6 +40,7 @@ class TestGrowthHackingCrew(unittest.TestCase):
         self.assertIsNotNone(crew.viral_mechanics_designer())
         self.assertIsNotNone(crew.content_automation_guru())
         self.assertIsNotNone(crew.growth_analytics_expert())
+        self.assertIsNotNone(crew.conversion_funnel_optimizer())
 
         # Test that the task is created
         self.assertIsNotNone(crew.synthesize_response_task())
@@ -51,7 +52,7 @@ class TestGrowthHackingCrew(unittest.TestCase):
         # Verify that the crew was created with the correct agents and tasks
         mock_crew.assert_called_once()
         args, kwargs = mock_crew.call_args
-        self.assertEqual(len(kwargs['agents']), 4)  # 4 specialist agents
+        self.assertEqual(len(kwargs['agents']), 5)  # 5 specialist agents (including conversion_funnel_optimizer)
         self.assertEqual(len(kwargs['tasks']), 1)   # 1 task
         self.assertEqual(kwargs['manager_agent'], mock_agent_instance)  # Lead coach as manager
         self.assertEqual(kwargs['process'], 'sequential')
