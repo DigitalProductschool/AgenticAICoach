@@ -269,7 +269,7 @@ if prompt:
     # Get response from API
     with chat_container:
         with st.chat_message("assistant", avatar="🚀"):
-            with st.spinner("Generating growth hacking insights..."):
+            with st.spinner("thinking 🧠"):
                 try:
                     response = query_growth_coach(prompt)
                     st.markdown(response)

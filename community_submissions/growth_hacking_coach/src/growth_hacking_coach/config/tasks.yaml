@@ -1,23 +1,18 @@
 
 synthesize_response_task:
   description: >
-    Synthesize specialist input into a cohesive, conversational response for the user.
-
     User Message: {user_message}
 
     Conversation History:
     {conversation_history}
 
-    Ask clarifying questions to the user [short and to the point]. One question at a time.
-    If you think you have enough information, then provide a response directly or delegate the task to the specialist agent if needed.
-    Asking too many questions will overwhelm the user.
-    Make sure to maintain context from the conversation history when responding.
-    If this is a follow-up question, refer to previous information shared by the user.
-    Use replier agent to produce final response from the crew to show the user.
-
-
+    AI Growth Hacking & Viral Marketing Coach to help AI entrepreneurs design and execute low-cost, high-impact growth strategies for acquiring users, generating buzz, and scaling their startups efficiently. 
   expected_output: >
-    A conversational, actionable response that synthesizes expert advice in an engaging way. Be informal and friendly while asking questions. Ensure continuity with previous messages if this is part of an ongoing conversation. 
+    Guide users through the process of testing and scaling growth strategies.
+    Provide insights into viral marketing tactics and referral mechanisms.
+    Offer data-driven feedback on conversion and engagement metrics.
+    Support iterative improvement by allowing users to resubmit strategies for feedback.
+    Maintain an engaging, results-driven coaching style.
   agent: lead_growth_coach
 
 

@@ -23,7 +23,7 @@ class GrowthHackingCrew():
             memory=True,
             llm=LLM(
                 model="gemini/gemini-2.5-flash-preview-04-17",
-                temperature=0.5,
+                temperature=0.0,
             ),
             allow_delegation=True
         )
@@ -38,7 +38,7 @@ class GrowthHackingCrew():
             memory=True,
             llm=LLM(
                 model="gemini/gemini-2.0-flash",
-                temperature=0.2,
+                temperature=0.0,
             ),
             allow_delegation=False
         )
@@ -53,7 +53,7 @@ class GrowthHackingCrew():
             memory=True,
             llm=LLM(
                 model="gemini/gemini-2.0-flash",
-                temperature=0.2,
+                temperature=0.0,
             ),
             allow_delegation=False
         )
@@ -68,7 +68,7 @@ class GrowthHackingCrew():
             memory=True,
             llm=LLM(
                 model="gemini/gemini-2.0-flash",
-                temperature=0.2,
+                temperature=0.0,
             ),
             allow_delegation=False
         )
@@ -83,7 +83,22 @@ class GrowthHackingCrew():
             memory=True,
             llm=LLM(
                 model="gemini/gemini-2.0-flash",
-                temperature=0.2,
+                temperature=0.0,
+            ),
+            allow_delegation=False
+        )
+    
+    @agent
+    def conversion_funnel_optimizer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['conversion_funnel_optimizer'],
+            tools=[self.search_tool],
+            max_iter= 1,
+            verbose=True,
+            memory=True,
+            llm=LLM(
+                model="gemini/gemini-2.0-flash",
+                temperature=0.0,
             ),
             allow_delegation=False
         )
@@ -105,11 +120,13 @@ class GrowthHackingCrew():
                 self.channel_specialist(),
                 self.viral_mechanics_designer(),
                 self.growth_analytics_expert(),
+                self.conversion_funnel_optimizer(),
+                
             ],
             tasks=[
                 self.tasks_config['synthesize_response_task']
             ],
-            manager_agent=self.lead_growth_coach(),      
+            manager_agent=self.lead_growth_coach(),
             process=Process.sequential,
             verbose=True,
         )
