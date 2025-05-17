@@ -57,6 +57,13 @@ SERPER_API_KEY=your_actual_serper_key_here
 
 ## Usage
 
+### Live Demo
+
+You can try the Growth Hacking Coach without any installation:
+
+- **Frontend (Streamlit UI)**: [https://agenticaicoach-growth-hacking-coach.streamlit.app/](https://agenticaicoach-growth-hacking-coach.streamlit.app/)
+- **Backend API**: [https://agenticaicoach-atbf.onrender.com](https://agenticaicoach-atbf.onrender.com)
+
 ### Quick Start
 
 Start the components separately:
