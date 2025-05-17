@@ -279,5 +279,10 @@ async def get_emotional_advice(request: TextAnalysisRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if not set
+    uvicorn.run(
+        app,
+        host="0.0.0.0",  # Critical for Streamlit Cloud
+        port=port,
+    )
 
