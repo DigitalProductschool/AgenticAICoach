@@ -14,4 +14,3 @@ crewai
 requests>=2.31.0
 tenacity>=8.2.3
 google-cloud-speech
-sqlite3 >= 3.35.0
