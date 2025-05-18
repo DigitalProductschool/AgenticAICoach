@@ -3,12 +3,6 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-# Install any dependencies (if needed - Poetry should handle this, but it's a good safety net)
-# pip install -r requirements.txt  # If you have a requirements.txt file
-
-# Activate the virtual environment (if you're using one - Poetry should handle this)
-# source .venv/bin/activate  # Adjust path if needed
-
 # Set the port for the API server (Heroku provides this in an environment variable)
 export PORT="${PORT:-8000}"  # Default to 8000 if PORT is not set
 

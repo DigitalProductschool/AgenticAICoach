@@ -1,18 +1,6 @@
-# Fix SQLite first (must be absolute first lines)
-__import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
-# Then fix asyncio event loop before other imports
 import asyncio
 import os
-if sys.version_info[0] == 3 and sys.version_info[1] >= 8:
-    if sys.platform == "win32":
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    else:
-        asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
-
-# Now import other packages
 import streamlit as st
 import requests
 import uuid
@@ -62,8 +50,10 @@ try:
     response = requests.get(f"{API_URL}/health", timeout=5)
     if response.status_code != 200:
         st.error("API failed to start properly")
-except:
-    st.error("Could not connect to API. Check logs for details.")
+    else:
+        print("API is running successfully!") #Added for debugging
+except Exception as e:
+    st.error(f"Could not connect to API. Check logs for details. Error: {e}")
 
 
 def local_css(file_name):
@@ -77,15 +67,12 @@ def local_css(file_name):
 
 local_css("style.css")
 
-
-
 # Configuration
 USER_ID = str(uuid.uuid4())  # Generate a unique user ID for the session
-API_URL = "http://localhost:8000"
 
 # Define the async functions outside of main
 async def analyze_text(text):
-    """Calls the analyze API analyze text"""
+    """Calls the analyze API to analyze text"""
     try:
         response = requests.post(f"{API_URL}/analyze", json={"text": text})
         response.raise_for_status()
@@ -96,7 +83,6 @@ async def analyze_text(text):
     except Exception as e:
         st.error(f"Analysis Error: {str(e)}")
         return None
-
 
 async def transcribe_and_analyze(audio_path):
     """Transcribe locally, then send transcript to backend for analysis"""
@@ -110,7 +96,6 @@ async def transcribe_and_analyze(audio_path):
         st.error(f"Processing Error: {str(e)}")
         return None
 
-
 async def get_emotional_advice(text):
     """Calls emotional advice API"""
     try:
@@ -123,7 +108,6 @@ async def get_emotional_advice(text):
     except Exception as e:
         st.error(f"Advice Error: {str(e)}")
         return None
-
 
 # Streamlit UI
 def main():
@@ -147,9 +131,8 @@ def main():
         if st.button("Analyze Text", key="analyze_text"):
             if text_input.strip():
                 with st.spinner("Analyzing your text..."):
-                    # Use asyncio.get_event_loop().run_until_complete instead of asyncio.run
-                    loop = asyncio.get_event_loop()
-                    result = loop.run_until_complete(analyze_text(text_input))
+                    # Use asyncio.run() instead
+                    result = asyncio.run(analyze_text(text_input))
                     if result:
                         st.success("Analysis Complete!")
                         col1, col2 = st.columns(2)
@@ -176,9 +159,8 @@ def main():
 
             if st.button("Transcribe and Analyze", key="analyze_upload"):
                 with st.spinner("Processing your audio..."):
-                    # Use asyncio.get_event_loop().run_until_complete instead of asyncio.run
-                    loop = asyncio.get_event_loop()
-                    result = loop.run_until_complete(transcribe_and_analyze(tmp_path))
+                    # Use asyncio.run() instead
+                    result = asyncio.run(transcribe_and_analyze(tmp_path))
                     if result:
                         st.success("Analysis Complete!")
                         st.subheader("Transcription:")
@@ -209,9 +191,8 @@ def main():
         if st.button("Get Emotional Advice"):
             if feeling_text.strip().lower().startswith("i feel"):
                 with st.spinner("Analyzing your feelings..."):
-                    # Use asyncio.get_event_loop().run_until_complete instead of asyncio.run
-                    loop = asyncio.get_event_loop()
-                    advice = loop.run_until_complete(get_emotional_advice(feeling_text))
+                    # Use asyncio.run() instead
+                    advice = asyncio.run(get_emotional_advice(feeling_text))
                     if advice:
                         st.success("Here's some advice for you:")
                         st.write(advice.get("advice", "No advice available"))

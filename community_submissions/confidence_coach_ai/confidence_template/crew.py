@@ -6,12 +6,6 @@ from agents.transcriber import TranscriberAgent
 import asyncio
 import os
 
-# Define training file paths
-
-
-
-
-
 # Get the directory containing the current script
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
