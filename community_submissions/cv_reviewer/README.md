@@ -4,6 +4,7 @@ An intelligent multi-agent system built with **CrewAI** and **FastAPI** that pro
 
 ---
 
+
 ## ✨ Features
 
 - **Direct File Upload**: Supports `.pdf` and `.docx` file formats for a seamless user experience.
@@ -12,6 +13,22 @@ An intelligent multi-agent system built with **CrewAI** and **FastAPI** that pro
 - **User-Friendly Frontend**: A clean and responsive interface built with HTML and Tailwind CSS to display the analysis in an easy-to-digest format.
 - **Robust Backend**: Built on FastAPI with a clean, modular architecture separating concerns (API, AI logic, utilities).
 - **Containerized**: Fully containerized with Docker and Docker Compose for easy setup and deployment.
+
+---
+
+## 🖼️ Visuals and Demo
+
+### Sequence Diagram
+
+The following diagram illustrates the sequence of interactions within the system when a user uploads a CV for review. It shows how the frontend, backend API, and the CrewAI agents collaborate to process the request and generate feedback.
+
+![CV Review Process Sequence Diagram](docs/sequence_diagram.png)
+
+### Demo Video
+
+Watch a quick walkthrough of the application and its features:
+
+[AI CV Review Coach Demo](https://www.loom.com/share/17982e1dc1a64bd6b03ae91dfc38e958)
 
 ---
 
@@ -49,6 +66,16 @@ The project follows a clean, modular architecture to separate concerns:
 └── file_parser.py  # Handles parsing of PDF/DOCX files
 
 ````
+
+---
+
+## 🌐 Try it Online!
+
+You can try the AI CV Review Coach live at:
+
+**[https://agenticaicoach-v279.onrender.com/](https://agenticaicoach-v279.onrender.com/)**
+
+**Note:** The application is hosted on Render's free tier. If the app is inactive, it might take about 50 seconds to wake up on your first visit.
 
 ---
 
