@@ -6,7 +6,7 @@ from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict
 
-from .utils import file_parser, agent_helper
+from src.utils import file_parser, agent_helper
 
 app = FastAPI(
     title="CV Review AI Coach API",
