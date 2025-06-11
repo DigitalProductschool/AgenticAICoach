@@ -23,5 +23,4 @@ COPY ./src ./src
 COPY ./static ./static
 
 EXPOSE 8000
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", \
-     "-w", "4", "-b", "0.0.0.0:8000", "src.api:app"]
+CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
