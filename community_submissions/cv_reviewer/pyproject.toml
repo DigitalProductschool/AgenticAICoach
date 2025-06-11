@@ -6,6 +6,14 @@ authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
     "crewai[tools]>=0.100.1,<1.0.0"
+    langchain-openai = "0.1.1"
+    python-dotenv = "1.0.1"
+    fastapi = "^0.110.1"
+    uvicorn = {extras = ["standard"], version = "^0.29.0"}
+    gunicorn = "^22.0.0"
+    python-multipart = "^0.0.9" # Required by FastAPI for file uploads
+    pypdf = "^4.2.0"            # For parsing PDF files
+    python-docx = "^1.1.2"      # For parsing DOCX files
 ]
 
 [project.scripts]

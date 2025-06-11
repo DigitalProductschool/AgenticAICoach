@@ -2,7 +2,6 @@ import re
 from typing import List, IO
 from io import BytesIO
 
-# File parsing libraries
 import docx
 from pypdf import PdfReader
 
