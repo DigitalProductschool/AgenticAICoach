@@ -21,7 +21,6 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 # app code + env
 COPY ./src ./src
 COPY ./static ./static
-COPY .env .env
 
 EXPOSE 8000
 CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", \
