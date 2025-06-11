@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from src.schemas.cv_output import CVReview
 from src.utils.agent_helper import run_cv_review_crew
-from crewai.utilities import CrewOutput
+from crewai import CrewOutput
 
 @pytest.fixture
 def mock_crew_output():
