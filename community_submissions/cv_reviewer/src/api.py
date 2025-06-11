@@ -52,7 +52,7 @@ def review_cv_endpoint(file: UploadFile = File(...)) -> Dict:
         raise HTTPException(500, f"An error occurred during AI processing: {e}")
 
 # --- Static File Serving ---
-static_dir = os.path.join(os.path.dirname(__file__), "..", "..", "static")
+static_dir = os.path.join(os.path.dirname(__file__), "..", "static")
 if not os.path.exists(static_dir):
     os.makedirs(static_dir)
 
