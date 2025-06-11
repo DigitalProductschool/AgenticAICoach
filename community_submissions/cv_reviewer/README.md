@@ -17,12 +17,11 @@ An intelligent multi-agent system built with **CrewAI** and **FastAPI** that pro
 
 ## 🛠️ Tech Stack
 
-- **Backend**: FastAPI, Gunicorn, Uvicorn
+- **Backend**: FastAPI, Uvicorn
 - **AI Framework**: CrewAI
 - **File Parsing**: `pypdf`, `python-docx`
 - **Frontend**: HTML, Tailwind CSS, JavaScript (`marked.js`)
 - **Containerization**: Docker, Docker Compose
-- **Dependency Management**: Poetry
 
 ---
 
@@ -30,10 +29,11 @@ An intelligent multi-agent system built with **CrewAI** and **FastAPI** that pro
 
 The project follows a clean, modular architecture to separate concerns:
 
+```
 
 .
 ├── Dockerfile          # Defines the container for the application
-├── pyproject.toml      # Manages Python dependencies with Poetry
+├── requirements.txt    # Manages Python dependencies
 ├── static/
 │   └── index.html      # The single-page frontend
 └── src/
@@ -43,11 +43,12 @@ The project follows a clean, modular architecture to separate concerns:
 │   ├── crew.py     # Assembles the crew from agents and tasks
 │   └── tools/      # Custom tools for agents (e.g., GitHub tool)
 ├── schemas/
-│   └── cv_output.py# Pydantic model for structured AI output
+│   └── cv_output.py    # Pydantic model for structured AI output
 └── utils/
 ├── agent_helper.py # Bridge between the API and the crew
 └── file_parser.py  # Handles parsing of PDF/DOCX files
 
+````
 
 ---
 
@@ -64,25 +65,30 @@ Running the application with Docker is the recommended method.
 
 1.  **Clone the Repository**
     ```bash
-    git clone <your-repo-url>
-    cd cv_reviewer
+    git clone https://github.com/abdulmunimjemal/AgenticAICoach
+    cd AgenticAICoach/community_submissions/cv_reviewer/
     ```
 
 2.  **Create Environment File**
     Create a `.env` file in the project's root directory. Add your OpenAI API key to this file:
     ```
     OPENAI_API_KEY=sk-YourSecretApiKeyGoesHere
+    MODEL=gpt-4O
     ```
+
+    You can find a `.env.example` for this
 
 3.  **Build and Run with Docker Compose**
     From the root directory, run the following command. This will build the Docker image and start the application.
     ```bash
-    docker-compose up --build
+    docker compose up --build
     ```
 
 4.  **Access the Application**
     Once the container is running, open your web browser and navigate to:
     **[http://localhost:8000](http://localhost:8000)**
+    
+    You can check  **[http://localhost:8000/docs](http://localhost:8000/docs)** for API docs.
 
 You can now upload a CV and receive your AI-powered review!
 
@@ -92,12 +98,15 @@ You can now upload a CV and receive your AI-powered review!
 
 If you prefer to run the application locally for development:
 
-1.  **Install Poetry**:
-    Follow the instructions on the [official Poetry website](https://python-poetry.org/docs/#installation).
+1.  **Create a virtual environment and activate it**:
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
 
 2.  **Install Dependencies**:
     ```bash
-    poetry install --no-dev
+    pip install -r requirements.txt
     ```
 
 3.  **Create `.env` File**:
@@ -105,7 +114,7 @@ If you prefer to run the application locally for development:
 
 4.  **Run the FastAPI Server**:
     ```bash
-    poetry run uvicorn src.api:app --reload
+    uvicorn src.api:app --reload
     ```
 
 5.  **Access the Application**:
