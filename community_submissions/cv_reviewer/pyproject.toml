@@ -1,0 +1,23 @@
+[project]
+name = "cv_reviewer"
+version = "0.1.0"
+description = "cv_reviewer using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.100.1,<1.0.0"
+]
+
+[project.scripts]
+cv_reviewer = "cv_reviewer.main:run"
+run_crew = "cv_reviewer.main:run"
+train = "cv_reviewer.main:train"
+replay = "cv_reviewer.main:replay"
+test = "cv_reviewer.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
