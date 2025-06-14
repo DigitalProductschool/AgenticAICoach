@@ -30,6 +30,11 @@
         50% { transform: translateY(-10px); }
       }
       
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+      
       .animate-fadeInUp {
         animation: fadeInUp 0.8s ease-out forwards;
       }
@@ -38,20 +43,37 @@
         animation: float 6s ease-in-out infinite;
       }
       
+      .animate-pulse-subtle {
+        animation: pulse 3s ease-in-out infinite;
+      }
+      
       .gradient-bg {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       }
       
       .glass-effect {
         backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .card-hover {
+        transition: all 0.3s ease;
       }
       
       .card-hover:hover {
         transform: translateY(-5px);
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         transition: all 0.3s ease;
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
       }
     </style>
 </head>
@@ -67,10 +89,17 @@
           <div class="flex items-center gap-4 text-[#111418]">
             <div class="size-8 p-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
-                <path
-                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
-                  fill="currentColor"
-                ></path>
+                <g clip-path="url(#clip0_6_535)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
               </svg>
             </div>
             <h2 class="text-[#111418] text-xl font-bold leading-tight tracking-[-0.015em] bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI MVP Coach</h2>
@@ -82,7 +111,7 @@
               <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="https://github.com/sergyDwhiz/AgenticAICoach">GitHub</a>
             </div>
             <a href="/chat"
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 btn-primary text-white text-sm font-bold leading-normal tracking-[0.015em] shadow-lg"
             >
               <span class="truncate">Start Coaching</span>
             </a>
@@ -93,9 +122,31 @@
             <div class="@container animate-fadeInUp">
               <div class="flex flex-col gap-8 px-4 py-16 @[480px]:gap-10 @[864px]:flex-row">
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-2xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full shadow-2xl transform hover:scale-105 transition-transform duration-300"
-                  style='background-image: url("https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&crop=top");'
-                ></div>
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-2xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full shadow-2xl transform hover:scale-105 transition-transform duration-300 border border-white/20 glass-effect overflow-hidden"
+                  style='background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), url("https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&crop=top");'
+                >
+                  <div class="w-full h-full flex items-center justify-center">
+                    <div class="text-white text-center p-8">
+                      <div class="size-16 mx-auto mb-4 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white size-8">
+                          <g clip-path="url(#clip0_6_535)">
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                              fill="currentColor"
+                            ></path>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <h3 class="text-xl font-bold mb-2">AI-Powered Coaching</h3>
+                      <p class="text-sm opacity-90">Interactive validation framework</p>
+                    </div>
+                  </div>
+                </div>
                 <div class="flex flex-col gap-8 @[480px]:min-w-[400px] @[480px]:gap-10 @[864px]:justify-center">
                   <div class="flex flex-col gap-4 text-left">
                     <h1
@@ -111,7 +162,7 @@
                     </h2>
                   </div>
                   <a href="/chat"
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 @[480px]:h-16 @[480px]:px-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-bold leading-normal tracking-[0.015em] @[480px]:text-xl @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl animate-fadeInUp"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 @[480px]:h-16 @[480px]:px-10 btn-primary text-white text-lg font-bold leading-normal tracking-[0.015em] @[480px]:text-xl @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] shadow-xl animate-fadeInUp"
                     style="animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards;"
                   >
                     <span class="truncate">🚀 Start Coaching Session</span>
@@ -131,8 +182,8 @@
                 </p>
               </div>
               <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 p-0">
-                <div class="flex flex-1 gap-4 rounded-2xl border border-[#dbe0e6] bg-white/80 backdrop-blur-sm p-6 flex-col card-hover shadow-lg">
-                  <div class="text-blue-600 bg-blue-100 p-3 rounded-xl w-fit" data-icon="ShieldCheck" data-size="32px" data-weight="regular">
+                <div class="flex flex-1 gap-4 rounded-2xl border border-white/30 glass-effect p-6 flex-col card-hover shadow-xl">
+                  <div class="text-blue-600 bg-blue-100 p-3 rounded-xl w-fit animate-pulse-subtle" data-icon="ShieldCheck" data-size="32px" data-weight="regular">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" fill="currentColor" viewBox="0 0 256 256">
                       <path
                         d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"
@@ -140,39 +191,39 @@
                     </svg>
                   </div>
                   <div class="flex flex-col gap-2">
-                    <h2 class="text-[#111418] text-xl font-bold leading-tight">Data-Driven Validation</h2>
+                    <h2 class="text-[#111418] text-xl font-bold leading-tight">Risk Assessment</h2>
                     <p class="text-[#60758a] text-base font-normal leading-relaxed">
-                      Leverage data-driven insights to validate your MVP concepts before market launch, ensuring a higher probability of success.
+                      Identify and validate your riskiest assumptions before investing time and resources in development.
                     </p>
                   </div>
                 </div>
-                <div class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col">
-                  <div class="text-[#111418]" data-icon="Users" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div class="flex flex-1 gap-4 rounded-2xl border border-white/30 glass-effect p-6 flex-col card-hover shadow-xl">
+                  <div class="text-purple-600 bg-purple-100 p-3 rounded-xl w-fit animate-pulse-subtle" data-icon="Users" data-size="32px" data-weight="regular" style="animation-delay: 0.5s;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" fill="currentColor" viewBox="0 0 256 256">
                       <path
                         d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"
                       ></path>
                     </svg>
                   </div>
-                  <div class="flex flex-col gap-1">
-                    <h2 class="text-[#111418] text-base font-bold leading-tight">Personalized Coaching</h2>
-                    <p class="text-[#60758a] text-sm font-normal leading-normal">
-                      Engage in personalized coaching conversations tailored to your specific business idea and validation needs.
+                  <div class="flex flex-col gap-2">
+                    <h2 class="text-[#111418] text-xl font-bold leading-tight">Customer Discovery</h2>
+                    <p class="text-[#60758a] text-base font-normal leading-relaxed">
+                      Understand your target market and validate customer problems through guided discovery conversations.
                     </p>
                   </div>
                 </div>
-                <div class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col">
-                  <div class="text-[#111418]" data-icon="ChatCircleDots" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <div class="flex flex-1 gap-4 rounded-2xl border border-white/30 glass-effect p-6 flex-col card-hover shadow-xl">
+                  <div class="text-green-600 bg-green-100 p-3 rounded-xl w-fit animate-pulse-subtle" data-icon="ChatCircleDots" data-size="32px" data-weight="regular" style="animation-delay: 1s;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" fill="currentColor" viewBox="0 0 256 256">
                       <path
                         d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"
                       ></path>
                     </svg>
                   </div>
-                  <div class="flex flex-col gap-1">
-                    <h2 class="text-[#111418] text-base font-bold leading-tight">Expert Guidance</h2>
-                    <p class="text-[#60758a] text-sm font-normal leading-normal">
-                      Receive expert guidance and contextual suggestions throughout the four key phases of lean startup validation.
+                  <div class="flex flex-col gap-2">
+                    <h2 class="text-[#111418] text-xl font-bold leading-tight">Solution Validation</h2>
+                    <p class="text-[#60758a] text-base font-normal leading-relaxed">
+                      Test your proposed solution with real users and iterate based on feedback and validation data.
                     </p>
                   </div>
                 </div>
@@ -193,9 +244,9 @@
                 <div class="flex flex-1 justify-center">
                   <div class="flex justify-center">
                     <a href="/chat"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#248bf3] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 @[480px]:h-14 @[480px]:px-8 btn-primary text-white text-base font-bold leading-normal tracking-[0.015em] @[480px]:text-lg @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] shadow-xl grow"
                     >
-                      <span class="truncate">Start Coaching Session</span>
+                      <span class="truncate">🚀 Start Coaching Session</span>
                     </a>
                   </div>
                 </div>
