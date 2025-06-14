@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>AI MVP Coach - Chat Session</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_535)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+                    fill="currentColor"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_535"><rect width="48" height="48" fill="white"></rect></clipPath>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">AI MVP Coach</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="/">Home</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="/docs">API Docs</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="https://github.com/sergyDwhiz/AgenticAICoach">GitHub</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="px-3 py-1 bg-[#248bf3] text-white text-xs font-medium rounded-full" id="phase-indicator">
+                Getting Started
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Coaching Session</p>
+            </div>
+            <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Welcome to your personalized coaching session. I'm here to guide you through the lean startup validation process. Let's start by understanding your business concept.
+            </p>
+            
+            <!-- Chat Messages Container -->
+            <div class="flex-1 overflow-y-auto" id="chat-messages" style="max-height: 60vh;">
+              <!-- Initial Coach Message -->
+              <div class="flex items-end gap-3 p-4">
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                     style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face");'>
+                </div>
+                <div class="flex flex-1 flex-col gap-1 items-start">
+                  <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px]">AI Coach</p>
+                  <p class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg px-4 py-3 bg-[#f0f2f5] text-[#111418]">
+                    Hello! I'm your AI MVP Coach. I'm here to help you validate your startup idea using proven lean startup methodologies. 
+                    Let's start by understanding your business concept. What problem are you trying to solve?
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="flex items-center px-4 py-3 gap-3 @container">
+              <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0"
+                   style='background-image: url("https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face");'>
+              </div>
+              <form id="chat-form" class="flex flex-col min-w-40 h-12 flex-1" onsubmit="sendMessage(event)">
+                <input type="hidden" id="session-id" name="session_id" value="">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                  <input
+                    id="message-input"
+                    name="message"
+                    placeholder="Type your message..."
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-full placeholder:text-[#60758a] px-4 rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal"
+                    required
+                  />
+                  <div class="flex border-none bg-[#f0f2f5] items-center justify-center pr-4 rounded-r-lg border-l-0 !pr-2">
+                    <button type="submit" class="flex items-center gap-1 p-1.5 text-[#248bf3] hover:text-[#1e40af]" id="send-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M231.4,44.34l-168,95.75a16,16,0,0,1-16.67-.09A16,16,0,0,1,37.73,123.5l37.85-75.69a4,4,0,0,1,7.01.34l5.4,16.22a8,8,0,0,0,15.18-5.06L97.77,42.09a20,20,0,0,0-35.1-1.7L24.82,116.08a32,32,0,0,0,21.94,47.5,32.06,32.06,0,0,0,33.34-.18L247.8,67.64a8,8,0,0,0-16.4-23.3Z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Suggestions -->
+            <div class="px-4 pb-4" id="suggestions-container">
+              <div class="flex flex-wrap gap-2" id="suggestions">
+                <button class="suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]" 
+                        data-suggestion="What's the biggest assumption in your business model?">
+                  What's the biggest assumption in your business model?
+                </button>
+                <button class="suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]" 
+                        data-suggestion="Who would be most disappointed if your product didn't exist?">
+                  Who would be most disappointed if your product didn't exist?
+                </button>
+                <button class="suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]" 
+                        data-suggestion="What evidence do you have that this problem needs solving?">
+                  What evidence do you have that this problem needs solving?
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        let sessionId = null;
+
+        async function sendMessage(event) {
+            event.preventDefault();
+            
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value.trim();
+            
+            if (!message) return;
+
+            // Add user message to chat
+            addMessageToChat(message, 'user');
+            
+            // Clear input and show loading
+            messageInput.value = '';
+            showLoading();
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: sessionId
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to get response from coach');
+                }
+
+                const data = await response.json();
+                
+                // Update session ID
+                sessionId = data.session_id;
+                document.getElementById('session-id').value = sessionId;
+                
+                // Add coach response
+                hideLoading();
+                addMessageToChat(data.coach_response, 'coach');
+                
+                // Update phase indicator
+                updatePhaseIndicator(data.phase);
+                
+                // Update suggestions
+                updateSuggestions(data.suggestions);
+                
+            } catch (error) {
+                hideLoading();
+                addMessageToChat('Sorry, there was an error processing your message. Please try again.', 'coach', true);
+                console.error('Error:', error);
+            }
+        }
+
+        function addMessageToChat(message, sender, isError = false) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                messageDiv.className = 'flex items-end gap-3 p-4 justify-end';
+                messageDiv.innerHTML = `
+                    <div class="flex flex-1 flex-col gap-1 items-end">
+                        <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px] text-right">You</p>
+                        <p class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg px-4 py-3 bg-[#248bf3] text-white">
+                            ${message}
+                        </p>
+                    </div>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                         style='background-image: url("https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face");'>
+                    </div>
+                `;
+            } else {
+                messageDiv.className = 'flex items-end gap-3 p-4';
+                const bgColor = isError ? 'bg-red-100' : 'bg-[#f0f2f5]';
+                const textColor = isError ? 'text-red-800' : 'text-[#111418]';
+                messageDiv.innerHTML = `
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                         style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face");'>
+                    </div>
+                    <div class="flex flex-1 flex-col gap-1 items-start">
+                        <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px]">AI Coach</p>
+                        <p class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg px-4 py-3 ${bgColor} ${textColor}">
+                            ${message}
+                        </p>
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showLoading() {
+            const chatMessages = document.getElementById('chat-messages');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = 'loading-message';
+            loadingDiv.className = 'flex items-end gap-3 p-4';
+            loadingDiv.innerHTML = `
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                     style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face");'>
+                </div>
+                <div class="flex flex-1 flex-col gap-1 items-start">
+                    <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px]">AI Coach</p>
+                    <div class="flex max-w-[360px] rounded-lg px-4 py-3 bg-[#f0f2f5] text-[#111418] items-center gap-2">
+                        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#248bf3]"></div>
+                        <span>AI Coach is thinking...</span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(loadingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideLoading() {
+            const loadingMessage = document.getElementById('loading-message');
+            if (loadingMessage) {
+                loadingMessage.remove();
+            }
+        }
+
+        function updatePhaseIndicator(phase) {
+            const phaseIndicator = document.getElementById('phase-indicator');
+            const phaseNames = {
+                'risk_assessment': 'Risk Assessment',
+                'customer_discovery': 'Customer Discovery',
+                'problem_validation': 'Problem Validation',
+                'solution_validation': 'Solution Validation'
+            };
+            
+            phaseIndicator.textContent = phaseNames[phase] || phase.replace('_', ' ').toUpperCase();
+        }
+
+        function updateSuggestions(suggestions) {
+            const suggestionsContainer = document.getElementById('suggestions');
+            suggestionsContainer.innerHTML = '';
+            
+            suggestions.forEach(suggestion => {
+                const button = document.createElement('button');
+                button.className = 'suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]';
+                button.textContent = suggestion;
+                button.setAttribute('data-suggestion', suggestion);
+                suggestionsContainer.appendChild(button);
+            });
+        }
+
+        function selectSuggestion(suggestion) {
+            document.getElementById('message-input').value = suggestion;
+            document.getElementById('message-input').focus();
+        }
+
+        // Enable Enter to send
+        document.getElementById('message-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                document.getElementById('chat-form').dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // Add event listeners for suggestion buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('click', function(event) {
+                if (event.target.classList.contains('suggestion-btn')) {
+                    const suggestion = event.target.getAttribute('data-suggestion');
+                    if (suggestion) {
+                        selectSuggestion(suggestion);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
