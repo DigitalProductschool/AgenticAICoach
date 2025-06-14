@@ -98,7 +98,7 @@ async def chat_with_coach(message: CoachingMessage):
             sessions_db[session_id]["last_activity"] = datetime.utcnow()
         
         # Process coaching interaction
-        response = coach_session.coaching_conversation(message.message)
+        response = coach_session.process_user_input(message.message)
         
         # Update conversation history
         conversations_db[session_id].append({
