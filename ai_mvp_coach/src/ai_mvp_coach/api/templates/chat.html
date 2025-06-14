@@ -13,14 +13,64 @@
     <title>AI MVP Coach - Chat Session</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      @keyframes messageSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes typing {
+        0%, 50%, 100% { opacity: 1; }
+        25%, 75% { opacity: 0.5; }
+      }
+      
+      .message-animate {
+        animation: messageSlideIn 0.4s ease-out;
+      }
+      
+      .typing-indicator {
+        animation: typing 1.5s infinite;
+      }
+      
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .chat-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .message-bubble {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+      }
+      
+      .message-bubble:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+      
+      .suggestion-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(36, 139, 243, 0.3);
+      }
+    </style>
 </head>
 <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="relative flex size-full min-h-screen flex-col bg-gradient-to-br from-slate-50 to-blue-50 group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/20 px-10 py-4 glass-effect backdrop-blur-md bg-white/80 shadow-lg">
           <div class="flex items-center gap-4 text-[#111418]">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="size-8 p-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
                 <g clip-path="url(#clip0_6_535)">
                   <path
                     fill-rule="evenodd"
@@ -34,67 +84,74 @@
                 </defs>
               </svg>
             </div>
-            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">AI MVP Coach</h2>
+            <h2 class="text-[#111418] text-xl font-bold leading-tight tracking-[-0.015em] bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI MVP Coach</h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="/">Home</a>
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="/docs">API Docs</a>
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="https://github.com/sergyDwhiz/AgenticAICoach">GitHub</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="/">Home</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="/docs">API Docs</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="https://github.com/sergyDwhiz/AgenticAICoach">GitHub</a>
             </div>
             <div class="flex items-center gap-2">
-              <div class="px-3 py-1 bg-[#248bf3] text-white text-xs font-medium rounded-full" id="phase-indicator">
+              <div class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-semibold rounded-full shadow-lg" id="phase-indicator">
                 Getting Started
               </div>
             </div>
           </div>
         </header>
-        <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="flex flex-wrap justify-between gap-3 p-4">
-              <p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Coaching Session</p>
+        <div class="px-8 md:px-40 flex flex-1 justify-center py-8">
+          <div class="layout-content-container flex flex-col max-w-[1000px] flex-1 bg-white/60 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
+            <div class="flex flex-wrap justify-between gap-3 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-b border-white/20">
+              <p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">💬 Coaching Session</p>
             </div>
-            <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4">
-              Welcome to your personalized coaching session. I'm here to guide you through the lean startup validation process. Let's start by understanding your business concept.
-            </p>
+            <div class="px-6 py-4 bg-blue-50/50 border-b border-white/20">
+              <p class="text-[#60758a] text-base font-normal leading-relaxed">
+                Welcome to your personalized coaching session. I'm here to guide you through the lean startup validation process. Let's start by understanding your business concept.
+              </p>
+            </div>
             
             <!-- Chat Messages Container -->
-            <div class="flex-1 overflow-y-auto" id="chat-messages" style="max-height: 60vh;">
+            <div class="flex-1 overflow-y-auto bg-white/30 backdrop-blur-sm" id="chat-messages" style="max-height: 60vh; min-height: 400px;">
               <!-- Initial Coach Message -->
-              <div class="flex items-end gap-3 p-4">
-                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
-                     style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face");'>
+              <div class="flex items-end gap-4 p-6 message-animate">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-1 rounded-full w-12 h-12 shrink-0 shadow-lg">
+                  <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                    <span class="text-blue-600 font-bold text-lg">🤖</span>
+                  </div>
                 </div>
-                <div class="flex flex-1 flex-col gap-1 items-start">
-                  <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px]">AI Coach</p>
-                  <p class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg px-4 py-3 bg-[#f0f2f5] text-[#111418]">
+                <div class="flex flex-1 flex-col gap-2 items-start">
+                  <p class="text-[#60758a] text-sm font-semibold leading-normal max-w-[360px]">AI Coach</p>
+                  <div class="text-base font-normal leading-relaxed flex max-w-[500px] rounded-2xl px-6 py-4 bg-gradient-to-r from-blue-50 to-purple-50 text-[#111418] message-bubble shadow-lg border border-blue-100">
                     Hello! I'm your AI MVP Coach. I'm here to help you validate your startup idea using proven lean startup methodologies. 
                     Let's start by understanding your business concept. What problem are you trying to solve?
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Message Input -->
-            <div class="flex items-center px-4 py-3 gap-3 @container">
-              <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0"
-                   style='background-image: url("https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face");'>
+            <div class="flex items-center px-6 py-4 gap-4 bg-white/80 backdrop-blur-sm border-t border-white/20">
+              <div class="bg-gradient-to-r from-green-500 to-blue-500 p-1 rounded-full size-12 shrink-0 shadow-lg">
+                <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                  <span class="text-green-600 font-bold text-lg">👤</span>
+                </div>
               </div>
-              <form id="chat-form" class="flex flex-col min-w-40 h-12 flex-1" onsubmit="sendMessage(event)">
+              <form id="chat-form" class="flex flex-col min-w-40 h-14 flex-1" onsubmit="sendMessage(event)">
                 <input type="hidden" id="session-id" name="session_id" value="">
-                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div class="flex w-full flex-1 items-stretch rounded-2xl h-full shadow-lg">
                   <input
                     id="message-input"
                     name="message"
-                    placeholder="Type your message..."
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-full placeholder:text-[#60758a] px-4 rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal"
+                    placeholder="Type your message here... 💭"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-2xl text-[#111418] focus:outline-0 focus:ring-2 focus:ring-blue-500 border-none bg-white focus:border-none h-full placeholder:text-[#60758a] px-6 rounded-r-2xl border-r-0 pr-2 text-base font-normal leading-normal"
                     required
                   />
-                  <div class="flex border-none bg-[#f0f2f5] items-center justify-center pr-4 rounded-r-lg border-l-0 !pr-2">
-                    <button type="submit" class="flex items-center gap-1 p-1.5 text-[#248bf3] hover:text-[#1e40af]" id="send-button">
+                  <div class="flex border-none bg-white items-center justify-center pr-4 rounded-r-2xl border-l-0 !pr-6">
+                    <button type="submit" class="flex items-center gap-2 p-3 text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg" id="send-button">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                         <path d="M231.4,44.34l-168,95.75a16,16,0,0,1-16.67-.09A16,16,0,0,1,37.73,123.5l37.85-75.69a4,4,0,0,1,7.01.34l5.4,16.22a8,8,0,0,0,15.18-5.06L97.77,42.09a20,20,0,0,0-35.1-1.7L24.82,116.08a32,32,0,0,0,21.94,47.5,32.06,32.06,0,0,0,33.34-.18L247.8,67.64a8,8,0,0,0-16.4-23.3Z"></path>
                       </svg>
+                      <span class="text-sm font-semibold">Send</span>
                     </button>
                   </div>
                 </div>
@@ -102,17 +159,17 @@
             </div>
 
             <!-- Suggestions -->
-            <div class="px-4 pb-4" id="suggestions-container">
-              <div class="flex flex-wrap gap-2" id="suggestions">
-                <button class="suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]" 
+            <div class="px-6 pb-6 bg-white/50" id="suggestions-container">
+              <div class="flex flex-wrap gap-3" id="suggestions">
+                <button class="suggestion-btn px-4 py-3 bg-gradient-to-r from-blue-100 to-purple-100 text-[#60758a] text-sm rounded-xl hover:from-blue-200 hover:to-purple-200 hover:text-[#248bf3] transition-all duration-200 shadow-md font-medium border border-blue-200/50" 
                         data-suggestion="What's the biggest assumption in your business model?">
                   What's the biggest assumption in your business model?
                 </button>
-                <button class="suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]" 
+                <button class="suggestion-btn px-4 py-3 bg-gradient-to-r from-blue-100 to-purple-100 text-[#60758a] text-sm rounded-xl hover:from-blue-200 hover:to-purple-200 hover:text-[#248bf3] transition-all duration-200 shadow-md font-medium border border-blue-200/50" 
                         data-suggestion="Who would be most disappointed if your product didn't exist?">
                   Who would be most disappointed if your product didn't exist?
                 </button>
-                <button class="suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]" 
+                <button class="suggestion-btn px-4 py-3 bg-gradient-to-r from-blue-100 to-purple-100 text-[#60758a] text-sm rounded-xl hover:from-blue-200 hover:to-purple-200 hover:text-[#248bf3] transition-all duration-200 shadow-md font-medium border border-blue-200/50" 
                         data-suggestion="What evidence do you have that this problem needs solving?">
                   What evidence do you have that this problem needs solving?
                 </button>
@@ -183,33 +240,38 @@
         function addMessageToChat(message, sender, isError = false) {
             const chatMessages = document.getElementById('chat-messages');
             const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-animate';
             
             if (sender === 'user') {
-                messageDiv.className = 'flex items-end gap-3 p-4 justify-end';
+                messageDiv.className += ' flex items-end gap-4 p-6 justify-end';
                 messageDiv.innerHTML = `
-                    <div class="flex flex-1 flex-col gap-1 items-end">
-                        <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px] text-right">You</p>
-                        <p class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg px-4 py-3 bg-[#248bf3] text-white">
+                    <div class="flex flex-1 flex-col gap-2 items-end">
+                        <p class="text-[#60758a] text-sm font-semibold leading-normal max-w-[500px] text-right">You</p>
+                        <div class="text-base font-normal leading-relaxed flex max-w-[500px] rounded-2xl px-6 py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white message-bubble shadow-lg">
                             ${message}
-                        </p>
+                        </div>
                     </div>
-                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
-                         style='background-image: url("https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face");'>
+                    <div class="bg-gradient-to-r from-green-500 to-blue-500 p-1 rounded-full w-12 h-12 shrink-0 shadow-lg">
+                        <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                            <span class="text-green-600 font-bold text-lg">👤</span>
+                        </div>
                     </div>
                 `;
             } else {
-                messageDiv.className = 'flex items-end gap-3 p-4';
-                const bgColor = isError ? 'bg-red-100' : 'bg-[#f0f2f5]';
+                messageDiv.className += ' flex items-end gap-4 p-6';
+                const bgColor = isError ? 'from-red-100 to-red-200 border-red-200' : 'from-blue-50 to-purple-50 border-blue-100';
                 const textColor = isError ? 'text-red-800' : 'text-[#111418]';
                 messageDiv.innerHTML = `
-                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
-                         style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face");'>
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-1 rounded-full w-12 h-12 shrink-0 shadow-lg">
+                        <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                            <span class="text-blue-600 font-bold text-lg">🤖</span>
+                        </div>
                     </div>
-                    <div class="flex flex-1 flex-col gap-1 items-start">
-                        <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px]">AI Coach</p>
-                        <p class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg px-4 py-3 ${bgColor} ${textColor}">
+                    <div class="flex flex-1 flex-col gap-2 items-start">
+                        <p class="text-[#60758a] text-sm font-semibold leading-normal max-w-[500px]">AI Coach</p>
+                        <div class="text-base font-normal leading-relaxed flex max-w-[500px] rounded-2xl px-6 py-4 bg-gradient-to-r ${bgColor} ${textColor} message-bubble shadow-lg border">
                             ${message}
-                        </p>
+                        </div>
                     </div>
                 `;
             }
@@ -222,16 +284,22 @@
             const chatMessages = document.getElementById('chat-messages');
             const loadingDiv = document.createElement('div');
             loadingDiv.id = 'loading-message';
-            loadingDiv.className = 'flex items-end gap-3 p-4';
+            loadingDiv.className = 'flex items-end gap-4 p-6 message-animate';
             loadingDiv.innerHTML = `
-                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
-                     style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face");'>
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-1 rounded-full w-12 h-12 shrink-0 shadow-lg">
+                    <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
+                        <span class="text-blue-600 font-bold text-lg">🤖</span>
+                    </div>
                 </div>
-                <div class="flex flex-1 flex-col gap-1 items-start">
-                    <p class="text-[#60758a] text-[13px] font-normal leading-normal max-w-[360px]">AI Coach</p>
-                    <div class="flex max-w-[360px] rounded-lg px-4 py-3 bg-[#f0f2f5] text-[#111418] items-center gap-2">
-                        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#248bf3]"></div>
-                        <span>AI Coach is thinking...</span>
+                <div class="flex flex-1 flex-col gap-2 items-start">
+                    <p class="text-[#60758a] text-sm font-semibold leading-normal max-w-[500px]">AI Coach</p>
+                    <div class="flex max-w-[500px] rounded-2xl px-6 py-4 bg-gradient-to-r from-gray-100 to-gray-200 text-[#111418] items-center gap-3 message-bubble shadow-lg border border-gray-200">
+                        <div class="flex space-x-1">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full typing-indicator"></div>
+                            <div class="w-2 h-2 bg-blue-500 rounded-full typing-indicator" style="animation-delay: 0.2s;"></div>
+                            <div class="w-2 h-2 bg-blue-500 rounded-full typing-indicator" style="animation-delay: 0.4s;"></div>
+                        </div>
+                        <span class="text-sm font-medium">AI Coach is thinking...</span>
                     </div>
                 </div>
             `;
@@ -262,11 +330,13 @@
             const suggestionsContainer = document.getElementById('suggestions');
             suggestionsContainer.innerHTML = '';
             
-            suggestions.forEach(suggestion => {
+            suggestions.forEach((suggestion, index) => {
                 const button = document.createElement('button');
-                button.className = 'suggestion-btn px-3 py-1 bg-[#f0f2f5] text-[#60758a] text-sm rounded-full hover:bg-[#e0e7ff] hover:text-[#248bf3]';
+                button.className = 'suggestion-btn px-4 py-3 bg-gradient-to-r from-blue-100 to-purple-100 text-[#60758a] text-sm rounded-xl hover:from-blue-200 hover:to-purple-200 hover:text-[#248bf3] transition-all duration-200 shadow-md font-medium border border-blue-200/50';
                 button.textContent = suggestion;
                 button.setAttribute('data-suggestion', suggestion);
+                button.style.animationDelay = `${index * 0.1}s`;
+                button.classList.add('message-animate');
                 suggestionsContainer.appendChild(button);
             });
         }

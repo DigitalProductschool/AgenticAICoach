@@ -13,30 +13,76 @@
     <title>AI MVP Coach - Validate Your Startup Ideas</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
+      }
+    </style>
 </head>
 <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="relative flex size-full min-h-screen flex-col bg-gradient-to-br from-slate-50 to-blue-50 group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <!-- Background decoration -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      </div>
       <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/20 px-10 py-4 glass-effect backdrop-blur-md bg-white/80 shadow-lg">
           <div class="flex items-center gap-4 text-[#111418]">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="size-8 p-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
                 <path
                   d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
                   fill="currentColor"
                 ></path>
               </svg>
             </div>
-            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">AI MVP Coach</h2>
+            <h2 class="text-[#111418] text-xl font-bold leading-tight tracking-[-0.015em] bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI MVP Coach</h2>
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="/docs">API Docs</a>
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="/api/health">Health</a>
-              <a class="text-[#111418] text-sm font-medium leading-normal" href="https://github.com/sergyDwhiz/AgenticAICoach">GitHub</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="/docs">API Docs</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="/api/health">Health</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal hover:text-blue-600 transition-colors" href="https://github.com/sergyDwhiz/AgenticAICoach">GitHub</a>
             </div>
             <a href="/chat"
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#248bf3] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
             >
               <span class="truncate">Start Coaching</span>
             </a>
@@ -44,28 +90,31 @@
         </header>
         <div class="px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="@container">
-              <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
+            <div class="@container animate-fadeInUp">
+              <div class="flex flex-col gap-8 px-4 py-16 @[480px]:gap-10 @[864px]:flex-row">
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full"
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-2xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full shadow-2xl transform hover:scale-105 transition-transform duration-300"
                   style='background-image: url("https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&crop=top");'
                 ></div>
-                <div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
-                  <div class="flex flex-col gap-2 text-left">
+                <div class="flex flex-col gap-8 @[480px]:min-w-[400px] @[480px]:gap-10 @[864px]:justify-center">
+                  <div class="flex flex-col gap-4 text-left">
                     <h1
-                      class="text-[#111418] text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                      class="text-[#111418] text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] animate-fadeInUp"
+                      style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;"
                     >
-                      Validate your MVP with AI-powered coaching
+                      Validate your MVP with <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI-powered coaching</span>
                     </h1>
-                    <h2 class="text-[#111418] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    <h2 class="text-[#60758a] text-lg font-normal leading-relaxed @[480px]:text-xl @[480px]:font-normal @[480px]:leading-relaxed animate-fadeInUp"
+                        style="animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards;">
                       AI MVP Coach guides entrepreneurs through lean startup validation methodologies, providing personalized coaching conversations to help validate business ideas.
                       Progress through four key phases: Risk Assessment, Customer Discovery, Problem Validation, and Solution Validation.
                     </h2>
                   </div>
                   <a href="/chat"
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#248bf3] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 @[480px]:h-16 @[480px]:px-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-bold leading-normal tracking-[0.015em] @[480px]:text-xl @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl animate-fadeInUp"
+                    style="animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards;"
                   >
-                    <span class="truncate">Start Coaching Session</span>
+                    <span class="truncate">🚀 Start Coaching Session</span>
                   </a>
                 </div>
               </div>
@@ -81,18 +130,18 @@
                   AI MVP Coach offers a comprehensive suite of tools and features designed to support entrepreneurs at every stage of their MVP validation journey.
                 </p>
               </div>
-              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
-                <div class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col">
-                  <div class="text-[#111418]" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 p-0">
+                <div class="flex flex-1 gap-4 rounded-2xl border border-[#dbe0e6] bg-white/80 backdrop-blur-sm p-6 flex-col card-hover shadow-lg">
+                  <div class="text-blue-600 bg-blue-100 p-3 rounded-xl w-fit" data-icon="ShieldCheck" data-size="32px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" fill="currentColor" viewBox="0 0 256 256">
                       <path
                         d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"
                       ></path>
                     </svg>
                   </div>
-                  <div class="flex flex-col gap-1">
-                    <h2 class="text-[#111418] text-base font-bold leading-tight">Data-Driven Validation</h2>
-                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                  <div class="flex flex-col gap-2">
+                    <h2 class="text-[#111418] text-xl font-bold leading-tight">Data-Driven Validation</h2>
+                    <p class="text-[#60758a] text-base font-normal leading-relaxed">
                       Leverage data-driven insights to validate your MVP concepts before market launch, ensuring a higher probability of success.
                     </p>
                   </div>
