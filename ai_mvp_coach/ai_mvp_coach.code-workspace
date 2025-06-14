@@ -1,0 +1,18 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "python.pythonPath": "./venv/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "python.analysis.extraPaths": [
+            "./src",
+            "./venv/lib/python3.10/site-packages"
+        ],
+        "python.analysis.autoSearchPaths": true,
+        "python.analysis.typeCheckingMode": "basic",
+        "pylance.insidersChannel": "off"
+    }
+}
