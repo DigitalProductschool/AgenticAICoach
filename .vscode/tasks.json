@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run AI MVP Coach",
+			"type": "shell",
+			"command": "source venv/bin/activate && python -m src.ai_mvp_coach.simple_coach",
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
