@@ -1,17 +1,15 @@
-from http.server import BaseHTTPRequestHandler
+from flask import Flask, request, jsonify, send_from_directory
 import json
-import urllib.parse
 
-class handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        path = self.path
-        
-        if path == "/" or path == "/api" or path == "/api/":
-            self.send_response(200)
-            self.send_header('Content-Type', 'text/html')
-            self.end_headers()
-            
-            html = '''<!DOCTYPE html>
+app = Flask(__name__, static_folder='../', static_url_path='/')
+
+@app.route('/')
+def serve_index():
+    return send_from_directory('../', 'index.html')
+
+@app.route('/api/')
+def api_root():
+    html_content = '''<!DOCTYPE html>
 <html>
 <head>
     <title>AI MVP Coach - WORKING!</title>
@@ -82,78 +80,61 @@ class handler(BaseHTTPRequestHandler):
     </div>
 </body>
 </html>'''
+    return html_content
+
+@app.route('/api/health')
+def health_check():
+    response = {
+        "status": "healthy",
+        "message": "AI MVP Coach API is running successfully!",
+        "platform": "Vercel Flask",
+        "version": "1.0.0",
+        "endpoints": {
+            "home": "/",
+            "health": "/api/health",
+            "chat": "/api/chat"
+        }
+    }
+    return jsonify(response)
+
+@app.route('/api/chat', methods=['POST', 'OPTIONS'])
+def chat_handler():
+    if request.method == 'OPTIONS':
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        }
+        return ('', 204, headers)
+
+    if request.method == 'POST':
+        try:
+            if request.content_length and request.content_length > 0:
+                data = request.get_json()
+            else:
+                data = {}
             
-            self.wfile.write(html.encode())
+            user_message = data.get('message', 'Hello')
             
-        elif path == "/health" or path == "/api/health":
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            
-            response = {
-                "status": "healthy",
-                "message": "AI MVP Coach API is running successfully!",
-                "platform": "Vercel",
-                "version": "1.0.0",
-                "endpoints": {
-                    "home": "/",
-                    "health": "/health",
-                    "chat": "/chat"
-                }
+            response_data = {
+                "session_id": "demo-session-123",
+                "coach_response": "Great! Let's start by identifying your riskiest assumption. What's the one thing that, if proven wrong, would make your entire business model fail?",
+                "phase": "risk_assessment",
+                "timestamp": "2025-06-15T12:00:00Z",
+                "user_message": user_message,
+                "status": "success"
             }
-            self.wfile.write(json.dumps(response, indent=2).encode())
             
-        else:
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            response = {"message": "AI MVP Coach API", "path": path, "status": "working"}
-            self.wfile.write(json.dumps(response).encode())
-    
-    def do_POST(self):
-        if self.path == "/chat" or self.path == "/api/chat":
-            try:
-                content_length = int(self.headers.get('Content-Length', 0))
-                if content_length > 0:
-                    post_data = self.rfile.read(content_length)
-                    data = json.loads(post_data.decode('utf-8'))
-                else:
-                    data = {}
-                
-                user_message = data.get('message', 'Hello')
-                
-                response_data = {
-                    "session_id": "demo-session-123",
-                    "coach_response": "Great! Let's start by identifying your riskiest assumption. What's the one thing that, if proven wrong, would make your entire business model fail?",
-                    "phase": "risk_assessment",
-                    "timestamp": "2025-06-15T12:00:00Z",
-                    "user_message": user_message,
-                    "status": "success"
-                }
-                
-                self.send_response(200)
-                self.send_header('Content-Type', 'application/json')
-                self.send_header('Access-Control-Allow-Origin', '*')
-                self.end_headers()
-                self.wfile.write(json.dumps(response_data, indent=2).encode())
-                
-            except Exception as e:
-                self.send_response(500)
-                self.send_header('Content-Type', 'application/json')
-                self.end_headers()
-                error = {"error": str(e), "status": "error"}
-                self.wfile.write(json.dumps(error).encode())
-        else:
-            self.send_response(404)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            error = {"error": "Not Found", "path": self.path}
-            self.wfile.write(json.dumps(error).encode())
-    
-    def do_OPTIONS(self):
-        self.send_response(200)
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-        self.end_headers()
+            return jsonify(response_data)
+            
+        except Exception as e:
+            error = {"error": str(e), "status": "error"}
+            return jsonify(error), 500
+
+@app.route('/api/<path:subpath>')
+def api_generic(subpath):
+    response = {"message": "AI MVP Coach API", "path": f"/api/{subpath}", "status": "working"}
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
