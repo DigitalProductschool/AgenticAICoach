@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI MVP Coach</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 0; 
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            min-height: 100vh; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .btn { 
+            background: rgba(255,255,255,0.9); 
+            color: #667eea; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin: 10px; 
+            transition: all 0.3s ease;
+        }
+        .btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: white;
+        }
+        .feature { 
+            background: rgba(255,255,255,0.1); 
+            padding: 25px; 
+            margin: 20px 0; 
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        h1 { 
+            font-size: 3.5em; 
+            margin-bottom: 0.3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle { 
+            font-size: 1.4em; 
+            margin-bottom: 2em; 
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI MVP Coach</h1>
+        <p class="subtitle">AI-powered startup validation coaching platform</p>
+        
+        <div class="feature">
+            <h3>🎯 Validate Your Startup Ideas</h3>
+            <p>Get structured guidance through lean startup methodology with AI-powered coaching sessions</p>
+        </div>
+        
+        <div class="feature">
+            <h3>📊 Four Validation Phases</h3>
+            <p><strong>Risk Assessment</strong> → <strong>Customer Discovery</strong> → <strong>Problem Validation</strong> → <strong>Solution Validation</strong></p>
+        </div>
+        
+        <div class="feature">
+            <h3>⚡ Production-Ready API</h3>
+            <p>FastAPI backend with working endpoints</p>
+        </div>
+        
+        <div style="margin: 30px 0;">
+            <a href="/api" class="btn">🚀 API Endpoints</a>
+            <a href="/api/health" class="btn">🔍 Health Check</a>
+        </div>
+        
+        <div style="margin-top: 40px; opacity: 0.8;">
+            <p>🏆 Built for the Agentic AI Challenge</p>
+            <p>✅ STATIC BACKUP - Always works!</p>
+        </div>
+    </div>
+</body>
+</html>
