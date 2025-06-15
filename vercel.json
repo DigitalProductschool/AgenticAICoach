@@ -10,7 +10,7 @@
       "dest": "/api/index.py"
     },
     {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
