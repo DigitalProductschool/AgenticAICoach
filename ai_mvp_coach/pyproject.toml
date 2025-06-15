@@ -7,7 +7,7 @@ name = "ai-mvp-coach"
 version = "0.1.0"
 description = "AI MVP Coach using CrewAI to guide entrepreneurs through MVP validation"
 readme = "README.md"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
     {name = "Sergius Justus", email = "sergiusnyah@gmail.com"},
