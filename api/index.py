@@ -87,12 +87,12 @@ def health_check():
     response = {
         "status": "healthy",
         "message": "AI MVP Coach API is running successfully!",
-        "platform": "Vercel Flask",
+        "platform": "Vercel",
         "version": "1.0.0",
         "endpoints": {
             "home": "/",
-            "health": "/api/health",
-            "chat": "/api/chat"
+            "health": "/api/health", # Corrected to reflect Flask routing
+            "chat": "/api/chat"     # Corrected to reflect Flask routing
         }
     }
     return jsonify(response)
@@ -120,7 +120,7 @@ def chat_handler():
                 "session_id": "demo-session-123",
                 "coach_response": "Great! Let's start by identifying your riskiest assumption. What's the one thing that, if proven wrong, would make your entire business model fail?",
                 "phase": "risk_assessment",
-                "timestamp": "2025-06-15T12:00:00Z",
+                "timestamp": "2025-06-15T12:00:00Z", # Example timestamp
                 "user_message": user_message,
                 "status": "success"
             }
