@@ -1,4 +1,4 @@
-`[build-system]
+[build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "Sergius Justus, email = "sergiusnyah@gmail.com"},
+    {name = "Sergius Justus", email = "sergiusnyah@gmail.com"},
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
