@@ -1,0 +1,10 @@
+runtime: python39
+
+service: ai-mvp-coach
+
+env_variables:
+  PORT: 8080
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10

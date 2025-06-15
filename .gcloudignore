@@ -1,0 +1,44 @@
+# Git files
+.git
+.gitignore
+
+# Virtual environments
+venv/
+env/
+ai_mvp_coach/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Community submissions (not needed for deployment)
+community_submissions/
+responsible_ai/
+knowledgebase_learning/
+
+# Vercel files (not needed for GCP)
+vercel.json
+api/
+
+# Railway files (not needed for GCP)
+railway.json
+Procfile
+start.sh
