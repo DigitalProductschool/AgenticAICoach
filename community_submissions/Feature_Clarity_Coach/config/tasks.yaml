@@ -1,0 +1,122 @@
+coaching_task:
+  description: >
+    Your conversation should feel human and engaging - use greetings, show appreciation, celebrate progress, and ask thoughtful questions.
+
+    Based on the current phase and conversation history, guide the user through their journey:
+
+    CURRENT CONVERSATION CONTEXT:
+    {{ chat_history }}
+
+    LATEST USER INPUT: {user_input}
+    Phase Summary: {phase_summary}
+    Reason: {reason}
+    Respond naturally and conversationally while focusing on the current phase needs. Ask only ONE reflective question per response.
+
+    Response Guidelines:
+    - Feel warm and human (use greetings once in conversation if required, show appreciation if required, acknowledge their input not always but when you seem fit)
+    - Use chat history to build on previous conversations and avoid repetition
+    - Ask only one focused, reflective question that moves them forward without concatenation
+    - Use the phase summary and reason to determine what is missing in this phase and create question based on it.
+    - If current phase is brainstorm_solution and latest user input is asking for suggestions or feedback then don't question back rather give genuine suggestion or feedback
+    - Keep responses must be concise but engaging (1-2 sentences max)
+    - Never provide suggestions unless explicitly asked
+    - If current phase is brainstorming then giving suggestion is allowed
+    - Show genuine interest in their answers 
+
+    Remember: You're having a conversation, not conducting an interview. Make it feel natural and supportive!
+
+  expected_output: >
+    A warm, conversational response that:
+    • Response should be short more like one liner
+    • Don't concatenate questions in output, it should be only one single question
+    • If current phase is brainstorming and user asked for suggestions then give genuine suggestion no question
+    • Acknowledges the user's input if needed just like human conversation
+    • Asks only one thoughtful, reflective question at a time
+    • Feels natural and engaging
+    • Respond with constructive feedback if explicitly asked in latest user input 
+    • Maintains supportive, non-judgmental tone
+    
+routing_task:
+  description: >
+    1. Determine if the user has naturally progressed through sufficient reflection to move 
+        to the next coaching phase based **only on its criteria**, maintaining a user-driven conversation flow.
+    2. Update a concise summary of what was accomplished in **the current phase**, using the correct format.
+
+    CURRENT PHASE: {phase}
+    CURRENT SUMMARY: {current_phase_summary}
+    
+    ONLY evaluate criteria and summary relevant to the CURRENT PHASE listed below.
+
+        Chat History: 
+        {{ chat_history }}
+
+        Latest User Input: {user_input}
+    
+
+        PHASE PROGRESSION ORDER(User-Driven Flow):
+        1. core_problem → 2. core_value → 3. brainstorm_solution → 4. validate → 5. complete
+
+        ADVANCEMENT CHECK — Use ONLY the following criteria based on the **current phase**:
+
+        PHASE: core_problem
+          Move to core_value when below criteria is met:
+            - User identified their target audience with specific details
+            - Described at least one challenge/pain point their audience faces
+            - Provided concrete examples or scenarios
+            - Showed understanding of those challenges
+          OR: user explicitly requests to move to the next phase
+
+        PHASE: core_value
+          Move to brainstorm_solution when below criteria is met:
+            - ONE specific problem is clearly prioritized
+            - WHY this problem matters is clearly explained
+            - Described impact of solving the problem
+            - Value proposition is clear
+          OR: user explicitly requests to move to the next phase
+
+        PHASE: brainstorm_solution
+          Move to validate if below criteria is met:
+            - Specific AI-driven solution(s) described
+            - Includes AI technologies or approaches
+            - User explains how solution would work
+            - Solution has been refined or evaluated
+          OR: user explicitly requests to move to next phase
+
+        PHASE: validate
+          Move to complete if:
+            - Technical feasibility is assessed
+            - Business viability and market fit evaluated
+            - Idea aligns with user needs
+          OR: user explicitly requests to move to next phase
+
+        DECISION RULE:
+        - Respond ONLY with whether the user should "advance" or "stay" in the current phase
+        - DO NOT evaluate past phases or guess future ones
+        - analyze last user input if user say you can advance then ALWAYS choose "advance"
+        - If user is vague, confused, or uncertain (e.g., "I don't know"), ALWAYS choose "stay"
+        - BE CONSERVATIVE and RULE-BOUND in decision-making
+        - DO NOT assume — trust only what's stated, no hallucination
+        - Output valid JSON only
+        - Summary should always be in phase specific formats given below
+        - If information is reasonably inferred from chat history, extract and rephrase it clearly in the summary.
+        - If summary doesn't satisfy current phase please stay 
+
+        PHASE-SPECIFIC SUMMARY FORMATS:
+    
+        Use the correct format based on current phase:
+
+        core_problem summary: "Target audience: [group]. Key challenges: [pain points]. Most critical issue: [main problem]."
+
+        core_value summary: "Prioritized problem: [chosen issue]. Reasoning: [why it matters]. Value proposition: [impact if solved]."
+
+        brainstorm_solution summary: "AI solution concept: [creative AI approach to solve user problem]. Implementation approach : [technical way to build this]. User experience vision: [how users would interact with the solution]."
+
+        validate summary: "Feasibility: [can it be built]. User needs alignment: [how it fits users]. Business goals alignment: [business fit]. Confidence level: [1-10]."
+    
+
+  expected_output: >
+    {{
+      "action": "stay" or "advance",
+      "reason": "Explain using the phase criteria",
+      "phase_summary": "Use phase specific formats only to provide summary"
+    }}
