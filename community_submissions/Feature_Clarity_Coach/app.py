@@ -83,7 +83,7 @@ if user_input:
         thinking_placeholder.empty()
         st.error(f"Failed to get response: {e}")
 
-# # Reset the entire coaching session
+# Reset the entire coaching session
 if st.button("🔄 Reset Conversation"):
     try:
         requests.post(f"{API_URL}/reset")

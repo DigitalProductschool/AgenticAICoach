@@ -162,26 +162,3 @@ class FeatureClarityCoach(Flow[UserState]):
     @listen("validate_agent")
     def run_validate_agent(self):
         return self.run_agent("validation_agent")
-
-
-if __name__ == "__main__":
-    user = UserState()
-    coach = FeatureClarityCoach(initial_state=user)
-    print("AI Feature Clarity Coach is ready! Let's help you build something amazing.")
-    print("What brings you here today?")
-
-    for _ in range(20):
-        user_input = input("\nYou: ")
-        user.user_input = user_input
-
-        response = coach.kickoff(user.model_dump())
-        # Sync your local `user` object with the updated state
-        user.phase = coach.state.phase
-
-        if user.phase == "complete":
-            response_text = "You've completed the Feature Clarity Coaching process! You're ready to build!"
-        else:
-            response_text = getattr(response, "output", str(response))
-
-        print(f"\nCoach: {response_text}")
-        user.chat_history.append({"user": user_input, "assistant": response_text})
