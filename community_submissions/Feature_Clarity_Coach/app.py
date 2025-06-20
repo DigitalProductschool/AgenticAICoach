@@ -7,6 +7,11 @@ st.set_page_config(page_title="Clarity Coach Chat", layout="centered")
 # API endpoint for backend chat processing
 API_URL = "http://localhost:8000"
 
+# Reset the session if page refreshed or reloaded
+if "reset_done" not in st.session_state:
+    requests.post(f"{API_URL}/reset")
+    st.session_state["reset_done"] = True
+
 # Custom CSS for improved styling
 st.markdown("""
     <style>
@@ -82,6 +87,7 @@ if user_input:
     except Exception as e:
         thinking_placeholder.empty()
         st.error(f"Failed to get response: {e}")
+
 
 # Reset the entire coaching session
 if st.button("🔄 Reset Conversation"):
