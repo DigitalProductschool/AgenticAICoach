@@ -1,8 +1,10 @@
 import streamlit as st
 import requests
 
+# Set Streamlit app configuration
 st.set_page_config(page_title="Clarity Coach Chat", layout="centered")
 
+# API endpoint for backend chat processing
 API_URL = "http://localhost:8000"
 
 # Custom CSS for improved styling
@@ -48,30 +50,32 @@ if "messages" not in st.session_state:
 st.title("🧠 AI Feature Clarity Coach")
 st.caption("Guiding you step-by-step to build something amazing.")
 
-# Display chat history
+# Render past messages in chat history
 for msg in st.session_state["messages"]:
     role_class = "user-message" if msg["role"] == "user" else "assistant-message"
     st.markdown(f'<div class="message {role_class}">{msg["content"]}</div>', unsafe_allow_html=True)
 
-# Input field
+# Chat input field
 user_input = st.chat_input("What's on your mind?")
 
-# Handle user input
+# Handle new user input
 if user_input:
     # Append user's message
     st.session_state["messages"].append({"role": "user", "content": user_input})
     st.markdown(f'<div class="message user-message">{user_input}</div>', unsafe_allow_html=True)
 
+    # Show thinking animation
     thinking_placeholder = st.empty()
     thinking_placeholder.markdown("💭 Thinking...")
 
-    # Call FastAPI backend
+    # Send input to FastAPI backend and get assistant response
     try:
         response = requests.post(f"{API_URL}/chat", params={"user_input": user_input})
         response.raise_for_status()
         data = response.json()
         bot_msg = data["response"]
 
+        # Append assistant's response to session
         st.session_state["messages"].append({"role": "assistant", "content": bot_msg})
         thinking_placeholder.empty()
         st.markdown(f'<div class="message assistant-message">{bot_msg}</div>', unsafe_allow_html=True)
@@ -79,7 +83,7 @@ if user_input:
         thinking_placeholder.empty()
         st.error(f"Failed to get response: {e}")
 
-# Reset button
+# # Reset the entire coaching session
 if st.button("🔄 Reset Conversation"):
     try:
         requests.post(f"{API_URL}/reset")

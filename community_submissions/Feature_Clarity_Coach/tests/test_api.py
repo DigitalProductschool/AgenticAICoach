@@ -7,9 +7,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from fastapi.testclient import TestClient
 from main import app
 
+# Create a test client instance to simulate HTTP requests
 client = TestClient(app)
 
 
+# Test 1: Chat endpoint returns a valid response
 def test_chat_endpoint_returns_valid_response():
     response = client.post("/chat", params={"user_input": "I want to build a chatbot"})
     assert response.status_code == 200
@@ -22,6 +24,7 @@ def test_chat_endpoint_returns_valid_response():
     assert data["response"].strip() != ""
 
 
+# Test 2: Chat can progress through phases without breaking
 def test_chat_progresses_phase_resiliently():
     inputs = [
         "I want to build a chatbot",
@@ -43,6 +46,7 @@ def test_chat_progresses_phase_resiliently():
     assert final_phase in allowed_phases
 
 
+# Test 3: Reset endpoint clears session state correctly
 def test_reset_clears_state_and_resets_phase():
     # Start conversation
     client.post("/chat", params={"user_input": "Some initial input"})

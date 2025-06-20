@@ -13,10 +13,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Initialize user state and the Feature Clarity Coach
 user_state = UserState()
 coach = FeatureClarityCoach(initial_state=user_state)
 
 
+# Endpoint to handle user input and return a coach response
 @app.post("/chat")
 def chat(user_input: str):
     user_state.user_input = user_input
@@ -27,7 +29,7 @@ def chat(user_input: str):
     user_state.phase = coach.state.phase
     user_state.phase_summaries = coach.state.phase_summaries
 
-    # Handle complete phase
+    # If all coaching phases are complete, return a structured summary
     if user_state.phase == "complete":
         summaries = user_state.phase_summaries
         response_text = f"""🎉 **Congratulations! You've successfully clarified your AI feature:**
@@ -54,9 +56,13 @@ def chat(user_input: str):
     
         *Feel free to start a new coaching session anytime by clicking Reset.*"""
     else:
+        # Assistant reply from the current phase
         response_text = getattr(response, "output", str(response))
+
+    # Save this round of conversation to chat history
     user_state.chat_history.append({"user": user_input, "assistant": response_text})
     logger.info(f"Coach output: {response_text}")
+
     return {
         "response": response_text,
         "chat_history": user_state.chat_history,
@@ -65,9 +71,12 @@ def chat(user_input: str):
     }
 
 
+# Endpoint to reset the coaching session completely
 @app.post("/reset")
 def reset():
     global user_state, coach
+
+    # Re-initialize user state and coach flow
     user_state = UserState()
     coach = FeatureClarityCoach(initial_state=user_state)
     logger.info(f"Reset triggered: All user state and chat history cleared.")
