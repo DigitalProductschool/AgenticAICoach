@@ -31,6 +31,25 @@ Rather than presenting a rigid form or checklist, the coach adapts dynamically. 
   - Uses a non-judgmental, encouraging tone
 
 ---
+## 🧠 Architecture Overview
+- **Routing Agent** (Flow Manager):
+Decides whether the user is ready to progress to the next coaching phase based on phase-specific criteria and chat history.
+
+- **Phase-Specific Agents**:
+Each phase is handled by a dedicated agent with its own goals and prompts, defined via YAML (agents.yaml, tasks.yaml).
+  - core_problem_agent
+  - core_value_agent
+  - solution_agent
+  - validation_agent
+
+- **Routing and State Management**:
+Uses CrewAI’s Flow system and @listen, @start, and @router decorators to manage user state, conversation routing, and task delegation dynamically based on current phase and input.
+
+- **YAML-Driven Configurability**:
+Agent roles, prompts, and task logic are entirely YAML-configurable, making it easy to update coaching behavior without changing core logic.
+
+- **Frontend**:
+Built with Streamlit and backed by FastAPI, the UI enables real-time conversation and context-aware feedback with state persistence and animated assistant responses.
 
 ## 🧱 Tech Stack
 
