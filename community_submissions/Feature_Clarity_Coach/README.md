@@ -50,7 +50,7 @@ Agent roles, prompts, and task logic are entirely YAML-configurable, making it e
 
 - **Frontend**:
 Built with Streamlit and backed by FastAPI, the UI enables real-time conversation and context-aware feedback with state persistence and animated assistant responses.
-
+---
 ## 🧱 Tech Stack
 
 | Technology      | Role                                      |
