@@ -1,0 +1,10 @@
+research_task:
+  description: >
+    Use the provided brand foundation ({mission}, {vision}, {values}, {target_audience_pain_points}, {core_story}) 
+    to refine the brand's messaging. Ensure the message is clear, emotionally engaging, and differentiated from competitors.
+    The goal is to enhance the messaging and position the brand uniquely in the market.
+  expected_output: >
+    - A refined brand message with clarity, emotional connection, uniqueness, and positioning in the market.
+    - Suggestions for taglines that align with the brand’s mission and values.
+    - Suggestions for slogans that align with the brand’s mission and values.
+  agent: messaging_researcher

@@ -1,0 +1,7 @@
+.env
+__pycache__/
+lib/
+.DS_Store
+.files
+.chainlit
+chainlit.md
