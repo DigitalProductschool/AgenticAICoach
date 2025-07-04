@@ -50,7 +50,6 @@ To get started with Agentic AI Coach, follow these steps:
 Our project follows CrewAI's recommended structure. Example is as follows:
 ```bash 
 AgenticAICoach/
-├── coach_learning/
 ├── coach_responsible_ai/
 │   ├── db/
 │   ├── src/
