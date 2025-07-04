@@ -1,0 +1,12 @@
+create_visual_guidelines:
+  description: >
+    Analyze the provided website copy ({website_copy}) and extract the emotional tone, key themes, and brand voice. 
+    Use this analysis to develop a set of visual guidelines that define the brand’s look and feel. 
+    This includes recommendations for typography, color palette, imagery style, and layout principles that align with the brand identity.
+  expected_output: >
+    - A clearly defined visual identity guide based on the tone and structure of the website copy.
+    - Typography recommendations aligned with the brand’s personality and messaging tone.
+    - Color palette suggestions that support the emotional and aesthetic tone of the brand.
+    - Image style and iconography guidelines (e.g., illustrations vs. photography).
+    - Layout principles and consistency guidelines for web and digital content.
+  agent: visual_designer

@@ -1,0 +1,78 @@
+research_context:
+  description: >
+    Use the provided general brand idea from the user to understand the brand foundation:
+    {general_idea}
+    Then, You are required to ask follow-up questions for calrification using 'ask_user' tool by passing one question at a time.
+    Finally, provide a summary that clearly outlines based on the general idea and follow-up questions:
+    • Mission  
+    • Vision  
+    • Values  
+    • Target audience needs & frustrations
+
+    IMPORTANT: When using a tool, follow this exact format: 
+    - Tool Input: {"question": "your question here"}
+    - When question limit is reached then stop asking questions and start generating final answer.
+
+  expected_output: >
+    • Mission  
+    • Vision  
+    • Values  
+    • Target audience needs & frustrations
+  agent: narrative_researcher
+
+elicitation_story:
+  description: >
+    Help the user share their personal story.
+    Then, You are can ask follow-up question if needed for calrification using 'ask_user' tool by passing the question only.
+    Finally, return based on the context and follow-up question:
+    • A raw quote or story fragment from the user (if available)
+    • Notes on emotions, obstacles, and turning points
+
+    IMPORTANT: When using a tool, follow this exact format: 
+    - Tool Input: {"question": "your question here"}
+    - When question limit is reached then stop asking questions and start generating final answer.
+    
+  expected_output: >
+    • Raw user quote or story fragment  
+    • Notes on emotions, obstacles, and turning points
+  agent: story_coach
+
+framework_mapping:
+  description: >
+    Shape the story using structure.
+
+    Take the user's story and brand background, and map them into:
+    • The Hero’s Journey (12 stages)
+    • A Problem–Solution–Outcome arc
+
+    Then write 3 short messaging pillars based on this story — clear themes that define the brand’s message.
+  expected_output: >
+    • Hero’s Journey outline  
+    • Problem–Solution–Outcome summary  
+    • Three messaging pillars
+  agent: archetype_strategist
+
+editing_polish:
+  description: >
+    Deliver the final brand narrative.
+
+    Use everything created so far to write a short, powerful brand summary.
+
+    Include:
+    • Mission  
+    • Vision  
+    • Values  
+    • Target audience needs  
+    • Final brand narrative (200–300 words)  
+    • Three messaging pillars
+
+    Make it inspiring, simple, and ready to show to investors, partners, or customers.
+
+  expected_output: >
+    • Mission  
+    • Vision  
+    • Values  
+    • Target audience needs & frustrations  
+    • Final brand narrative (200–300 words)  
+    • Three messaging pillars
+  agent: narrative_editor

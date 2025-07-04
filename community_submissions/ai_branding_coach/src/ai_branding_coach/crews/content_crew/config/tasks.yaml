@@ -1,0 +1,12 @@
+generate_website_copy:
+  description: >
+    Use the provided brand materials ({mission}, {vision}, {values}, {target_audience_pain_points}, {core_story}, 
+    {refined_message}, {taglines}, {slogans}) to create compelling website copy. 
+    Focus on tone, clarity, persuasion, and alignment with the brand’s voice and audience expectations.
+  expected_output: >
+    - Homepage hero section with a bold value proposition.
+    - About section that tells the brand story and highlights its mission and vision.
+    - Taglines integrated into the content naturally.
+    - Clear call-to-actions (CTAs) tailored for the target audience.
+    - Messaging that reflects brand values and emotional triggers.
+  agent: content_writer
