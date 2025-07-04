@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"  # FastAPI
+      - "8501:8501"  # Streamlit
+    environment:
+       MISTRAL_API_KEY: ${MISTRAL_API_KEY}
+    command: bash -c "streamlit run frontend/app.py --server.port 8501 --server.address 0.0.0.0 & uvicorn src.confidence_crew.main:app --host 0.0.0.0 --port 8000"

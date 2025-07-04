@@ -1,0 +1,28 @@
+Analyze_task:
+  description: >
+      Detect low-confidence language in this text: "{text}". Focus on:
+      1. Hedging language (e.g., "I just think...", "Maybe we could...").
+      2. Excessive apologizing  (e.g., "Sorry to bother you, but...").
+      3. Minimizing language (e.g., "This might be a dumb question, but...").
+      4. Passive voice (e.g., "It would be great if this could be done.").
+      The task should identify all instances of these markers and provide a list of detected issues.
+  expected_output: >
+      A list of detected low-confidence markers and where they occur in the user's text.
+  agent: ConfidenceAnalysisAgent
+
+Suggestion_task:
+  description: >
+      Suggest stronger, more assertive language to replace the identified low-confidence markers in this text: "{text}".
+      For example:
+      - Replace "I think" with "I believe"
+      - Replace "sorry" with "I would like to"
+      - Replace "This might be a dumb question" with "I have a question about"
+      The task should return a revised version of "{text}" with these suggestions applied.
+  expected_output: >
+    A JSON object with:
+      - original_text: the user's original input
+      - suggestions: list of replacements made with explanations(e.g., {"from": "I think", "to": "I believe"})
+      - revised_text: A revised version of the user's text
+  agent: "SuggestionAgent"
+
+
