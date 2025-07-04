@@ -47,7 +47,7 @@ To get started with Agentic AI Coach, follow these steps:
 3. Run the project following the README guidelines. 
 
 ## Project Structure
-Our project follows CrewAI's recommended structure:
+Our project follows CrewAI's recommended structure. Example is as follows:
 ```bash 
 AgenticAICoach/
 ├── coach_learning/
