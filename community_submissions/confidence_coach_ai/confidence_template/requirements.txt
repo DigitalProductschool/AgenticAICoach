@@ -1,0 +1,16 @@
+fastapi
+protobuf
+pytest
+python-dotenv
+crewai  # or crewai==  (if you want any version)
+google-generativeai  # or google-generativeai== (if you want any version)
+langchain
+streamlit
+requests
+uvicorn
+pydantic
+python-multipart
+crewai
+requests>=2.31.0
+tenacity>=8.2.3
+google-cloud-speech
