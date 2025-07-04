@@ -1,0 +1,47 @@
+cv_analysis_task:
+  description: >
+    Analyze the provided CV text: {cv_text}.
+    Focus on:
+    1. Structure and Formatting: Is it clean, professional, and easy to read?
+    2. Content Quality: Does it use strong action verbs and quantify achievements?
+    3. Completeness: Are standard sections (Contact, Experience, Education, Skills) present?
+    Provide a summary of strengths and areas for improvement.
+  expected_output: >
+    A structured report in Markdown format with sections for 'Strengths' and
+    'Areas for Improvement' based on the CV's structure, formatting, and content.
+  agent: cv_analyst
+
+repo_review_task:
+  description: >
+    For each GitHub URL provided in {github_urls}, use your tool to analyze the repository.
+    If the list of URLs is empty, you MUST state that this step was skipped.
+    Synthesize the findings from all repositories into a single summary.
+    Focus on assessing the technical skills demonstrated, code quality, and project documentation.
+  expected_output: >
+    A summary of the technical analysis from the GitHub repositories.
+    Mention the key skills observed and the overall quality of the projects.
+    If no URLs were given, return 'No GitHub repositories were provided for analysis.'
+  agent: tech_talent_assessor
+
+career_strategy_task:
+  description: >
+    Synthesize the insights from the CV Analysis and the GitHub Repository Review.
+    Create a final, comprehensive report for the user. The report must be encouraging
+    and highly actionable.
+  expected_output: >
+    A single, valid JSON object that adheres to the following structure. Do NOT add any text or formatting outside of this JSON object:
+    {
+      "overall_score": "Provide a score out of 10, as a string (e.g., '8.5/10').",
+      "score_justification": "Provide a brief, one-sentence justification for the score, highlighting the main reason.",
+      "cv_analysis": "Provide a detailed, multi-paragraph summary of the CV's strengths and weaknesses, formatted as a Markdown string. This should be based on the context from the `cv_analysis_task`.",
+      "technical_analysis": "Provide a detailed, multi-paragraph summary of the repository review, formatted as a Markdown string. This should be based on the context from the `repo_review_task`.",
+      "actionable_suggestions": [
+        "Create a list of 3-4 specific and actionable bullet points for improvement. Each suggestion should be a complete sentence.",
+        "Example: 'Quantify your achievements in the Tech Corp role by adding specific metrics, such as the percentage of performance increase.'"
+      ],
+      "suggested_job_roles": [
+        "Create a list of 3-5 relevant job titles that would be a strong fit based on the complete analysis.",
+        "Example: 'Senior Frontend Developer'"
+      ]
+    }
+  agent: career_strategist
