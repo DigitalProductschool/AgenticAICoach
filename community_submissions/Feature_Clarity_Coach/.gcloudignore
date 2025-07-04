@@ -1,0 +1,25 @@
+# Ignore everything Git ignores
+.git/
+.gitignore
+.gcloudignore
+
+# Python build stuff
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtualenv
+venv/
+.env
+
+# Node stuff (if used)
+node_modules/
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
