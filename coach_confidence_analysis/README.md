@@ -27,7 +27,7 @@ Coach Confidence is part of the AgenticAICoach ecosystem, using the CrewAI frame
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/AgenticAICoach.git
-cd AgenticAICoach/community_submissions/coach_confidence
+cd AgenticAICoach/coach_confidence_analysis
 ```
 
 2. Install dependencies using Poetry:
