@@ -1,0 +1,54 @@
+structure_pitch:
+  description: |
+    You will coach the user ONE STEP at a time to build a startup pitch.
+    Current stage: {stage}
+    Context so far: {context}
+    User message: {user_message}
+    Audience: {audience}
+    Funding stage: {funding_stage}
+
+    Output must include:
+    - A short encouragement
+    - The improved version of what they wrote (if applicable)
+    - The next single question to move forward (exactly one question)
+  expected_output: |
+    Encouragement + improved snippet + next question.
+
+refine_messaging:
+  description: |
+    Analyze the user's pitch content for clarity, persuasion, confidence, and flow.
+    Pitch content: {pitch_text}
+    Audience: {audience}
+    Funding stage: {funding_stage}
+    Provide:
+    - 5 actionable improvements
+    - A rewritten version (short, investor-friendly)
+  expected_output: |
+    Actionable bullet list + rewritten pitch text.
+
+simulate_investor_qa:
+  description: |
+    Based on the startup context, generate investor Q&A:
+    Industry: {industry}
+    Funding stage: {funding_stage}
+    Pitch summary: {pitch_summary}
+    Audience: {audience}
+
+    Provide:
+    - 8 questions (mix: traction, moat, GTM, competition, tech risk, pricing, unit economics, team)
+    - For each: what a strong answer should contain
+    - 3 tough objections + how to respond calmly
+  expected_output: |
+    Structured list of Q&A + objections.
+
+track_progress:
+  description: |
+    Compare current and previous iterations and provide feedback:
+    Previous snapshot: {previous_snapshot}
+    Current snapshot: {current_snapshot}
+    Provide:
+    - What improved
+    - What is still missing
+    - Next 3 actions
+  expected_output: |
+    Progress feedback + next actions.
