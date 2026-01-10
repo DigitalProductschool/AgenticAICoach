@@ -1,6 +1,10 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Optional, Literal, Dict, Any
+from pathlib import Path
 import uuid
 
 from .crew import build_crew, run_structure, run_refine, run_qa
@@ -9,6 +13,20 @@ from .tools.stage_router import next_stage, STAGE_QUESTIONS
 from .tools.scoring import score_text
 
 app = FastAPI(title="AI Pitch Coach", version="0.1.0")
+
+# CORS middleware
+app.add_middleware(
+  CORSMiddleware,
+  allow_origins=["*"],
+  allow_credentials=True,
+  allow_methods=["*"],
+  allow_headers=["*"],
+)
+
+# Mount static files
+static_path = Path(__file__).resolve().parent.parent.parent / "static"
+if static_path.exists():
+  app.mount("/static", StaticFiles(directory=str(static_path)), name="static")
 
 crew_parts = None
 
@@ -36,9 +54,22 @@ def startup():
   global crew_parts
   crew_parts = build_crew()
 
+@app.get("/")
+def root():
+  return RedirectResponse(url="/static/index.html")
+
 @app.get("/health")
 def health():
   return {"ok": True}
+
+@app.get("/sessions/{session_id}")
+def get_session(session_id: str):
+  state = get_or_create_session(session_id)
+  return {
+    "session_id": state.session_id,
+    "stage": state.stage,
+    "context": state.context
+  }
 
 @app.post("/coach", response_model=CoachResponse)
 def coach(req: CoachRequest):
