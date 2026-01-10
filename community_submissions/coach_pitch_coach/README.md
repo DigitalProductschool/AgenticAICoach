@@ -2,6 +2,11 @@
 
 AI Pitch Coach is a warm, step-by-step guide for founders to craft an investor-ready pitch. It supports three modes: structured coaching, message refinement, and investor Q&A simulation. Sessions are persisted in SQLite for iterative refinement.
 
+## Live Demo on Render
+
+**Try it now:** [https://ai-pitch-coach-0z0m.onrender.com](https://ai-pitch-coach-0z0m.onrender.com)  
+**API Documentation:** [https://ai-pitch-coach-0z0m.onrender.com/docs](https://ai-pitch-coach-0z0m.onrender.com/docs)
+
 ## Features
 
 ✨ **Interactive Web UI** - Beautiful chat interface with real-time progress tracking  
@@ -25,6 +30,40 @@ uvicorn src.pitch_coach.api:app --reload --port 8000
 
 **Open the Web UI:** `http://127.0.0.1:8000`  
 **Or access Swagger API docs:** `http://127.0.0.1:8000/docs`
+
+## Run with Docker
+
+The easiest way to deploy the application is using Docker:
+
+### Build and Run
+```bash
+cd community_submissions/coach_pitch_coach
+
+# Build the Docker image
+docker build -t pitch-coach-api .
+
+# Run the container
+docker run -p 8000:8000 \
+  -e OPENAI_API_KEY=your_openai_api_key_here \
+  -e OPENAI_MODEL=gpt-4o-mini \
+  pitch-coach-api
+```
+
+### With Persistent Database
+To persist session data between container restarts:
+
+```bash
+docker run -p 8000:8000 \
+  -e OPENAI_API_KEY=your_openai_api_key_here \
+  -e OPENAI_MODEL=gpt-4o-mini \
+  -v $(pwd)/db:/app/db \
+  pitch-coach-api
+```
+
+### Access the Application
+- **Web UI**: http://localhost:8000
+- **API Docs**: http://localhost:8000/docs
+- **Health Check**: http://localhost:8000/health
 
 ## Using the Web Interface
 
@@ -150,18 +189,23 @@ community_submissions/coach_pitch_coach/
 ### Web UI
 The interactive chat interface guides founders through pitch development with real-time progress tracking and scoring.
 
-### API Documentation
-Full Swagger/OpenAPI documentation available at `/docs` endpoint.
+### Server & API Documentation
+- **`server_running.png`** - FastAPI server running successfully on port 8000
+- **`swagger_ui.png`** - Full Swagger/OpenAPI documentation showing all endpoints
+- **`health_endpoint.png`** - Health check endpoint returning 200 OK status
 
-## Demo Screenshots
+### API Endpoint Tests
+- **`coach_endpoint.png`** - POST /coach endpoint test in Swagger UI
+- **`1_coach_mode_request_response.png`** - Coach mode: Step-by-step pitch structuring
+- **`2_refine_mode_request_response.png`** - Refine mode: Polish and improve pitch text
+- **`3_qa_mode_request_response.png`** - Q&A mode: Practice investor questions
 
-### Web UI
-The interactive chat interface guides founders through pitch development with real-time progress tracking and scoring.
+### Web Interface
+- **`app_home_page.png`** - Interactive web UI with chat interface, mode selector, and real-time progress tracking
 
-### API Documentation
-Full Swagger/OpenAPI documentation available at `/docs` endpoint.
+All screenshots show successful 200 responses with proper JSON formatting, demonstrating full functionality across all three coaching modes (Coach, Refine, Q&A).
 
 ---
 
-**Built with ❤️ using CrewAI and OpenAI**
+**Built with CrewAI and OpenAI**
 
