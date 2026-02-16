@@ -1,0 +1,253 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  /* font-family: "Segoe UI", sans-serif; */
+
+  /* background: linear-gradient(120deg, #f5f7ff, #eefcff); */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+
+  color: #222;
+  min-height: 100vh; 
+}
+
+/* Layout */
+.container {
+  max-width: 950px;
+  margin: auto;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 50px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+textarea:focus {
+  border-color: #4f7cff;
+  box-shadow: 0px 0px 0px 3px rgba(79,124,255,0.2);
+}
+
+/* Buttons */
+.primary-btn {
+  margin-top: 5px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  background: #d6e4ff;
+}
+
+/* Chat Section */
+.chat-card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  height: 490px;
+}
+
+/* Chat Window */
+#chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+
+  /* WhatsApp layout */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Chat Bubble Base */
+.bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  position: relative;
+  word-wrap: break-word;
+}
+
+/* Agent Bubble (Left like WhatsApp) */
+.agent-bubble {
+  background: #f0f4ff;
+  align-self: flex-start;
+  border-top-left-radius: 6px;
+  border-left: 4px solid #4f7cff;
+}
+
+/* User Bubble (Right like WhatsApp) */
+.user-bubble {
+  background: #dcfce7;
+  align-self: flex-end;
+  border-top-right-radius: 6px;
+  border-right: 4px solid #22c55e;
+}
+
+.sender {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.agent-bubble::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 12px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #f1f3f5 transparent transparent;
+}
+
+.user-bubble::before {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 12px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #dcfce7;
+}
+
+.composer-box {
+  position: relative;
+  width: 100%;
+  max-width: 890px;
+  margin: 10px auto;
+}
+
+/* Replt textarea */
+#replyInput {
+  width: 100%;
+  height: 105px;
+  padding: 15px;
+  padding-right: 90px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  box-shadow: 0px 5px 14px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+#replyInput:focus {
+  border-color: #4f7cff;
+  box-shadow: 0px 0px 0px 4px rgba(79,124,255,0.2);
+}
+
+/* Overlay Buttons Base */
+.overlay-btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-btn:hover {
+  background: #d6e4ff;
+  transform: scale(1.1);
+}
+
+.top-btn {
+  position: absolute;
+  top: 12px;
+  right: 25px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 12px;
+  right: 72px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 12px;
+  right: 25px;
+}
+
+/* Status Indicator */
+.status-indicator {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  font-size: 0.9rem;
+  color: #555;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* Active Status Visible */
+.status-indicator.active {
+  opacity: 1;
+}
+
+/* Recording Glow */
+.recording {
+  border: 2px solid red !important;
+  box-shadow: 0px 0px 12px rgba(255,0,0,0.4) !important;
+}
+
+Loading Animation */
+.loading::after {
+  content: " ⏳";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.3; }
+}

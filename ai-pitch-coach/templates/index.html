@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Pitch Coach</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Startup Input -->
+    <section class="card">
+      <h2>AI Pitch Coach</h2>
+      <p class="subtitle">
+        Your interactive startup pitch mentor.
+      </p>
+      <textarea id="pitchInput"
+        placeholder="Describe your startup to begin coaching"></textarea>
+      <button class="primary-btn" onclick="start()">
+        🚀 Start Coaching
+      </button>
+    </section>
+
+    <!-- Chat Window -->
+    <section class="chat-card">
+      <div id="chat"></div>
+
+      <div class="composer-box">
+        <textarea id="replyInput" placeholder="Type or record your reply here..."></textarea>
+
+        <button id="improveBtn" class="overlay-btn top-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="white" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+            <line x1="8" y1="9" x2="16" y2="9"></line>
+            <line x1="8" y1="13" x2="14" y2="13"></line>
+          </svg>
+        </button>
+          
+        <button id="micBtn" class="overlay-btn bottom-left">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+            <path d="M5 10v2a7 7 0 0 0 14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+          </svg>
+        </button>
+
+        <button id="sendBtn" class="overlay-btn bottom-right">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+
+        <div id="status" class="status-indicator"></div>
+      </div>
+    </section>
+  </main>
+  <script src="/static/script.js"></script>
+</body>
+</html>
