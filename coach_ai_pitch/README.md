@@ -219,6 +219,10 @@ http://127.0.0.1:8000
 
 The AI Pitch Coach interface will load immediately.
 
+---
 
+# Credit and Contact
+
+Special thanks to [Nazgul Mamasheva](https://www.linkedin.com/in/nazgul-mamasheva/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
 
 
