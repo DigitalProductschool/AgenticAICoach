@@ -176,3 +176,10 @@ cv_review_ai/
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](../../LICENSE) file for details.
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Hanzhi (Alex) Zhang](https://github.com/RainTreeCrow) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
