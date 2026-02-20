@@ -42,9 +42,6 @@ OPENAI_API_KEY=<your-openai-api-key>
 ```
 
 
-Note: Run below commands from *confidence_coach_ai_DPS/src/confidence_coach_ai*
-
-
 ## Interaction Setup
 ### STEP1: First start the FastAPI backend
 Run the following command in terminal:
@@ -74,3 +71,10 @@ Local URL: http://localhost:8000/docs for interaction
 ```
 python test_api.py
 ```
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Ismail Ben Ayed](https://www.linkedin.com/in/ismail-ben-ayed-518b11209/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
