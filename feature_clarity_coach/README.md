@@ -168,3 +168,9 @@ You can push the image to Google Cloud Container Registry and deploy via Cloud R
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+
+---
+
+# Credit and Contact
+
+Special thanks to [Diksha Gupta](https://www.linkedin.com/in/diksha-gupta-2809/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
