@@ -33,3 +33,10 @@ learning_pdf_agent/
 - **Refactor for Better Usability**: Refactor `main.py` to handle user interaction cleanly, without exposing technical logs to users.
 
 This restructuring makes your application well-organized, maintainable, and easy for other developers to contribute to, while also providing a better user experience by removing technical details from the user-facing interface.
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Mahmoud Fazeli](https://www.linkedin.com/in/mahmoud-fazeli-034654103/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
