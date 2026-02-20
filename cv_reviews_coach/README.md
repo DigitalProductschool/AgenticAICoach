@@ -146,3 +146,10 @@ If you prefer to run the application locally for development:
 
 5.  **Access the Application**:
     The application will be available at **[http://localhost:8000](http://localhost:8000)**.
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Abdelrahman Khaled](https://github.com/Abdo404Khaled) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.

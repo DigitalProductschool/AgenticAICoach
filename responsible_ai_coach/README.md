@@ -63,7 +63,8 @@ We would like to express our sincere appreciation to the contributors of the [Cr
 
 This project is released under the **MIT License**.
 
+---
 
 # Credit and Contact
 
-Special thanks to [Afsaneh Asaei](https://www.linkedin.com/in/dr-afsaneh-asaei/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
+Special thanks to [Abdulmunim Jemal](https://github.com/abdulmunimjemal) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
