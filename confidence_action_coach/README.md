@@ -55,3 +55,11 @@ While **Confidence Coach AI** performs well with analyzing small statements, it 
 1. Navigate to the app's user interface.  
 2. Input text into the provided form.  
 3. Receive confidence analysis and actionable suggestions.
+
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Suraj Kumar](https://github.com/sereneThePity) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
