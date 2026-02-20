@@ -64,4 +64,4 @@ http://127.0.0.1:8000/analyze
 
 # Credit and Contact
 
-Special thanks to [Ismail Ben Ayed](https://www.linkedin.com/in/ismail-ben-ayed-518b11209/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
+Special thanks to [Suryansh Shakya](https://github.com/nullHawk) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
