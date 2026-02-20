@@ -11,7 +11,7 @@ The **AI Coaching Atlas** represents the **key milestones and challenges** AI en
 ✅ **Customer Painpoint Decision-Making** – Guiding your self-reflection on deep customer insights and prioritization.  
 ✅ **AI Ethics & Responsible AI** – Coaching you step-by-step to vuild AI that aligns with ethical principles.  
 ✅ **UX & Product Validation Coaching** – Coaching your steps to ensure your AI product meets user needs.  
-✅ **Agile & Lean Startup Coaching** – Coaching you to adapt and iterate quickly.  
+✅ **Lean Startup Coaching** – Coaching you to adapt and iterate quickly.  
 ✅ **Develop a Mindset for Success** – Strengthening your resilience, intuition, and confidence as you scale.  
 
 ## 🤝 Open-Source & Community-Driven  
