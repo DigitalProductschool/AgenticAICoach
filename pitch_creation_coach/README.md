@@ -272,3 +272,10 @@ This project is open source.
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Mai mohamed](https://www.linkedin.com/in/mai-ali-mohamed/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
