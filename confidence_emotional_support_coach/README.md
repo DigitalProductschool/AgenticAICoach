@@ -77,3 +77,10 @@ streamlit run app.py
 - Gives assertive, encouraging suggestions
 - Supports iterative feedback flow
 - Provides warm, supportive tone in all responses
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Zeyad ElSharkawy](https://www.linkedin.com/in/ziad-elsharkawy-0792821ba/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
