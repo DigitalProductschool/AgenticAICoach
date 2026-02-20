@@ -173,3 +173,7 @@ docker run -p 8000:8000 ai-brand-coach
 Then access the app
 
 ---
+
+# Credit and Contact
+
+Special thanks to [Abdelrahman Khaled](https://github.com/Abdo404Khaled) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
