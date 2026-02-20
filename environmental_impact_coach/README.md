@@ -71,3 +71,9 @@ POST /quiz-answer: Submit quiz answers and get feedback
 ```bash
 curl -X POST "http://localhost:8000/environmental-advice" -H "Content-Type: application/json" -d '{"location": "New York", "user_input": "I want to reduce my carbon footprint", "user_points": 0}'
 ```
+
+---
+
+# Credit and Contact
+
+Special thanks to [Vidushee Vats](https://www.linkedin.com/in/vidushee-vats/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
