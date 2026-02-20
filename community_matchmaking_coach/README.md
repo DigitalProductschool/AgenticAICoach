@@ -62,3 +62,10 @@ Endpoint: POST /run-matchmaker/
 ```bash
 python -m unittest discover -s tests
 ```
+
+
+---
+
+# Credit and Contact
+
+Special thanks to [Hang Ha](https://www.linkedin.com/in/hangtha/) for this valuable contribution. Connect with them on GitHub or LinkedIn for further discussion.
