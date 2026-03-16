@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Pitch Coach</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>🚀 AI Pitch Coach</h1>
+      <p class="subtitle">Build, refine, and practice your startup pitch with AI guidance</p>
+    </header>
+
+    <!-- Mode Selector -->
+    <div class="mode-selector">
+      <button class="mode-btn active" data-mode="coach">
+        <span class="mode-icon">📝</span>
+        <span class="mode-label">Coach</span>
+        <span class="mode-desc">Step-by-step guidance</span>
+      </button>
+      <button class="mode-btn" data-mode="refine">
+        <span class="mode-icon">✨</span>
+        <span class="mode-label">Refine</span>
+        <span class="mode-desc">Improve your pitch</span>
+      </button>
+      <button class="mode-btn" data-mode="qa">
+        <span class="mode-icon">💬</span>
+        <span class="mode-label">Q&A</span>
+        <span class="mode-desc">Practice investor questions</span>
+      </button>
+    </div>
+
+    <!-- Progress Bar (shown only in coach mode) -->
+    <div id="progress-container" class="progress-container">
+      <div class="progress-label">
+        <span id="progress-text">Stage: One-liner</span>
+        <span id="progress-percentage">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <div class="stages">
+        <div class="stage" data-stage="one_liner">One-liner</div>
+        <div class="stage" data-stage="problem">Problem</div>
+        <div class="stage" data-stage="solution">Solution</div>
+        <div class="stage" data-stage="uvp">UVP</div>
+        <div class="stage" data-stage="target_customer">Customer</div>
+        <div class="stage" data-stage="market">Market</div>
+        <div class="stage" data-stage="business_model">Model</div>
+        <div class="stage" data-stage="traction">Traction</div>
+        <div class="stage" data-stage="moat">Moat</div>
+        <div class="stage" data-stage="ask">Ask</div>
+      </div>
+    </div>
+
+    <!-- Additional Options -->
+    <div class="options-panel">
+      <div class="option-group">
+        <label for="audience">Audience:</label>
+        <select id="audience">
+          <option value="VC">VC</option>
+          <option value="angel">Angel Investor</option>
+          <option value="accelerator">Accelerator</option>
+          <option value="corporate">Corporate</option>
+        </select>
+      </div>
+      <div class="option-group">
+        <label for="funding-stage">Funding Stage:</label>
+        <select id="funding-stage">
+          <option value="pre-seed">Pre-seed</option>
+          <option value="seed">Seed</option>
+          <option value="series-a">Series A</option>
+          <option value="series-b">Series B+</option>
+        </select>
+      </div>
+      <div class="option-group" id="industry-group" style="display: none;">
+        <label for="industry">Industry:</label>
+        <input type="text" id="industry" placeholder="e.g., FinTech, HealthTech">
+      </div>
+      <div class="option-group">
+        <button id="new-session-btn" class="secondary-btn">New Session</button>
+        <button id="export-btn" class="secondary-btn">Export Pitch</button>
+      </div>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chat-container">
+      <div class="welcome-message">
+        <h2>Welcome! 👋</h2>
+        <p>I'm your AI Pitch Coach. Choose a mode above to get started:</p>
+        <ul>
+          <li><strong>Coach:</strong> I'll guide you step-by-step through building your pitch</li>
+          <li><strong>Refine:</strong> Share your pitch and I'll help improve it</li>
+          <li><strong>Q&A:</strong> Practice answering tough investor questions</li>
+        </ul>
+        <p>Ready? Select a mode and start typing!</p>
+      </div>
+    </div>
+
+    <!-- Score Display -->
+    <div id="score-display" class="score-display" style="display: none;">
+      <div class="score-item">
+        <span class="score-label">Clarity</span>
+        <div class="score-bar">
+          <div class="score-bar-fill" id="clarity-bar"></div>
+        </div>
+        <span class="score-value" id="clarity-score">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">Persuasion</span>
+        <div class="score-bar">
+          <div class="score-bar-fill" id="persuasion-bar"></div>
+        </div>
+        <span class="score-value" id="persuasion-score">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">Confidence</span>
+        <div class="score-bar">
+          <div class="score-bar-fill" id="confidence-bar"></div>
+        </div>
+        <span class="score-value" id="confidence-score">0</span>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <textarea 
+        id="user-input" 
+        placeholder="Type your message here..." 
+        rows="3"
+      ></textarea>
+      <button id="send-btn" class="send-btn">
+        <span id="send-text">Send</span>
+        <span id="loading-spinner" class="spinner" style="display: none;">⏳</span>
+      </button>
+    </div>
+
+    <!-- Session Info -->
+    <div class="session-info">
+      <span id="session-id-display">Session: New</span>
+      <span id="status-display">Ready</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

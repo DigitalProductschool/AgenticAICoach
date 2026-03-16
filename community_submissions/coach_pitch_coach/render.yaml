@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: coach-pitch-coach
+    env: python
+    plan: free
+    rootDir: community_submissions/coach_pitch_coach
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.pitch_coach.api:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
