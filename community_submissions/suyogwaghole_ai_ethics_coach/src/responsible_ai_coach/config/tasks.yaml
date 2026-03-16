@@ -1,0 +1,88 @@
+tasks:
+  intake:
+    agent: intake_coach
+    description: |
+      You are starting an ethics coaching session.
+
+      Product description:
+      {{user_input}}
+
+      Ask 6–10 short intake questions to understand:
+      1) Domain (health/finance/hr/general)
+      2) Users and impacted groups
+      3) What decision the AI makes + stakes
+      4) Data sources + whether sensitive attributes exist
+      5) Deployment (internal tool vs public)
+      6) Human oversight and fallback plan
+
+      Output format:
+      - Numbered list of questions
+      - Then "What I understood so far"
+      - Then "Assumptions" (if any)
+    expected_output: "A structured intake questionnaire and a short summary with assumptions."
+
+  risk_register:
+    agent: responsible_ai_coach
+    description: |
+      Using the product description and intake answers, create an AI Ethics Risk Register.
+
+      Product description:
+      {{user_input}}
+
+      Intake answers (from the founder):
+      {{intake_answers}}
+
+      Cover:
+      - Bias/Fairness
+      - Transparency/Explainability
+      - Privacy/Data protection
+      - Compliance (GDPR / EU AI Act / CCPA) if relevant
+      - Accountability (human-in-the-loop, logging, fallback)
+
+      Rules:
+      - Be objective and non-judgmental
+      - Label assumptions vs provided facts
+      - Give mitigation actions and how to verify them
+
+      Output MUST be a markdown table with columns:
+      Risk Area | Risk Statement | Severity | Evidence (Assumed/Provided) | Mitigation | Verification Test
+    expected_output: "A markdown risk register table with mitigations and verification tests."
+
+  action_plan:
+    agent: responsible_ai_coach
+    description: |
+      Create a step-by-step Responsible AI Action Plan.
+
+      Product description:
+      {{user_input}}
+
+      Intake answers:
+      {{intake_answers}}
+
+      Output format:
+      1) Top 5 priorities (ranked)
+      2) 2-week plan (day-by-day bullets)
+      3) 30-day plan (weekly milestones)
+      4) Ongoing governance (audit cadence + ownership)
+
+      Include at least 2 options when possible (low-effort vs robust).
+    expected_output: "A structured plan with top priorities, 2-week plan, 30-day plan, and governance cadence."
+
+  templates:
+    agent: documentation_generator
+    description: |
+      Generate startup-friendly templates/checklists for this product:
+
+      Product description:
+      {{user_input}}
+
+      Intake answers:
+      {{intake_answers}}
+
+      Produce:
+      1) Dataset audit checklist (bias + privacy)
+      2) Model card outline (intended use + limitations + explainability)
+      3) Ethics review process (who approves what, when)
+
+      Keep it concise and usable.
+    expected_output: "Three templates in markdown headings with bullet points."

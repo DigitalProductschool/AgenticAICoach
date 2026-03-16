@@ -1,0 +1,21 @@
+# Core
+python-dotenv>=1.0.1
+requests>=2.32.0
+pyyaml>=6.0.1
+
+# LLM + Agentic AI
+crewai>=0.51.0
+litellm>=1.42.0
+langchain>=0.3.0
+langchain-ollama>=0.1.3
+
+# Web API
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.7.0
+
+# UI
+streamlit>=1.34.0
+
+# Utilities
+rich>=13.7.0
